@@ -1,0 +1,235 @@
+/*
+Theme Name: The HTML5 Reset Theme
+Theme URI: http://html5reset.org
+Description: A style-free theme to get you started on an HTML5-based WordPress theme of your own.
+Author: Monkey Do! + @ckhicks
+Author URI: http://monkeydo.biz
+Version: 2.0
+*/
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-weight: normal;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+article, aside, figure, footer, header, nav, section, details, summary {display: block;}
+
+/* Handle box-sizing while better addressing child elements:
+   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+img,
+object,
+embed {max-width: 100%;}
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {overflow-y: scroll;}
+
+/* we use a lot of ULs that aren't bulleted.
+	don't forget to restore the bullets within content. */
+ul {list-style: none;}
+
+blockquote, q {quotes: none;}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {content: ''; content: none;}
+
+a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+
+del {text-decoration: line-through;}
+
+abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+
+/* tables still need cellspacing="0" in the markup */
+table {border-collapse: collapse; border-spacing: 0;}
+th {font-weight: bold; vertical-align: bottom;}
+td {font-weight: normal; vertical-align: top;}
+
+hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+
+input, select {vertical-align: middle;}
+
+pre {
+    white-space: pre; /* CSS2 */
+    white-space: pre-wrap; /* CSS 2.1 */
+    white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+    word-wrap: break-word; /* IE */
+}
+
+input[type="radio"] {vertical-align: text-bottom;}
+input[type="checkbox"] {vertical-align: bottom;}
+.ie7 input[type="checkbox"] {vertical-align: baseline;}
+.ie6 input {vertical-align: text-bottom;}
+
+select, input, textarea {font: 99% sans-serif;}
+
+table {font-size: inherit; font: 100%;}
+
+small {font-size: 85%;}
+
+strong {font-weight: bold;}
+
+td, td img {vertical-align: top;}
+
+/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+sub, sup {font-size: 75%; line-height: 0; position: relative;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {cursor: pointer;}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {margin: 0;}
+
+/* make buttons play nice in IE */
+button,
+input[type=button] {width: auto; overflow: visible;}
+
+/* scale images in IE7 more attractively */
+.ie7 img {-ms-interpolation-mode: bicubic;}
+
+/* prevent BG image flicker upon hover
+   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+*/
+
+/* let's clear some floats */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+.chromeframe {position: absolute; top: 0;}
+/*! yaml-css v4.1.0 (2013-06-11) */
+
+@media all{*{margin:0;padding:0}option{padding-left:.4em}select{padding:1px}* html body *{overflow:visible}body{font-size:100%;background:#fff;color:#000;text-align:left}div:target,h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{outline:0 none}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none}[hidden]{display:none}html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=search]{-webkit-appearance:textfield;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}svg:not(:root){overflow:hidden}figure{margin:0}fieldset,img{border:0 solid}ul,ol,dl{margin:0 0 1em 1em}li{line-height:1.5em;margin-left:.8em}dt{font-weight:700}dd{margin:0 0 1em .8em}blockquote{margin:0 0 1em .8em}q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}.ym-clearfix:before{content:"";display:table}.ym-clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;visibility:hidden}.ym-contain-dt{display:table;table-layout:fixed;width:100%}.ym-contain-oh{display:block;overflow:hidden;width:100%}.ym-contain-fl{float:left;width:100%}.ym-column{display:table;table-layout:fixed;width:100%}.ym-col1{float:left;width:20%}.ym-col2{float:right;width:20%}.ym-col3{width:auto;margin:0 20%}.ym-cbox{padding:0 10px}.ym-cbox-left{padding:0 10px 0 0}.ym-cbox-right{padding:0 0 0 10px}.ym-ie-clearing{display:none}.ym-grid{display:table;table-layout:fixed;width:100%;list-style-type:none;padding-left:0;padding-right:0;margin-left:0;margin-right:0}.ym-gl{float:left;margin:0}.ym-gr{float:right;margin:0 0 0 -5px}.ym-g20{width:20%}.ym-g40{width:40%}.ym-g60{width:60%}.ym-g80{width:80%}.ym-g25{width:25%}.ym-g33{width:33.333%}.ym-g50{width:50%}.ym-g66{width:66.666%}.ym-g75{width:75%}.ym-g38{width:38.2%}.ym-g62{width:61.8%}.ym-gbox{padding:0 10px}.ym-gbox-left{padding:0 10px 0 0}.ym-gbox-right{padding:0 0 0 10px}.ym-equalize{overflow:hidden}.ym-equalize>[class*=ym-g]{display:table-cell;float:none;margin:0;vertical-align:top}.ym-equalize>[class*=ym-g]>[class*=ym-gbox]{padding-bottom:10000px;margin-bottom:-10000px}.ym-form,.ym-form fieldset{overflow:hidden}.ym-form div{position:relative}.ym-form label,.ym-form .ym-label,.ym-form .ym-message{position:relative;line-height:1.5;display:block}.ym-form .ym-fbox-check label{display:inline}.ym-form input,.ym-form textarea{cursor:text}.ym-form .ym-fbox-check input,.ym-form input[type=radio],.ym-form input[type=checkbox],.ym-form select,.ym-form label{cursor:pointer}.ym-form textarea{overflow:auto}.ym-form input.hidden,.ym-form input[type=hidden]{display:none!important}.ym-form .ym-fbox:before,.ym-form .ym-fbox-text:before,.ym-form .ym-fbox-select:before,.ym-form .ym-fbox-check:before,.ym-form .ym-fbox-button:before{content:"";display:table}.ym-form .ym-fbox:after,.ym-form .ym-fbox-text:after,.ym-form .ym-fbox-select:after,.ym-form .ym-fbox-check:after,.ym-form .ym-fbox-button:after{clear:both;content:".";display:block;font-size:0;height:0;visibility:hidden}.ym-form .ym-fbox-check input:focus,.ym-form .ym-fbox-check input:hover,.ym-form .ym-fbox-check input:active,.ym-form input[type=radio]:focus,.ym-form input[type=radio]:hover,.ym-form input[type=radio]:active,.ym-form input[type=checkbox]:focus,.ym-form input[type=checkbox]:hover,.ym-form input[type=checkbox]:active{border:0 none}.ym-form input,.ym-form textarea,.ym-form select{display:block;position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:70%}.ym-form .ym-fbox-check input,.ym-form input[type=radio],.ym-form input[type=checkbox]{width:auto;display:inline;width:auto;margin-left:0;margin-right:.5ex}.ym-form label,.ym-form .ym-label{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.ym-form .ym-fbox-button input{display:inline;overflow:visible;width:auto}.ym-form .ym-inline{display:inline-block;width:auto;vertical-align:baseline}.ym-fbox-wrap{display:table;table-layout:fixed;width:70%}.ym-fbox-wrap input,.ym-fbox-wrap textarea,.ym-fbox-wrap select{width:100%}.ym-fbox-wrap input[type=radio],.ym-fbox-wrap input[type=checkbox]{display:inline;width:auto;margin-left:0;margin-right:.5ex}.ym-fbox-wrap label,.ym-fbox-wrap .ym-label{display:inline}.ym-full input,.ym-full textarea,.ym-full select{width:100%}.ym-full .ym-fbox-wrap{width:100%}.ym-columnar input,.ym-columnar textarea,.ym-columnar select{float:left;margin-right:-3px}.ym-columnar label,.ym-columnar .ym-label{display:inline;float:left;width:30%;z-index:1}.ym-columnar .ym-fbox-check input,.ym-columnar .ym-message{margin-left:30%}.ym-columnar .ym-fbox-wrap{margin-left:30%;margin-right:-3px}.ym-columnar .ym-fbox-wrap label{float:none;width:auto;z-index:1;margin-left:0}.ym-columnar .ym-fbox-wrap input{margin-left:0;position:relative}.ym-columnar .ym-fbox-check{position:relative}.ym-columnar .ym-fbox-check label,.ym-columnar .ym-fbox-check .ym-label{padding-top:0}.ym-columnar .ym-fbox-check input{top:3px}.ym-columnar .ym-fbox-button input{float:none;margin-right:1em}.ym-fbox-wrap+.ym-fbox-wrap{margin-top:.5em}.ym-columnar fieldset .ym-fbox-button,fieldset.ym-columnar .ym-fbox-button{padding-left:30%}.ym-skip,.ym-hideme,.ym-print{position:absolute;top:-32768px;left:-32768px}.ym-skip:focus,.ym-skip:active{position:static;top:0;left:0}.ym-skiplinks{position:absolute;top:0;left:-32768px;z-index:1000;width:100%;margin:0;padding:0;list-style-type:none}.ym-skiplinks .ym-skip:focus,.ym-skiplinks .ym-skip:active{left:32768px;outline:0 none;position:absolute;width:100%}}@media print{.ym-grid>.ym-gl,.ym-grid>.ym-gr{overflow:visible;display:table;table-layout:fixed}.ym-print{position:static;left:0}.ym-noprint{display:none!important}}
+/* Ok, this is where the fun starts.
+-------------------------------------------------------------------------------*/
+
+/* A Linux- and Windows-friendly sans-serif font stack: http://prospects.mhurrell.co.uk/post/updating-the-helvetica-font-stack */
+body {font: 13px Helmet, Freesans, sans-serif;}
+
+/* Using local fonts? Check out Font Squirrel's webfont generator: http://www.fontsquirrel.com/tools/webfont-generator */
+
+/* We like off-black for text. */
+body, select, input, textarea {color: #333;}
+
+a {color: #03f;}
+a:hover {color: #69f;}
+
+/* Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301) */
+::-moz-selection{background: #fcd700; color: #fff; text-shadow: none;}
+::selection {background: #fcd700; color: #fff; text-shadow: none;}
+
+/*	j.mp/webkit-tap-highlight-color */
+a:link {-webkit-tap-highlight-color: #fcd700;}
+
+ins {background-color: #fcd700; color: #000; text-decoration: none;}
+mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: bold;}
+
+/* Mozilla dosen't style place holders by default */
+input:-moz-placeholder { color:#a9a9a9; }
+textarea:-moz-placeholder { color:#a9a9a9; }
+
+
+/* And here begins the WordPress fun.
+-------------------------------------------------------------------------------*/
+
+#wrapper {width: 960px; margin: 20px auto;}
+
+
+/* Print styles!
+-------------------------------------------------------------------------------*/
+@media print {
+
+}
+
+
+/* Media queries!
+-------------------------------------------------------------------------------*/
+
+/* Always do mobile-first, and consider using em units: http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw
+
+@media screen and (min-width: 480px) {
+
+} */
+ .flexible {
+        max-width: 100%;
+    }
+    /* IE6 support - 2% space for borders */
+    * html .flexible { width: 88%; }
+    
+ @media screen and ( max-width: 532px ) {
+
+ }
+ @media screen and ( max-width: 1024px ) {
+
+    /* linearization for grid module */
+    .linearize-level-1,
+    .linearize-level-1 > [class*="ym-g"],.linearize-level-1 >*, .linearize-level-1 >li>*{
+	display: block;
+	float: none;
+	padding: 0;
+	text-align:center;
+	margin: 0;
+	width: 100% !important;
+    }
+    /* reset defined gutter values */
+    .linearize-level-1 > [class*="ym-g"] > [class*="ym-gbox"] {
+    overflow: hidden; /* optional for containing floats */
+    padding: 0;
+    margin: 0;
+    }
+    }
+    .ym-wrapper {
+      width:100%;
+      text-align:center;
+      height:auto;
+      position:relative:
+    }
+    .ym-wbox {
+        padding: 10px 0 !important;
+        max-width:1016px;
+        height:auto;
+        position:relative;
+        margin:0 auto}
+.fixed{
+  position:fixed !important;}
+.absolute{
+  position: absolute !important;}
+.justify{text-align:justify;}
+.bold{font-weight:bold;}
+.center{text-align:center;}
+.right{text-align:right;}
+img.alignright {float:right; margin:0 0 1em 1em}
+img.alignleft {float:left; margin:0 1em 1em 0}
+img.aligncenter {display: block; margin-left: auto; margin-right: auto}
+a img.alignright {float:right; margin:0 0 1em 1em}
+a img.alignleft {float:left; margin:0 1em 1em 0}
+a img.aligncenter {display: block; margin-left: auto; margin-right: auto}
