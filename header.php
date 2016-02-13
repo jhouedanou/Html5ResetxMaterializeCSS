@@ -13,8 +13,8 @@
 <!--[if gt IE 9]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
 <!-- the "no-js" class is for Modernizr. -->
 <!-- Mobile viewport optimisation -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head id="<?php echo of_get_option('meta_headid'); ?>" data-template-set="html5-reset-wordpress-theme">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<!-- Always force latest IE rendering engine (even in intranet) -->
 	<!--[if IE ]>
