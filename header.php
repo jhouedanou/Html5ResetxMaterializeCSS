@@ -73,6 +73,8 @@
 	<link href="<?php echo get_template_directory_uri(); ?>/iehacks.css" rel="stylesheet" type="text/css" />
 	<![endif]-->
 	<!-- concatenate and minify for production -->
+  <link href="<?php echo get_template_directory_uri(); ?>/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="<?php echo get_template_directory_uri(); ?>/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" />
 	<!-- Lea Verou's Prefix Free, lets you use only un-prefixed properties in yuor CSS files -->
 	<!--<script src="<?php //echo get_template_directory_uri(); ?>/_/js/prefixfree.min.js"></script>-->
