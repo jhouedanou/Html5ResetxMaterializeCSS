@@ -117,7 +117,7 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<?php wp_head(); ?>
-	<!--<script src="http://malsup.github.com/jquery.cycle2.js"></script>-->
+	<!--<script src="https://cdn.jsdelivr.net/jquery.responsiveslides/1.54/responsiveslides.js"></script>-->
 </head>
 
 <body <?php body_class(); ?>>
