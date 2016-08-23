@@ -111,13 +111,15 @@
 			echo '<meta property="og:image" content="' . of_get_option("meta_app_fb_image") . '" />';
 		}
 	?>
-	<link rel="stylesheet" src="<?php echo get_template_directory_uri(); ?>/css/materialize.min.css"/>
 	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/materialize.min.js"></script>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<?php wp_head(); ?>
 	<!--<script src="https://cdn.jsdelivr.net/jquery.responsiveslides/1.54/responsiveslides.js"></script>-->
+	     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/materialize.min.js"></script>
+	     	<link rel="stylesheet" src="<?php echo get_template_directory_uri(); ?>/css/materialize.min.css"/>
+
+
 </head>
 
 <body <?php body_class(); ?>>
