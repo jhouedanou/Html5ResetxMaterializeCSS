@@ -1,4 +1,5 @@
 <?php
+add_filter('sanitize_file_name', 'remove_accents' );
 add_filter('post_gallery', 'my_post_gallery', 10, 2);
 function my_post_gallery($output, $attr) {
     global $post;
