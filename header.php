@@ -115,10 +115,10 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<?php wp_head(); ?>
-	<!--<script src="https://cdn.jsdelivr.net/jquery.responsiveslides/1.54/responsiveslides.js"></script>-->
-	     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/materialize.min.js"></script>
-	     	<link rel="stylesheet" src="<?php echo get_template_directory_uri(); ?>/css/materialize.min.css"/>
-
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/materialize.min.js"></script>
+	<link rel="stylesheet" src="<?php echo get_template_directory_uri(); ?>/css/materialize.min.css"/>
+	    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/magnific-popup.css">
+    	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.magnific-popup.min.js"></script>
 
 </head>
 
