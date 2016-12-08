@@ -58,7 +58,14 @@
 }
 #cssmenu ul ul li {
   font-weight: normal;
-  padding:3px 0
+  padding:3px 0;
+      z-index: 601;
+    display: block;
+    border: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
+    overflow: hidden;
 }
 #cssmenu a {
   display: block;

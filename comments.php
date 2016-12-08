@@ -34,7 +34,7 @@
 		<!-- If comments are open, but there are no comments. -->
 
 	 <?php else : // comments are closed ?>
-		<p><?php _e('Comments are closed.','html5reset'); ?></p>
+		<p></p>
 
 	<?php endif; ?>
 	
