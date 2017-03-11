@@ -4,38 +4,43 @@
  * @subpackage HTML5-Reset-WordPress-Theme
  * @since HTML5 Reset 2.0
  */
-?><!doctype html>
+?>
+    <!doctype html>
+    <!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" <?php language_attributes(); ?>> <![endif]-->
+    <!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" <?php language_attributes(); ?>> <![endif]-->
+    <!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" <?php language_attributes(); ?>> <![endif]-->
+    <!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" <?php language_attributes(); ?>> <![endif]-->
+    <!--[if gt IE 9]><!-->
+    <html class="no-js" <?php language_attributes(); ?>>
+    <!--<![endif]-->
+    <!-- the "no-js" class is for Modernizr. -->
+    <!-- Mobile viewport optimisation -->
 
-<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" <?php language_attributes(); ?>> <![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
-<!-- the "no-js" class is for Modernizr. -->
-<!-- Mobile viewport optimisation -->
-<head id="<?php echo of_get_option('meta_headid'); ?>" data-template-set="html5-reset-wordpress-theme">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="<?php bloginfo('charset'); ?>">
-	<!-- Always force latest IE rendering engine (even in intranet) -->
-	<!--[if IE ]>
+    <head id="<?php echo of_get_option('meta_headid'); ?>" data-template-set="html5-reset-wordpress-theme">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="<?php bloginfo('charset'); ?>">
+        <!-- Always force latest IE rendering engine (even in intranet) -->
+        <!--[if IE ]>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<![endif]-->
-	<?php
+        <?php
 		if (is_search())
 			echo '<meta name="robots" content="index, follow" />';
 	?>
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
-	<meta name="title" content="<?php wp_title( '|', true, 'right' ); ?>">
-	<!--Google will often use this as its description of your page/site. Make it good.-->
-	<meta name="description" content="<?php bloginfo('description'); ?>" />
-	<?php
+            <title>
+                <?php wp_title( '|', true, 'right' ); ?>
+            </title>
+            <meta name="title" content="<?php wp_title( '|', true, 'right' ); ?>">
+            <!--Google will often use this as its description of your page/site. Make it good.-->
+            <meta name="description" content="<?php bloginfo('description'); ?>" />
+            <?php
 		if (true == of_get_option('meta_author'))
 			echo '<meta name="author" content="' . of_get_option("meta_author") . '" />';
 		if (true == of_get_option('meta_google'))
 			echo '<meta name="google-site-verification" content="' . of_get_option("meta_google") . '" />';
 	?>
-	<meta name="Copyright" content="Copyright &copy; <?php bloginfo('name'); ?> <?php echo date('Y'); ?>. All Rights Reserved.">
-	<?php
+                <meta name="Copyright" content="Copyright &copy; <?php bloginfo('name'); ?> <?php echo date('Y'); ?>. All Rights Reserved.">
+                <?php
 		/*
 			j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag
 			 - device-width : Occupy full width of the screen in its current orientation
@@ -69,24 +74,27 @@
 		if (true == of_get_option('head_apple_touch_icon'))
 			echo '<link rel="apple-touch-icon" href="' . of_get_option("head_apple_touch_icon") . '">';
 	?>
-	<!--[if lte IE 7]>
+                    <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+                    <!--[if lte IE 7]>
 	<link href="<?php echo get_template_directory_uri(); ?>/iehacks.css" rel="stylesheet" type="text/css" />
 	<![endif]-->
-	<!-- concatenate and minify for production -->
-  <link href="<?php echo get_template_directory_uri(); ?>/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-  <link href="<?php echo get_template_directory_uri(); ?>/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" />
-	<!-- Lea Verou's Prefix Free, lets you use only un-prefixed properties in yuor CSS files -->
-	<!--<script src="<?php //echo get_template_directory_uri(); ?>/_/js/prefixfree.min.js"></script>-->
-	<!--shiv-->
-		<!--[if lt IE 9]>
+                    <!-- concatenate and minify for production -->
+                    <link href="<?php echo get_template_directory_uri(); ?>/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+                    <link href="<?php echo get_template_directory_uri(); ?>/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+                    <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" />
+                    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/stylesheets/ken-burns.css" type="text/css" media="all" />
+                    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/stylesheets/animate.min.css" type="text/css" media="all" />
+                    <!-- Lea Verou's Prefix Free, lets you use only un-prefixed properties in yuor CSS files -->
+                    <!--<script src="<?php //echo get_template_directory_uri(); ?>/_/js/prefixfree.min.js"></script>-->
+                    <!--shiv-->
+                    <!--[if lt IE 9]>
 	<script src=".<?php echo get_template_directory_uri(); ?>/_/js/html5shiv.js"></script>
 	<![endif]-->
-	<!-- This is an un-minified, complete version of Modernizr.
+                    <!-- This is an un-minified, complete version of Modernizr.
 		 Before you move to production, you should generate a custom build that only has the detects you need. -->
-	<script src="<?php echo get_template_directory_uri(); ?>/_/js/modernizr-2.8.0.dev.js"></script>
-	<!-- Application-specific meta tags -->
-	<?php
+                    <script src="<?php echo get_template_directory_uri(); ?>/_/js/modernizr-2.8.0.dev.js"></script>
+                    <!-- Application-specific meta tags -->
+                    <?php
 		// Windows 8
 		if (true == of_get_option('meta_app_win_name')) {
 			echo '<meta name="application-name" content="' . of_get_option("meta_app_win_name") . '" /> ';
@@ -111,61 +119,118 @@
 			echo '<meta property="og:image" content="' . of_get_option("meta_app_fb_image") . '" />';
 		}
 	?>
-	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="profile" href="http://gmpg.org/xfn/11" />
-	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-	<?php wp_head(); ?>
-	<script type="text/javascript">
+                        <link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
+                        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+                        <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+                        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/font-awesome.min.css">
+                        <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script>
+                        <script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.min.js"></script>
+                        <link rel="profile" href="http://gmpg.org/xfn/11" />
+                        <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+                        <?php wp_head(); ?>
+                        <script type="text/javascript">
+                        jQuery(function($) {
 
-		jQuery(function($){
+                            $(document).ready(function() {
 
-		    $(document).ready(function(){
+                                // superFish
 
-		      // superFish
+                                $('ul.sf-menu').supersubs({
 
-		       $('ul.sf-menu').supersubs({
+                                    minWidth: 16, // minimum width of sub-menus in em units
 
-		       minWidth:    16, // minimum width of sub-menus in em units
+                                    maxWidth: 40, // maximum width of sub-menus in em units
 
-		       maxWidth:    40, // maximum width of sub-menus in em units
+                                    extraWidth: 1 // extra width can ensure lines don't sometimes turn over
 
-		       extraWidth:  1 // extra width can ensure lines don't sometimes turn over
+                                })
 
-		     })
+                                .superfish(); // call supersubs first, then superfish
 
-		    .superfish(); // call supersubs first, then superfish
+                            });
 
-		     });
+                        });
+                        </script>
+                        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/2.1.6/jquery.cycle2.js"></script>
+                        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+                        <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+                        <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+                        <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.responsiveTabs.js"></script>
+                        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/responsive-tabs.css" />
+                        <script src="//cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js" type="text/javascript"></script>
+    </head>
 
-		});
-
-		</script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/materialize.min.js"></script>
-	<link rel="stylesheet" src="<?php echo get_template_directory_uri(); ?>/css/materialize.min.css"/>
-	    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/magnific-popup.css">
-    	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.magnific-popup.min.js"></script>
-
-</head>
-
-<body <?php body_class(); ?>>
-
-	<!-- not needed? up to you: http://camendesign.com/code/developpeurs_sans_frontieres -->
-	<div id="wrapper">
-
-		<header id="header" role="banner">
-			<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<div class="description"><?php bloginfo( 'description' ); ?></div>
-		</header>
-		<nav id="nav" role="navigation">
-			<?php
-				if ( function_exists('wp_nav_menu') ) {
-				     wp_nav_menu( array(
-				         'theme_location' => 'primary',
-				         'sort_column' => 'menu_order',
-				         'menu_class' => 'sf-menu',
-				        'fallback_cb' => 'default_menu'
-				       ));
-				     }
-				 ?>
-		</nav>
-
+    <body <?php body_class(); ?>>
+        <?php
+if ( is_home() ) {
+    // This is the blog posts index
+  
+} else {
+    // This is not the blog posts index?>
+            <div class="domino">
+                <div class="insidedomaine">
+                    <?php
+		  	 global $more;
+		  	        $more = 0;
+		  	  $args = array(
+		  	  'p' => 649, // id of a page, post, or custom type
+		  	  'post_type' => 'any');
+		  	  $the_query = new WP_Query($args);
+		  	  while ( $the_query->have_posts() ) : $the_query->the_post(); 
+		  	?>
+                        <p>
+                            <?php the_content(); ?>
+                        </p>
+                        <?php 
+		  	  endwhile; 
+		  	  wp_reset_query();
+		  	?>
+                        <a href="#close" class="iron"><i class="fa fa-times"></i></a>
+                </div>
+            </div>
+            <?php 
+ }
+?>
+            <?php
+if ( is_home() ) {
+    // This is the blog posts index
+?>
+                <div class="header">
+                    <?php 
+} else {
+    // This is not the blog posts index
+?>
+                    <div class="header avirex">
+                        <?php 
+}
+?>
+                        <div class="container-fluid">
+                            <nav class="navbar navbar-default">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                        <div class="navbar-brand">
+                                            <h1 class="just"><a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/images/Artboard3.png"/></a></h1>
+                                        </div>
+                                    </div>
+                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                        <nav class="link-effect-2" id="link-effect-2">
+                                            <?php
+						if ( function_exists('wp_nav_menu') ) {
+						     wp_nav_menu( array(
+						         'theme_location' => 'primary',
+						         'sort_column' => 'menu_order',
+						         'menu_class' => 'nav navbar-nav sf-menu',
+						        'fallback_cb' => 'default_menu'
+						       ));
+						     }
+						 ?>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div id="langchooser" style="position:fixed;top: 150px;right: 0px;z-index: 100000;">
+                        <?php qtranxf_generateLanguageSelectCode('image'); ?>
+                    </div>

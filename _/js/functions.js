@@ -9,35 +9,80 @@
 
 
 // remap jQuery to $
-(function ($) {
+(function($) {
+    $(window).load(function() {
+        $('.autoplay').slick({
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+        });
+        $('.pueblo').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+        });
+        $('.carousel-control.right').trigger('click');
+    });
+    $(document).ready(function() {
+        $('.insidedomaine a').click(function(event) {
+            /* Act on the event */
+            $('.domino').fadeOut();
+            $('.avirex').css('top', 0);
+        });
+        $('.marquee').marquee({
+            //speed in milliseconds of the marquee
+            duration: 25000,
+            //gap in pixels between the tickers
+            gap: 0,
+            //time in milliseconds before the marquee will start animating
+            delayBeforeStart: 0,
+            //'left' or 'right'
+            direction: 'left',
+            //true or false - should the marquee be duplicated to show an effect of continues flow
+            duplicated:  false
+        });
+        $('#responsiveTabsDemo').responsiveTabs();
+        $('#rss-2 > ul').cycle({
+            slides: 'li'
+        });
+        $('#rss-3 > ul').cycle({
+            slides: 'li'
+        });
+        $('.grid').isotope({
+            itemSelector: '.grid-item'
+        });
 
-	/* trigger when page is ready */
-	$(document).ready(function (){
-
-		// your functions go here
-
-
-	});
+    });
 
 }(window.jQuery || window.$));
-jQuery(function($){
+jQuery(function($) {
 
-    $(document).ready(function(){
+    $(document).ready(function() {
+        // $('#responsiveTabsDemo').responsiveTabs({
+        //     startCollapsed: 'accordion'
+        // });
+        $('.grid').isotope({
+            itemSelector: '.grid-item',
+            masonry: {
+                // columnWidth: 100
+            }
+        });
+        // superFish
 
-      // superFish
+        $('ul.sf-menu').supersubs({
 
-       $('ul.sf-menu').supersubs({
+            minWidth: 16, // minimum width of sub-menus in em units
 
-       minWidth:    16, // minimum width of sub-menus in em units
+            maxWidth: 40, // maximum width of sub-menus in em units
 
-       maxWidth:    40, // maximum width of sub-menus in em units
+            extraWidth: 1 // extra width can ensure lines don't sometimes turn over
 
-       extraWidth:  1 // extra width can ensure lines don't sometimes turn over
+        })
 
-     })
+        .superfish(); // call supersubs first, then superfish
 
-    .superfish(); // call supersubs first, then superfish
-
-     });
+    });
 
 });

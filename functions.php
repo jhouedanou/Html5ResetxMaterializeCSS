@@ -2,15 +2,12 @@
 // scripts function
 remove_filter( 'the_excerpt', 'wpautop' );
 add_action('wp_enqueue_scripts','wpexplorer_scripts_function');
-
 function wpexplorer_scripts_function() {
-
-// load jquery if it isn't
-
 wp_enqueue_script('jquery');
- wp_enqueue_script('superfish', get_stylesheet_directory_uri() . '/js/superfish.js');
- wp_enqueue_script('supersubs', get_stylesheet_directory_uri() . '/js/supersubs.js');
-
+ 	wp_enqueue_script('superfish', get_stylesheet_directory_uri() . '/js/superfish.js');
+	wp_enqueue_script('supersubs', get_stylesheet_directory_uri() . '/js/supersubs.js');
+	wp_enqueue_script('responsiveslides', get_stylesheet_directory_uri() . '/js/responsiveslides.min.js');
+	wp_enqueue_script('popup', get_stylesheet_directory_uri() . '/js/jquery.magnific-popup.min.js');
 }
 
 add_filter('sanitize_file_name', 'remove_accents' );
