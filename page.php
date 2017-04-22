@@ -5,31 +5,35 @@
  * @since HTML5 Reset 2.0
  */
  get_header(); ?>
-
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-			
-		<article class="post" id="post-<?php the_ID(); ?>">
-
-			<h2><?php the_title(); ?></h2>
-
-			<?php posted_on(); ?>
-
-			<div class="entry">
-
-				<?php the_content(); ?>
-
-				<?php wp_link_pages(array('before' => __('Pages: ','html5reset'), 'next_or_number' => 'number')); ?>
-
+		<div class="banner-w3agile">
+			<div class="container">
+				<h3><?php the_title(); ?></h3>
 			</div>
+		</div>
+		<div class="content">
+				<div class="staff-w3l">
+					<div class="container">
+						<div class="staff-grids">
+						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+							<div class="col-md-8 staff-grid">
 
-			<?php edit_post_link(__('Edit this entry','html5reset'), '<p>', '</p>'); ?>
+								<div class="staff-right">
+										<?php the_content(); ?>
+											<?php comments_template(); ?>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="retina col-md-4">
+								<div class="angrud">
+									<?php get_sidebar(); ?>
+								</div>
+							</div>
+					</div>
+				</div>
+		</div>	
 
-		</article>
-		
-		<?php comments_template(); ?>
-
-		<?php endwhile; endif; ?>
-
-<?php get_sidebar(); ?>
+			<?php edit_post_link(__('Edit this entry','html5reset'),'','.'); ?>
+			
+	<?php endwhile; endif; ?>
 
 <?php get_footer(); ?>

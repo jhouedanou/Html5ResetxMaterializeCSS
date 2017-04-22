@@ -5,9 +5,8 @@
  * @since HTML5 Reset 2.0
  */
 ?>
-	<?php wp_footer(); ?>
 
-
+<<<<<<< HEAD
 <!-- jQuery is called via the WordPress-friendly way via functions.php -->
 <script>
 	var timer = 0;
@@ -51,6 +50,9 @@
     });
 </script>
 <!-- this is where we put our custom functions -->
+=======
+	<?php wp_footer(); ?>
+>>>>>>> origin/master
 <script src="<?php bloginfo('template_directory'); ?>/_/js/functions.js"></script>
 
 <!-- Asynchronous google analytics; this is the official snippet.

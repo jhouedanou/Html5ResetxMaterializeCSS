@@ -8,6 +8,7 @@ wp_enqueue_script('jquery');
 	wp_enqueue_script('supersubs', get_stylesheet_directory_uri() . '/js/supersubs.js');
 	wp_enqueue_script('responsiveslides', get_stylesheet_directory_uri() . '/js/responsiveslides.min.js');
 	wp_enqueue_script('popup', get_stylesheet_directory_uri() . '/js/jquery.magnific-popup.min.js');
+<<<<<<< HEAD
 }
 //remove [] after the_excerpt
 function change_excerpt( $text )
@@ -59,6 +60,8 @@ function content($limit) {
   $content = apply_filters('the_content', $content); 
   $content = str_replace(']]>', ']]&gt;', $content);
   return $content;
+=======
+>>>>>>> origin/master
 }
 
 add_filter('sanitize_file_name', 'remove_accents' );

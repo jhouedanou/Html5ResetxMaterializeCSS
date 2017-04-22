@@ -9,56 +9,59 @@
 		<?php if (have_posts()) : ?>
 
  			<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
-
-			<?php /* If this is a category archive */ if (is_category()) { ?>
-				<h2><?php single_cat_title(); ?></h2>
-
-			<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
-				<h2><?php _e('Posts Tagged','html5reset'); ?> &#8216;<?php single_tag_title(); ?>&#8217;</h2>
-
-			<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-				<h2><?php _e('Archive for','html5reset'); ?> <?php the_time('F jS, Y'); ?></h2>
-
-			<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-				<h2><?php _e('Archive for','html5reset'); ?> <?php the_time('F, Y'); ?></h2>
-
-			<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-				<h2 class="pagetitle"><?php _e('Archive for','html5reset'); ?> <?php the_time('Y'); ?></h2>
-
-			<?php /* If this is an author archive */ } elseif (is_author()) { ?>
-				<h2 class="pagetitle"><?php _e('Author Archive','html5reset'); ?></h2>
-
-			<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-				<h2 class="pagetitle"><?php _e('Blog Archives','html5reset'); ?></h2>
+<div class="banner-w3agile">
+	<div class="container">
+		<h3><?php single_cat_title(); ?></h3>
+	</div>
+</div>
+		<div class="content">
+			<div class="staff-w3l">
+				<div class="container">
+					<div class="staff-grids grid">
+			<?php //post_navigation(); ?>
 			
-			<?php } ?>
-
-			<?php post_navigation(); ?>
-
 			<?php while (have_posts()) : the_post(); ?>
 			
-				<article <?php post_class() ?>>
-				
-						<h2 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-					
-						<?php posted_on(); ?>
+						<div class="col-md-4 staff-grid grid-item">
 
-						<div class="entry">
-							<?php the_content(); ?>
+							<div class="staff-right new-right">
+									<?php
+										if ( has_post_thumbnail()) {
+											the_post_thumbnail('medium', array('class' => 'riches'));
+										}
+									?>
+									<h4><?php the_title(); ?></h4>
+									<p><?php the_excerpt(); ?></p>
+									 <a class="btn btn-default" role="button" href="<?php the_permalink();?>">En savoir plus</a>
+
+							</div>
 						</div>
+									<?php endwhile; ?>
 
-				</article>
-
-			<?php endwhile; ?>
-
-			<?php post_navigation(); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+			<?php //post_navigation(); ?>
+		<div class="lecrea">
+			<?php echo easy_wp_pagenavigation(); ?>
+		</div>
 			
+
 	<?php else : ?>
 
 		<h2><?php _e('Nothing Found','html5reset'); ?></h2>
 
 	<?php endif; ?>
 
-<?php get_sidebar(); ?>
+							<div class="clearfix"> </div>
+						</div>
+					<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/smoothbox.jquery2.js"></script>
+				</div>
+			</div>
+		</div>		
+
+
+			
 
 <?php get_footer(); ?>
