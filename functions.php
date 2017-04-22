@@ -2,15 +2,63 @@
 // scripts function
 remove_filter( 'the_excerpt', 'wpautop' );
 add_action('wp_enqueue_scripts','wpexplorer_scripts_function');
-
 function wpexplorer_scripts_function() {
-
-// load jquery if it isn't
-
 wp_enqueue_script('jquery');
- wp_enqueue_script('superfish', get_stylesheet_directory_uri() . '/js/superfish.js');
- wp_enqueue_script('supersubs', get_stylesheet_directory_uri() . '/js/supersubs.js');
+ 	wp_enqueue_script('superfish', get_stylesheet_directory_uri() . '/js/superfish.js');
+	wp_enqueue_script('supersubs', get_stylesheet_directory_uri() . '/js/supersubs.js');
+	wp_enqueue_script('responsiveslides', get_stylesheet_directory_uri() . '/js/responsiveslides.min.js');
+	wp_enqueue_script('popup', get_stylesheet_directory_uri() . '/js/jquery.magnific-popup.min.js');
+}
+//remove [] after the_excerpt
+function change_excerpt( $text )
+{
+	$pos = strrpos( $text, '[');
+	if ($pos === false)
+	{
+		return $text;
+	}
+	
+	return rtrim (substr($text, 0, $pos) );
+}
 
+/**
+ * Filter the except length to 20 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function wpdocs_custom_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+
+add_filter('get_the_excerpt', 'change_excerpt');
+//limit the excerpt 
+function excerpt($limit) {
+  $excerpt = explode(' ', get_the_excerpt(), $limit);
+  if (count($excerpt)>=$limit) {
+    array_pop($excerpt);
+    $excerpt = implode(" ",$excerpt).'...';
+  } else {
+    $excerpt = implode(" ",$excerpt);
+  }	
+  $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
+  return $excerpt;
+}
+ 
+function content($limit) {
+  $content = explode(' ', get_the_content(), $limit);
+  if (count($content)>=$limit) {
+    array_pop($content);
+    $content = implode(" ",$content).'...';
+  } else {
+    $content = implode(" ",$content);
+  }	
+  $content = preg_replace('/[.+]/','', $content);
+  $content = apply_filters('the_content', $content); 
+  $content = str_replace(']]>', ']]&gt;', $content);
+  return $content;
 }
 
 add_filter('sanitize_file_name', 'remove_accents' );
@@ -53,16 +101,18 @@ function my_post_gallery($output, $attr) {
 
     $output = "<div class=\"my-flipster\"><ul class=\"flip-items\">\n";
 
-    // Now you loop through each attachment
+  // Now you loop through each attachment
     foreach ($attachments as $id => $attachment) {
         // Fetch the thumbnail (or full image, it's up to you)
 //      $img = wp_get_attachment_image_src($id, 'medium');
 //      $img = wp_get_attachment_image_src($id, 'my-custom-image-size');
         $fulluma =  wp_get_attachment_image_src($id, 'large');
-        $img = wp_get_attachment_image_src($id, 'medium');
-        $output .= "<li class=\"ezswiper-slide\">\n";
+        $img = wp_get_attachment_image_src($id, 'large');
+        $thumb = wp_get_attachment_image_src($id, 'medium');
+	    $alt = get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true);
+        $output .= "<li data-thumb=\"{$thumb[0]}\" data-src=\"{$fulluma[0]}\" class=\"ezswiper-slide\">\n";
         $output .= "<a class=\"swiper-slide\" href=\"{$fulluma[0]}\" rel=\"lightbox\">";
-        $output .= "<img src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"\" />";
+        $output .= "<img class=\"hoodrat\" src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"$alt\" />";
         $output .= "</a>";
         $output .= "</li>\n";
     }
