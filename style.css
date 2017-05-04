@@ -1,9 +1,4 @@
-
-  .sf-menu li: hover,.sf-menu li.sf{
-    background-color: #ff17f5;
-  color: #fffd56;
-  }
-  /*
+/*
 Theme Name: The HTML5 Reset Theme
 Theme URI: http://html5reset.org
 Description: A style-free theme to get you started on an HTML5-based WordPress theme of your own.
@@ -11,283 +6,1087 @@ Author: Monkey Do! + @ckhicks
 Author URI: http://monkeydo.biz
 Version: 2.0
 */
-.kb_caption h4{
-  text-transform: none !important;
-}
-#respond{
-      padding: 1em;
-}
-.carousel-inner{
-      min-height: 570px;
-}
-.comments-closed {
-  display: none;
-}
-.comments-closed {
-  display: none;
-}
-.nocomments{
-  display: none;
-    
-}
-.sf-menu, .sf-menu * {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-.sf-menu li {
-	position: relative;
-}
-.sf-menu ul {
-	position: absolute;
-	display: none;
-	top: 100%;
-	left: 0;
-	z-index: 99;
-	background: rgba(0,0,0,.5);
-}
-.sf-menu > li {
-	float: left;
-}
-.sf-menu li:hover > ul,
-.sf-menu li.sfHover > ul {
-	display: block;
+
+html,
+body,
+body div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+menu,
+nav,
+section,
+time,
+mark,
+audio,
+video,
+details,
+summary {
+    font-size: 100%;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    border: 0;
+    background: transparent;
 }
 
-.sf-menu a {
-	display: block;
-	position: relative;
-	color: white;
-	font-family: 'Oswald',sans-serif;
-	padding: 1em;
-  font-size: 12px !important;
-}
-.sf-menu ul ul {
-	top: 0;
-	left: 100%;
-}
-
-
-/*** DEMO SKIN ***/
-.sf-menu {
-	float: right;
-}
-	box
-
-
-.sf-menu ul {
-  box-shadow: 2px 2px 6px rgba(0,0,0,.2);
-  min-width: 12em;
-  *: ;
-  width: 12em;
-  background: rgba(0,0,0,5);
-}
-	bor
-.sf-menu a {
-	col
-.sf-menu li {
-	wh
-.sf-menu ul li {
-
-.sf-menu ul ul li
-.sf-menu li:hover
-
-/*** arrows (for
-/* styling for bo
-.sf-arrows > li >
-/* styling for ri
-.sf-arrows ul li 
-/*** adding the c
-/* provide backgr
-.sf-navbar ul {
-	} .sf-menu a { color: #13a; } .sf-menu li { /* background: #BDD2FF; */ white-space: nowrap; /* no need for supersubs plugin */ * white-space: normal; /* ...unless you support ie7 (let it wrap) */ -webkit-transition: background .2s; transition: background .2s; } .sf-menu ul li { background: rgba(0, 0, 0, 0.67); } .sf-menu ul ul li { background: #ff17f5; } .sf-menu li:hover, .sf-menu li.sf background-color: #ff17f5; color: #fffd56; box-shadow: 0 -8px 0 rgba(0, 0, 0, 0.15) inset;Hover { } .sf-menu li:hover, .sf-menu li.sfHover { background: #ff17f5; } /*** arrows (for all except IE7) **/ .sf-arrows .sf-with-ul { padding-right: 2.5em; *padding-right: 1em; /* no css arrows for ie7 (lack pseudo-elements) */ } /* styling for both css and generated arrows */ .sf-arrows .sf-with-ul:after { content: ''; position: absolute; top: 50%; right: 1em; margin-top: -3px; height: 0; width: 0; /* order of following 3 rules important for fallbacks to work */ border: 5px solid transparent; border-top-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */ border-top-color: rgba(255,255,255,.5); } .sf-arrows > li > .sf-with-ul:focus:after, .sf-arrows > li:hover > .sf-with-ul:after, .sf-arrows > .sfHover > .sf-with-ul:after { border-top-color: white; /* ie8 fallback colour */ } /* styling for right-facing arrows */ .sf-arrows ul .sf-with-ul:after { margin-top: -5px; margin-right: -3px; border-color: transparent; border-left-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */ border-left-color: rgba(255,255,255,.5); } .sf-arrows ul li > .sf-with-ul:focus:after, .sf-arrows ul li:hover > .sf-with-ul:after, .sf-arrows ul .sfHover > .sf-with-ul:after { border-left-color: white; } /*** adding the class sf-navbar in addition to sf-menu creates an all-horizontal nav-bar menu ***/ .sf-navbar { background: #ff17f5; position: relative; margin-bottom: 5em; } /* provide background colour for submenu strip */ /* you should just set the menu's container bg colour rather than use pseudo-elements */ .sf-navbar:before  box-shadow: none;
-  content: '';
-  position: absolute;
-  left: 0;
-  z-index: -1;
-  background-color: #BDD2FF;
-  height: 200%;
-  width: 100%;
-}
-.sf-navbar li {
-	background: #AABDE6;
-	position: static;
-}
-.sf-navbar > li > a,
-.sf-navbar > li > ul > li > a {
-	border: none;
-}
-.sf-navbar > li > ul {
-	min-width: 36em; /* set this to whatever suits your design */
-}
-.sf-navbar ul li {
-	background: #BDD2FF;
-	position: relative;
-}
-.sf-navbar ul ul {
-	left: 0;
-	top: 100%;
-}
-.sf-navbar ul ul li {
-	width: 100%;
-}
-.sf-navbar > li > ul > li {
-	float: left;
-}
-.sf-navbar li.current {
-	background: #BDD2FF;
-}
-.sf-navbar li:hover,
-.sf-navbar li.sfHover,
-.sf-navbar ul li.current {
-	background: #BDD2FF;
-}
-.sf-navbar ul li:hover,
-.sf-navbar ul li.sfHover,
-.sf-navbar ul ul li {
-	background: #D1DFFF;
-}
-.sf-navbar ul ul li:hover,
-.sf-navbar ul ul li.sfHover,
-.sf-navbar ul ul li.current {
-	background: #E6EEFF;
-}
-.sf-navbar ul li.current > a {
-	font-weight: bold;
-}
-
-/*** point all arrows down ***/
-.sf-arrows.sf-navbar ul .sf-with-ul:after {
-	margin-top: -3px;
-	margin-right: 0;
-	border-color: transparent;
-	border-top-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */
-	border-top-color: rgba(255,255,255,.5);
-}
-
-.sf-arrows.sf-navbar ul > li > .sf-with-ul:focus:after,
-.sf-arrows.sf-navbar ul > li:hover > .sf-with-ul:after,
-.sf-arrows.sf-navbar ul > .sfHover > .sf-with-ul:after {
-	border-color: transparent;
-	border-top-color: white;
-}
-.fly {
-  opacity: 0;
-  transition: all 600ms ease-in-out;
-  transform: translateY(100px) scale(1.05) translate3d(0, 0, 0);
-}
-.show-block {
-  opacity: 1;
-  transform: translateY(0) scale(1) translate3d(0, 0, 0);
-<<<<<<< HEAD
-=======
-}
-
-font-family: 'Osw;; } .sf-menu a { color: #13a; } .sf-menu li { /* background: #BDD2FF; */ white-space: nowrap; /* no need for supersubs plugin */ * white-space: normal; /* ...unless you support ie7 (let it wrap) */ -webkit-transition: background .2s; transition: background .2s; } .sf-menu ul li { background: rgba(0, 0, 0, 0.67); } .sf-menu ul ul li { background: #ff17f5; } .sf-menu li:hover, .sf-menu li.sf background-color: #ff17f5; color: #fffd56; box-shadow: 0 -8px 0 rgba(0, 0, 0, 0.15) inset;Hover { } .sf-menu li:hover, .sf-menu li.sfHover { background: #ff17f5; } /*** arrows (for all except IE7) **/ .sf-arrows .sf-with-ul { padding-right: 2.5em; *padding-right: 1em; /* no css arrows for ie7 (lack pseudo-elements) */ } /* styling for both css and generated arrows */ .sf-arrows .sf-with-ul:after { content: ''; position: absolute; top: 50%; right: 1em; margin-top: -3px; height: 0; width: 0; /* order of following 3 rules important for fallbacks to work */ border: 5px solid transparent; border-top-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */ border-top-color: rgba(255,255,255,.5); } .sf-arrows > li > .sf-with-ul:focus:after, .sf-arrows > li:hover > .sf-with-ul:after, .sf-arrows > .sfHover > .sf-with-ul:after { border-top-color: white; /* ie8 fallback colour */ } /* styling for right-facing arrows */ .sf-arrows ul .sf-with-ul:after { margin-top: -5px; margin-right: -3px; border-color: transparent; border-left-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */ border-left-color: rgba(255,255,255,.5); } .sf-arrows ul li > .sf-with-ul:focus:after, .sf-arrows ul li:hover > .sf-with-ul:after, .sf-arrows ul .sfHover > .sf-with-ul:after { border-left-color: white; } /*** adding the class sf-navbar in addition to sf-menu creates an all-horizontal nav-bar menu ***/ .sf-navbar { background: #ff17f5; position: relative; margin-bottom: 5em; } /* provide background colour for submenu strip */ /* you should just set the menu's container bg colour rather than use pseudo-elements */ .sf-navbar:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  z-index: -1;
-  background-color: #BDD2FF;
-  height: 200%;
-  width: 100%;
+article,
+aside,
+figure,
+footer,
+header,
+nav,
+section,
+details,
+summary {
+    display: block;
 }
 
 
-.sf-menu a {
-  border-left: 1px solid #fff;
-  border-top: 1px solid rgba(255,255,255,.5);
-  padding: .75em 1em;
-  text-decoration: none;
-  zoom: 1;
-  font-family: 'Oswald';
-  color: white !important;
+/* Handle box-sizing while better addressing child elements:
+   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 
-.sf-menu a {
-  color: #13a;
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+
+img,
+object,
+embed {
+    max-width: 100%;
 }
 
 
-.sf-menu li {
-  white-space: normal;
-  *: ;
-  -webkit-transition: background .2s;
-  transition: background .2s;
+/* force a vertical scrollbar to prevent a jumpy page */
+
+html {
+    overflow-y: scroll;
 }
 
 
-.sf-menu ul li {
-  background: rgba(0, 0, 0, 0.67);
+/* we use a lot of ULs that aren't bulleted.
+  don't forget to restore the bullets within content. */
+
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+a {
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+    cursor: help;
+    border-bottom: 1px dotted #000;
 }
 
 
-.sf-menu ul ul li {
-  background: #ff17f5;
+/* tables still need cellspacing="0" in the markup */
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+th {
+    font-weight: bold;
+    vertical-align: bottom;
+}
+
+td {
+    font-weight: normal;
+    vertical-align: top;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    margin: 1em 0;
+    padding: 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+input,
+select {
+    vertical-align: middle;
+}
+
+pre {
+    white-space: pre;
+    /* CSS2 */
+    white-space: pre-wrap;
+    /* CSS 2.1 */
+    white-space: pre-line;
+    /* CSS 3 (and 2.1 as well, actually) */
+    word-wrap: break-word;
+    /* IE */
+}
+
+input[type='radio'] {
+    vertical-align: text-bottom;
+}
+
+input[type='checkbox'] {
+    vertical-align: bottom;
+}
+
+.ie7 input[type='checkbox'] {
+    vertical-align: baseline;
+}
+
+.ie6 input {
+    vertical-align: text-bottom;
+}
+
+select,
+input,
+textarea {
+    font: 99% sans-serif;
+}
+
+table {
+    font: 100%;
+    font-size: inherit;
+}
+
+small {
+    font-size: 85%;
+}
+
+strong {
+    font-weight: bold;
+}
+
+td,
+td img {
+    vertical-align: top;
 }
 
 
-hover {
+/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+}
+
+sup {
+    top: -.5em;
+}
+
+sub {
+    bottom: -.25em;
 }
 
 
-.sf-menu li:hover, .sf-menu li.sfHover {
-  background: #ff17f5;
+/* standardize any monospaced elements */
+
+pre,
+code,
+kbd,
+samp {
+    font-family: monospace, sans-serif;
 }
 
 
-.sf-arrows .sf-with-ul {
-  padding-right: 2.5em;
-  *padding-right: 1em;
+/* hand cursor on clickable elements */
+
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+    cursor: pointer;
 }
 
 
-.sf-arrows .sf-with-ul:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 1em;
-  margin-top: -3px;
-  height: 0;
-  width: 0;
-  border: 5px solid transparent;
-  border-top-color: rgba(255,255,255,.5);
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+
+button,
+input,
+select,
+textarea {
+    margin: 0;
 }
 
 
-.sf-arrows > li > .sf-with-ul:focus:after, .sf-arrows > li:hover > .sf-with-ul:after, .sf-arrows > .sfHover > .sf-with-ul:after {
-  border-top-color: white;
+/* make buttons play nice in IE */
+
+button,
+input[type=button] {
+    overflow: visible;
+    width: auto;
 }
 
 
-.sf-arrows ul .sf-with-ul:after {
-  margin-top: -5px;
-  margin-right: -3px;
-  border-color: transparent;
-  border-left-color: rgba(255,255,255,.5);
+/* scale images in IE7 more attractively */
+
+.ie7 img {
+    -ms-interpolation-mode: bicubic;
 }
 
 
-.sf-arrows ul li > .sf-with-ul:focus:after, .sf-arrows ul li:hover > .sf-with-ul:after, .sf-arrows ul .sfHover > .sf-with-ul:after {
-  border-left-color: white;
+/* prevent BG image flicker upon hover
+   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+*/
+
+
+/* let's clear some floats */
+
+.clearfix:before,
+.clearfix:after {
+    display: block;
+    overflow: hidden;
+    height: 0;
+    content: '\0020';
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.chromeframe {
+    position: absolute;
+    top: 0;
 }
 
 
-.sf-navbar {
-  background: #ff17f5;
-  position: relative;
-  margin-bottom: 5em;
+/*! yaml-css v4.1.0 (2013-06-11) */
+
+@media all {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    option {
+        padding-left: .4em;
+    }
+    select {
+        padding: 1px;
+    }
+    * html body * {
+        overflow: visible;
+    }
+    body {
+        font-size: 100%;
+        text-align: left;
+        color: #000;
+        background: #fff;
+    }
+    div:target,
+    h1:target,
+    h2:target,
+    h3:target,
+    h4:target,
+    h5:target,
+    h6:target {
+        outline: 0 none;
+    }
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    main,
+    nav,
+    section,
+    summary {
+        display: block;
+    }
+    audio,
+    canvas,
+    video {
+        display: inline-block;
+    }
+    audio:not([controls]) {
+        display: none;
+    }
+    [hidden] {
+        display: none;
+    }
+    html {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+    input[type=checkbox],
+    input[type=radio] {
+        box-sizing: border-box;
+        padding: 0;
+    }
+    input[type=search] {
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        -webkit-appearance: textfield;
+    }
+    input[type=search]::-webkit-search-cancel-button,
+    input[type=search]::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
+    svg:not(:root) {
+        overflow: hidden;
+    }
+    figure {
+        margin: 0;
+    }
+    fieldset,
+    img {
+        border: 0 solid;
+    }
+    ul,
+    ol,
+    dl {
+        margin: 0 0 1em 1em;
+    }
+    li {
+        line-height: 1.5em;
+        margin-left: .8em;
+    }
+    dt {
+        font-weight: 700;
+    }
+    dd {
+        margin: 0 0 1em .8em;
+    }
+    blockquote {
+        margin: 0 0 1em .8em;
+    }
+    q {
+        quotes: none;
+    }
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+        content: '';
+        content: none;
+    }
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+    .ym-clearfix:before {
+        display: table;
+        content: '';
+    }
+    .ym-clearfix:after {
+        font-size: 0;
+        display: block;
+        visibility: hidden;
+        clear: both;
+        height: 0;
+        content: '.';
+    }
+    .ym-contain-dt {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+    .ym-contain-oh {
+        display: block;
+        overflow: hidden;
+        width: 100%;
+    }
+    .ym-contain-fl {
+        float: left;
+        width: 100%;
+    }
+    .ym-column {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+    .ym-col1 {
+        float: left;
+        width: 20%;
+    }
+    .ym-col2 {
+        float: right;
+        width: 20%;
+    }
+    .ym-col3 {
+        width: auto;
+        margin: 0 20%;
+    }
+    .ym-cbox {
+        padding: 0 10px;
+    }
+    .ym-cbox-left {
+        padding: 0 10px 0 0;
+    }
+    .ym-cbox-right {
+        padding: 0 0 0 10px;
+    }
+    .ym-ie-clearing {
+        display: none;
+    }
+    .ym-grid {
+        display: table;
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+        padding-right: 0;
+        padding-left: 0;
+        table-layout: fixed;
+        list-style-type: none;
+    }
+    .ym-gl {
+        float: left;
+        margin: 0;
+    }
+    .ym-gr {
+        float: right;
+        margin: 0 0 0 -5px;
+    }
+    .ym-g20 {
+        width: 20%;
+    }
+    .ym-g40 {
+        width: 40%;
+    }
+    .ym-g60 {
+        width: 60%;
+    }
+    .ym-g80 {
+        width: 80%;
+    }
+    .ym-g25 {
+        width: 25%;
+    }
+    .ym-g33 {
+        width: 33.333%;
+    }
+    .ym-g50 {
+        width: 50%;
+    }
+    .ym-g66 {
+        width: 66.666%;
+    }
+    .ym-g75 {
+        width: 75%;
+    }
+    .ym-g38 {
+        width: 38.2%;
+    }
+    .ym-g62 {
+        width: 61.8%;
+    }
+    .ym-gbox {
+        padding: 0 10px;
+    }
+    .ym-gbox-left {
+        padding: 0 10px 0 0;
+    }
+    .ym-gbox-right {
+        padding: 0 0 0 10px;
+    }
+    .ym-equalize {
+        overflow: hidden;
+    }
+    .ym-equalize > [class*=ym-g] {
+        display: table-cell;
+        float: none;
+        margin: 0;
+        vertical-align: top;
+    }
+    .ym-equalize > [class*=ym-g] > [class*=ym-gbox] {
+        margin-bottom: -10000px;
+        padding-bottom: 10000px;
+    }
+    .ym-form,
+    .ym-form fieldset {
+        overflow: hidden;
+    }
+    .ym-form div {
+        position: relative;
+    }
+    .ym-form label,
+    .ym-form .ym-label,
+    .ym-form .ym-message {
+        line-height: 1.5;
+        position: relative;
+        display: block;
+    }
+    .ym-form .ym-fbox-check label {
+        display: inline;
+    }
+    .ym-form input,
+    .ym-form textarea {
+        cursor: text;
+    }
+    .ym-form .ym-fbox-check input,
+    .ym-form input[type=radio],
+    .ym-form input[type=checkbox],
+    .ym-form select,
+    .ym-form label {
+        cursor: pointer;
+    }
+    .ym-form textarea {
+        overflow: auto;
+    }
+    .ym-form input.hidden,
+    .ym-form input[type=hidden] {
+        display: none!important;
+    }
+    .ym-form .ym-fbox:before,
+    .ym-form .ym-fbox-text:before,
+    .ym-form .ym-fbox-select:before,
+    .ym-form .ym-fbox-check:before,
+    .ym-form .ym-fbox-button:before {
+        display: table;
+        content: '';
+    }
+    .ym-form .ym-fbox:after,
+    .ym-form .ym-fbox-text:after,
+    .ym-form .ym-fbox-select:after,
+    .ym-form .ym-fbox-check:after,
+    .ym-form .ym-fbox-button:after {
+        font-size: 0;
+        display: block;
+        visibility: hidden;
+        clear: both;
+        height: 0;
+        content: '.';
+    }
+    .ym-form .ym-fbox-check input:focus,
+    .ym-form .ym-fbox-check input:hover,
+    .ym-form .ym-fbox-check input:active,
+    .ym-form input[type=radio]:focus,
+    .ym-form input[type=radio]:hover,
+    .ym-form input[type=radio]:active,
+    .ym-form input[type=checkbox]:focus,
+    .ym-form input[type=checkbox]:hover,
+    .ym-form input[type=checkbox]:active {
+        border: 0 none;
+    }
+    .ym-form input,
+    .ym-form textarea,
+    .ym-form select {
+        position: relative;
+        display: block;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 70%;
+    }
+    .ym-form .ym-fbox-check input,
+    .ym-form input[type=radio],
+    .ym-form input[type=checkbox] {
+        display: inline;
+        width: auto;
+        width: auto;
+        margin-right: .5ex;
+        margin-left: 0;
+    }
+    .ym-form label,
+    .ym-form .ym-label {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .ym-form .ym-fbox-button input {
+        display: inline;
+        overflow: visible;
+        width: auto;
+    }
+    .ym-form .ym-inline {
+        display: inline-block;
+        width: auto;
+        vertical-align: baseline;
+    }
+    .ym-fbox-wrap {
+        display: table;
+        width: 70%;
+        table-layout: fixed;
+    }
+    .ym-fbox-wrap input,
+    .ym-fbox-wrap textarea,
+    .ym-fbox-wrap select {
+        width: 100%;
+    }
+    .ym-fbox-wrap input[type=radio],
+    .ym-fbox-wrap input[type=checkbox] {
+        display: inline;
+        width: auto;
+        margin-right: .5ex;
+        margin-left: 0;
+    }
+    .ym-fbox-wrap label,
+    .ym-fbox-wrap .ym-label {
+        display: inline;
+    }
+    .ym-full input,
+    .ym-full textarea,
+    .ym-full select {
+        width: 100%;
+    }
+    .ym-full .ym-fbox-wrap {
+        width: 100%;
+    }
+    .ym-columnar input,
+    .ym-columnar textarea,
+    .ym-columnar select {
+        float: left;
+        margin-right: -3px;
+    }
+    .ym-columnar label,
+    .ym-columnar .ym-label {
+        z-index: 1;
+        display: inline;
+        float: left;
+        width: 30%;
+    }
+    .ym-columnar .ym-fbox-check input,
+    .ym-columnar .ym-message {
+        margin-left: 30%;
+    }
+    .ym-columnar .ym-fbox-wrap {
+        margin-right: -3px;
+        margin-left: 30%;
+    }
+    .ym-columnar .ym-fbox-wrap label {
+        z-index: 1;
+        float: none;
+        width: auto;
+        margin-left: 0;
+    }
+    .ym-columnar .ym-fbox-wrap input {
+        position: relative;
+        margin-left: 0;
+    }
+    .ym-columnar .ym-fbox-check {
+        position: relative;
+    }
+    .ym-columnar .ym-fbox-check label,
+    .ym-columnar .ym-fbox-check .ym-label {
+        padding-top: 0;
+    }
+    .ym-columnar .ym-fbox-check input {
+        top: 3px;
+    }
+    .ym-columnar .ym-fbox-button input {
+        float: none;
+        margin-right: 1em;
+    }
+    .ym-fbox-wrap + .ym-fbox-wrap {
+        margin-top: .5em;
+    }
+    .ym-columnar fieldset .ym-fbox-button,
+    fieldset.ym-columnar .ym-fbox-button {
+        padding-left: 30%;
+    }
+    .ym-skip,
+    .ym-hideme,
+    .ym-print {
+        position: absolute;
+        top: -32768px;
+        left: -32768px;
+    }
+    .ym-skip:focus,
+    .ym-skip:active {
+        position: static;
+        top: 0;
+        left: 0;
+    }
+    .ym-skiplinks {
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        left: -32768px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    .ym-skiplinks .ym-skip:focus,
+    .ym-skiplinks .ym-skip:active {
+        position: absolute;
+        left: 32768px;
+        width: 100%;
+        outline: 0 none;
+    }
+}
+
+@media print {
+    .ym-grid > .ym-gl,
+    .ym-grid > .ym-gr {
+        display: table;
+        overflow: visible;
+        table-layout: fixed;
+    }
+    .ym-print {
+        position: static;
+        left: 0;
+    }
+    .ym-noprint {
+        display: none!important;
+    }
 }
 
 
-.sf-navbar:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  z-index: -1;
-  background-color: #BDD2FF;
-  height: 200%;
-  width: 100%;
->>>>>>> origin/master
+/* Ok, this is where the fun starts.
+-------------------------------------------------------------------------------*/
+
+
+/* A Linux- and Windows-friendly sans-serif font stack: http://prospects.mhurrell.co.uk/post/updating-the-helvetica-font-stack */
+
+body {
+    font: 13px Helmet, Freesans, sans-serif;
+}
+
+
+/* Using local fonts? Check out Font Squirrel's webfont generator: http://www.fontsquirrel.com/tools/webfont-generator */
+
+
+/* We like off-black for text. */
+
+body,
+select,
+input,
+textarea {
+    color: #333;
+}
+
+a {
+    color: #03f;
+}
+
+a:hover {
+    color: #69f;
+}
+
+
+/* Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301) */
+
+::-moz-selection {
+    color: #fff;
+    background: #fcd700;
+    text-shadow: none;
+}
+
+::selection {
+    color: #fff;
+    background: #fcd700;
+    text-shadow: none;
+}
+
+
+/*  j.mp/webkit-tap-highlight-color */
+
+a:link {
+    -webkit-tap-highlight-color: #fcd700;
+}
+
+ins {
+    text-decoration: none;
+    color: #000;
+    background-color: #fcd700;
+}
+
+mark {
+    font-weight: bold;
+    font-style: italic;
+    color: #000;
+    background-color: #fcd700;
+}
+
+
+/* Mozilla dosen't style place holders by default */
+
+input:-moz-placeholder {
+    color: #a9a9a9;
+}
+
+textarea:-moz-placeholder {
+    color: #a9a9a9;
+}
+
+
+/* And here begins the WordPress fun.
+-------------------------------------------------------------------------------*/
+
+#wrapper {
+    width: 960px;
+    margin: 20px auto;
+}
+
+
+/* Print styles!
+-------------------------------------------------------------------------------*/
+
+@media print {}
+
+
+/* Media queries!
+-------------------------------------------------------------------------------*/
+
+
+/* Always do mobile-first, and consider using em units: http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw
+
+@media screen and (min-width: 480px) {
+
+} */
+
+.flexible {
+    max-width: 100%;
+}
+
+
+/* IE6 support - 2% space for borders */
+
+* html .flexible {
+    width: 88%;
+}
+
+@media screen and ( max-width: 532px) {}
+
+@media screen and ( max-width: 1024px) {
+    /* linearization for grid module */
+    .linearize-level-1,
+    .linearize-level-1 > [class*='ym-g'],
+    .linearize-level-1 > *,
+    .linearize-level-1 > li > * {
+        display: block;
+        float: none;
+        width: 100% !important;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    /* reset defined gutter values */
+    .linearize-level-1 > [class*='ym-g'] > [class*='ym-gbox'] {
+        overflow: hidden;
+        /* optional for containing floats */
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.ym-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.ym-wbox {
+    position: relative;
+    max-width: 1016px;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px 0 !important;
+}
+
+.fixed {
+    position: fixed !important;
+}
+
+.absolute {
+    position: absolute !important;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+img.alignright {
+    float: right;
+    margin: 0 0 1em 1em;
+}
+
+img.alignleft {
+    float: left;
+    margin: 0 1em 1em 0;
+}
+
+img.aligncenter {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+a img.alignright {
+    float: right;
+    margin: 0 0 1em 1em;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 0 1em 1em 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/* calendar widget */
+
+.widget_calendar {
+    float: left;
+}
+
+#wp-calendar {
+    width: 100%;
+}
+
+#wp-calendar caption {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: right;
+    color: #333;
+}
+
+#wp-calendar thead {
+    font-size: 10px;
+}
+
+#wp-calendar thead th {
+    padding-bottom: 10px;
+}
+
+#wp-calendar tbody {
+    color: #aaa;
+}
+
+#wp-calendar tbody td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #fff;
+    background: #f5f5f5;
+}
+
+#wp-calendar tbody td:hover {
+    background: #fff;
+}
+
+#wp-calendar tbody .pad {
+    background: none;
+}
+
+#wp-calendar tfoot #next {
+    font-size: 10px;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+#wp-calendar tfoot #prev {
+    font-size: 10px;
+    padding-top: 10px;
+    text-transform: uppercase;
 }

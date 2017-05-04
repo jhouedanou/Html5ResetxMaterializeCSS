@@ -1,144 +1,9 @@
 <?php
-// scripts function
-remove_filter( 'the_excerpt', 'wpautop' );
-add_action('wp_enqueue_scripts','wpexplorer_scripts_function');
-function wpexplorer_scripts_function() {
-wp_enqueue_script('jquery');
- 	wp_enqueue_script('superfish', get_stylesheet_directory_uri() . '/js/superfish.js');
-	wp_enqueue_script('supersubs', get_stylesheet_directory_uri() . '/js/supersubs.js');
-	wp_enqueue_script('responsiveslides', get_stylesheet_directory_uri() . '/js/responsiveslides.min.js');
-	wp_enqueue_script('popup', get_stylesheet_directory_uri() . '/js/jquery.magnific-popup.min.js');
-<<<<<<< HEAD
-}
-//remove [] after the_excerpt
-function change_excerpt( $text )
-{
-	$pos = strrpos( $text, '[');
-	if ($pos === false)
-	{
-		return $text;
-	}
-	
-	return rtrim (substr($text, 0, $pos) );
-}
-
 /**
- * Filter the except length to 20 words.
- *
- * @param int $length Excerpt length.
- * @return int (Maybe) modified excerpt length.
+ * @package WordPress
+ * @subpackage HTML5-Reset-WordPress-Theme
+ * @since HTML5 Reset 2.0
  */
-function wpdocs_custom_excerpt_length( $length ) {
-    return 20;
-}
-add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
-
-
-add_filter('get_the_excerpt', 'change_excerpt');
-//limit the excerpt 
-function excerpt($limit) {
-  $excerpt = explode(' ', get_the_excerpt(), $limit);
-  if (count($excerpt)>=$limit) {
-    array_pop($excerpt);
-    $excerpt = implode(" ",$excerpt).'...';
-  } else {
-    $excerpt = implode(" ",$excerpt);
-  }	
-  $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
-  return $excerpt;
-}
- 
-function content($limit) {
-  $content = explode(' ', get_the_content(), $limit);
-  if (count($content)>=$limit) {
-    array_pop($content);
-    $content = implode(" ",$content).'...';
-  } else {
-    $content = implode(" ",$content);
-  }	
-  $content = preg_replace('/[.+]/','', $content);
-  $content = apply_filters('the_content', $content); 
-  $content = str_replace(']]>', ']]&gt;', $content);
-  return $content;
-=======
->>>>>>> origin/master
-}
-
-add_filter('sanitize_file_name', 'remove_accents' );
-add_filter('post_gallery', 'my_post_gallery', 10, 2);
-function my_post_gallery($output, $attr) {
-    global $post;
-    if (isset($attr['orderby'])) {
-        $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
-        if (!$attr['orderby'])
-            unset($attr['orderby']);
-    }
-    extract(shortcode_atts(array(
-        'order' => 'ASC',
-        'orderby' => 'menu_order ID',
-        'id' => $post->ID,
-        'itemtag' => 'dl',
-        'icontag' => 'dt',
-        'captiontag' => 'dd',
-        'columns' => 3,
-        'size' => 'thumbnail',
-        'include' => '',
-        'exclude' => ''
-    ), $attr));
-
-    $id = intval($id);
-    if ('RAND' == $order) $orderby = 'none';
-
-    if (!empty($include)) {
-        $include = preg_replace('/[^0-9,]+/', '', $include);
-        $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
-
-        $attachments = array();
-        foreach ($_attachments as $key => $val) {
-            $attachments[$val->ID] = $_attachments[$key];
-        }
-    }
-
-    if (empty($attachments)) return '';
-
-
-    $output = "<div class=\"my-flipster\"><ul class=\"flip-items\">\n";
-
-  // Now you loop through each attachment
-    foreach ($attachments as $id => $attachment) {
-        // Fetch the thumbnail (or full image, it's up to you)
-//      $img = wp_get_attachment_image_src($id, 'medium');
-//      $img = wp_get_attachment_image_src($id, 'my-custom-image-size');
-        $fulluma =  wp_get_attachment_image_src($id, 'large');
-        $img = wp_get_attachment_image_src($id, 'large');
-        $thumb = wp_get_attachment_image_src($id, 'medium');
-	    $alt = get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true);
-        $output .= "<li data-thumb=\"{$thumb[0]}\" data-src=\"{$fulluma[0]}\" class=\"ezswiper-slide\">\n";
-        $output .= "<a class=\"swiper-slide\" href=\"{$fulluma[0]}\" rel=\"lightbox\">";
-        $output .= "<img class=\"hoodrat\" src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"$alt\" />";
-        $output .= "</a>";
-        $output .= "</li>\n";
-    }
-
-    $output .= "</ul></div>\n";
-
-    return $output;
-}
-
-add_filter('single_template', create_function('$t', 'foreach( (array) get_the_category() as $cat ) { if ( file_exists(TEMPLATEPATH . "/single-{$cat->term_id}.php") ) return TEMPLATEPATH . "/single-{$cat->term_id}.php"; } return $t;' ));
-
-$defaults = array(
-	'default-color'          => '',
-	'default-image'          => '',
-	'default-repeat'         => '',
-	'default-position-x'     => '',
-	'default-attachment'     => '',
-	'wp-head-callback'       => '_custom_background_cb',
-	'admin-head-callback'    => '',
-	'admin-preview-callback' => ''
-);
-add_theme_support( 'custom-background', $defaults );
-
 function wpc_dashicons() {
 wp_enqueue_style('dashicons');
 }
@@ -149,8 +14,82 @@ function gn_tinymce_filtre($arr){
 add_filter('tiny_mce_before_init', 'gn_tinymce_filtre');
 add_action('wp_enqueue_scripts', 'wpc_dashicons');
 
-add_filter('show_admin_bar', '__return_false');
+	remove_filter( 'the_excerpt', 'wpautop' );
+	function arphabet_widgets_init() {
 
+		register_sidebar( array(
+			'name'          => 'Liste des langues',
+			'id'            => 'langlist',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		) );
+
+	}
+add_action('wp_enqueue_scripts', 'cssmenumaker_scripts_styles' );
+function cssmenumaker_scripts_styles() {
+   wp_enqueue_style( 'cssmenu-styles', get_template_directory_uri() . '/cssmenu/styles.css');
+}
+class CSS_Menu_Maker_Walker extends Walker {
+
+  var $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
+  
+  function start_lvl( &$output, $depth = 0, $args = array() ) {
+    $indent = str_repeat("\t", $depth);
+    $output .= "\n$indent<ul>\n";
+  }
+  
+  function end_lvl( &$output, $depth = 0, $args = array() ) {
+    $indent = str_repeat("\t", $depth);
+    $output .= "$indent</ul>\n";
+  }
+  
+  function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+  
+    global $wp_query;
+    $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+    $class_names = $value = ''; 
+    $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+    
+    /* Add active class */
+    if(in_array('current-menu-item', $classes)) {
+      $classes[] = 'active';
+      unset($classes['current-menu-item']);
+    }
+    
+    /* Check for children */
+    $children = get_posts(array('post_type' => 'nav_menu_item', 'nopaging' => true, 'numberposts' => 1, 'meta_key' => '_menu_item_menu_item_parent', 'meta_value' => $item->ID));
+    if (!empty($children)) {
+      $classes[] = 'has-sub';
+    }
+    
+    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+    
+    $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+    $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+    
+    $output .= $indent . '<li' . $id . $value . $class_names .'>';
+    
+    $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+    $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+    $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+    $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+    
+    $item_output = $args->before;
+    $item_output .= '<a'. $attributes .'><span>';
+    $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+    $item_output .= '</span></a>';
+    $item_output .= $args->after;
+    
+    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+  }
+  
+  function end_el( &$output, $item, $depth = 0, $args = array() ) {
+    $output .= "</li>\n";
+  }
+}
 	// Options Framework (https://github.com/devinsays/options-framework-plugin)
 	if ( !function_exists( 'optionsframework_init' ) ) {
 		define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/_/inc/' );
@@ -225,7 +164,7 @@ add_filter('show_admin_bar', '__return_false');
 		function core_mods() {
 			if ( !is_admin() ) {
 				wp_deregister_script( 'jquery' );
-				wp_register_script( 'jquery', ( "https://code.jquery.com/jquery-2.1.1.min.js"), true);
+				wp_register_script( 'jquery', ( "/wp-content/themes/pfa/_/js/jquery-1.11.0.min.js" ), true);
 				wp_enqueue_script( 'jquery' );
 			}
 		}

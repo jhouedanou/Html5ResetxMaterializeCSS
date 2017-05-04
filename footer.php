@@ -5,54 +5,18 @@
  * @since HTML5 Reset 2.0
  */
 ?>
+		<footer id="footer" class="source-org vcard copyright" role="contentinfo">
+			<small>&copy;<?php echo date("Y"); echo " "; bloginfo('name'); ?></small>
+		</footer>
 
-<<<<<<< HEAD
-<!-- jQuery is called via the WordPress-friendly way via functions.php -->
-<script>
-	var timer = 0;
-    function recheck() {
-        var window_top = $(this).scrollTop();
-        var window_height = $(this).height();
-        var view_port_s = window_top;
-        var view_port_e = window_top + window_height;
-        
-        if ( timer ) {
-          clearTimeout( timer );
-        }
-        
-        $('.fly').each(function(){
-          var block = $(this);
-          var block_top = block.offset().top;
-          var block_height = block.height();
-          
-          if ( block_top < view_port_e ) {
-            timer = setTimeout(function(){
-              block.addClass('show-block');
-            },100);       
-          } else {
-            timer = setTimeout(function(){
-              block.removeClass('show-block');
-            },100);          
-          }
-        });
-    }
+	</div>
 
-    $(function(){
-      $(window).scroll(function(){
-        recheck();
-      });
-      
-      $(window).resize(function(){
-         recheck();   
-      });
-      
-      recheck();
-    });
-</script>
-<!-- this is where we put our custom functions -->
-=======
 	<?php wp_footer(); ?>
->>>>>>> origin/master
+
+
+<!-- jQuery is called via the WordPress-friendly way via functions.php -->
+
+<!-- this is where we put our custom functions -->
 <script src="<?php bloginfo('template_directory'); ?>/_/js/functions.js"></script>
 
 <!-- Asynchronous google analytics; this is the official snippet.
