@@ -11,7 +11,7 @@
     <!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" <?php language_attributes(); ?>> <![endif]-->
     <!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" <?php language_attributes(); ?>> <![endif]-->
     <!--[if gt IE 9]><!-->
-    <html class="no-js" <?php language_attributes(); ?>>
+    <html class="no-js" <?php language_attributes(); ?> prefix="og:http://ogp.me/ns#">
     <!--<![endif]-->
     <!-- the "no-js" class is for Modernizr. -->
     <!-- Mobile viewport optimisation -->
@@ -98,25 +98,37 @@
 		// Windows 8
 		if (true == of_get_option('meta_app_win_name')) {
 			echo '<meta name="application-name" content="' . of_get_option("meta_app_win_name") . '" /> ';
+			echo "\n";
 			echo '<meta name="msapplication-TileColor" content="' . of_get_option("meta_app_win_color") . '" /> ';
+			echo "\n";
 			echo '<meta name="msapplication-TileImage" content="' . of_get_option("meta_app_win_image") . '" />';
+			echo "\n";
 		}
 
 		// Twitter
 		if (true == of_get_option('meta_app_twt_card')) {
 			echo '<meta name="twitter:card" content="' . of_get_option("meta_app_twt_card") . '" />';
+			echo "\n";
 			echo '<meta name="twitter:site" content="' . of_get_option("meta_app_twt_site") . '" />';
+			echo "\n";
 			echo '<meta name="twitter:title" content="' . of_get_option("meta_app_twt_title") . '">';
+			echo "\n";
 			echo '<meta name="twitter:description" content="' . of_get_option("meta_app_twt_description") . '" />';
+			echo "\n";
 			echo '<meta name="twitter:url" content="' . of_get_option("meta_app_twt_url") . '" />';
+			echo "\n";
 		}
 
 		// Facebook
 		if (true == of_get_option('meta_app_fb_title')) {
 			echo '<meta property="og:title" content="' . of_get_option("meta_app_fb_title") . '" />';
+			echo "\n";
 			echo '<meta property="og:description" content="' . of_get_option("meta_app_fb_description") . '" />';
+			echo "\n";
 			echo '<meta property="og:url" content="' . of_get_option("meta_app_fb_url") . '" />';
+			echo "\n";
 			echo '<meta property="og:image" content="' . of_get_option("meta_app_fb_image") . '" />';
+			echo "\n";
 		}
 	?>
 <<<<<<< HEAD
