@@ -131,7 +131,6 @@
 			echo "\n";
 		}
 	?>
-<<<<<<< HEAD
 	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
