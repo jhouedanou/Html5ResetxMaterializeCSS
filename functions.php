@@ -5,8 +5,6 @@
  * @since HTML5 Reset 2.0
  */
 add_filter( 'auto_update_plugin', '__return_true' );
-
-
 function wpc_dashicons() {
 wp_enqueue_style('dashicons');
 }
