@@ -6,869 +6,1260 @@ Author: Monkey Do! + @ckhicks
 Author URI: http://monkeydo.biz
 Version: 2.0
 */
+//colors
+$black: #000;
+$white: #fff;
+$color_celeste_approx: #ccc;
+$color_mine_shaft_approx: #333;
+$color_blue_approx: #03f;
+$color_cornflower_blue_approx: #69f;
+$color_gold_approx: #fcd700;
+$color_shady_lady_approx: #a9a9a9;
+$color_silver_chalice_approx: #aaa;
+$color_wild_sand_approx: #f5f5f5;
 
-html {
-  margin: 0;
-  padding: 0;
-  border: 0;
+//fonts
+$font_0: sans-serif;
+$font_1: monospace;
+$font_2: Helmet;
+$font_3: Freesans;
+
+//@extend-elements
+//original selectors
+//html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary
+%extend_1 {
   font-size: 100%;
   font-weight: normal;
+  margin: 0;
+  padding: 0;
   vertical-align: baseline;
+  border: 0;
   background: transparent;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font-weight: normal;
-  vertical-align: baseline;
-  background: transparent;
-
-  div {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font-weight: normal;
-    vertical-align: baseline;
-    background: transparent;
-  }
-}
-/*! http://responsiveslides.com v1.55 by @viljamis */
-
-.rslides {
+//original selectors
+//sub, sup
+%extend_2 {
+  font-size: 75%;
+  line-height: 0;
   position: relative;
-  list-style: none;
-  overflow: hidden;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  li {
-    -webkit-backface-visibility: hidden;
-    position: absolute;
-    display: none;
-    width: 100%;
-    left: 0;
-    top: 0;
-    &:first-child {
-      position: relative;
-      display: block;
-      float: left;
-    }
-  }
-  img {
-    display: block;
-    height: auto;
-    float: left;
-    width: 100%;
-    border: 0;
-  }
-}
-span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font-weight: normal;
-  vertical-align: baseline;
-  background: transparent;
 }
 
-article, aside, figure, footer, header, nav, section, details, summary {
+//original selectors
+//.clearfix:before, .clearfix:after
+%extend_3 {
   display: block;
+  overflow: hidden;
+  height: 0;
+  content: '\0020';
 }
 
-/* Handle box-sizing while better addressing child elements:
-   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 
 html {
+  @extend %extend_1;
+  //Instead of the line below you could use @include box-sizing($bs)
   box-sizing: border-box;
-}
-
-* {
-  box-sizing: inherit;
-
-  &:before, &:after {
-    box-sizing: inherit;
-  }
-}
-
-/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
-
-/* Responsive images and other embedded objects
-   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
-   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
-
-img, object, embed {
-  max-width: 100%;
-}
-
-/* force a vertical scrollbar to prevent a jumpy page */
-
-html {
   overflow-y: scroll;
 }
-
-/* we use a lot of ULs that aren't bulleted.
-  don't forget to restore the bullets within content. */
-
-ul {
-  list-style: none;
+body {
+  @extend %extend_1;
+  font: 13px $font_2, $font_3, $font_0;
+  color: $color_mine_shaft_approx;
+  div {
+    @extend %extend_1;
+  }
 }
-
-blockquote, q {
-  quotes: none;
+span {
+  @extend %extend_1;
 }
-
+object {
+  @extend %extend_1;
+  max-width: 100%;
+}
+iframe {
+  @extend %extend_1;
+}
+h1 {
+  @extend %extend_1;
+}
+h2 {
+  @extend %extend_1;
+}
+h3 {
+  @extend %extend_1;
+}
+h4 {
+  @extend %extend_1;
+}
+h5 {
+  @extend %extend_1;
+}
+h6 {
+  @extend %extend_1;
+}
+p {
+  @extend %extend_1;
+}
 blockquote {
-  &:before, &:after {
+  @extend %extend_1;
+  quotes: none;
+  &:before {
+    content: '';
+    content: none;
+  }
+  &:after {
     content: '';
     content: none;
   }
 }
-
-q {
-  &:before, &:after {
-    content: '';
-    content: none;
-  }
+pre {
+  @extend %extend_1;
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
+  font-family: $font_1, $font_0;
 }
-
-a {
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
+abbr {
+  @extend %extend_1;
 }
-
+address {
+  @extend %extend_1;
+}
+cite {
+  @extend %extend_1;
+}
+code {
+  @extend %extend_1;
+  font-family: $font_1, $font_0;
+}
 del {
+  @extend %extend_1;
   text-decoration: line-through;
 }
-
-abbr[title], dfn[title] {
-  border-bottom: 1px dotted #000;
-  cursor: help;
+dfn {
+  @extend %extend_1;
 }
-
-/* tables still need cellspacing="0" in the markup */
-
+em {
+  @extend %extend_1;
+}
+img {
+  @extend %extend_1;
+  max-width: 100%;
+  &.alignright {
+    float: right;
+    margin: 0 0 1em 1em;
+  }
+  &.alignleft {
+    float: left;
+    margin: 0 1em 1em 0;
+  }
+  &.aligncenter {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+ins {
+  @extend %extend_1;
+  text-decoration: none;
+  color: $black;
+  background-color: $color_gold_approx;
+}
+kbd {
+  @extend %extend_1;
+  font-family: $font_1, $font_0;
+}
+q {
+  @extend %extend_1;
+  quotes: none;
+  &:before {
+    content: '';
+    content: none;
+  }
+  &:after {
+    content: '';
+    content: none;
+  }
+}
+samp {
+  @extend %extend_1;
+  font-family: $font_1, $font_0;
+}
+small {
+  @extend %extend_1;
+  font-size: 85%;
+}
+strong {
+  @extend %extend_1;
+  font-weight: bold;
+}
+sub {
+  @extend %extend_1;
+  @extend %extend_2;
+  bottom: -.25em;
+}
+sup {
+  @extend %extend_1;
+  @extend %extend_2;
+  top: -.5em;
+}
+var {
+  @extend %extend_1;
+}
+b {
+  @extend %extend_1;
+}
+i {
+  @extend %extend_1;
+}
+dl {
+  @extend %extend_1;
+}
+dt {
+  @extend %extend_1;
+}
+dd {
+  @extend %extend_1;
+}
+ol {
+  @extend %extend_1;
+}
+ul {
+  @extend %extend_1;
+  list-style: none;
+}
+li {
+  @extend %extend_1;
+}
+fieldset {
+  @extend %extend_1;
+}
+form {
+  @extend %extend_1;
+}
+label {
+  @extend %extend_1;
+  cursor: pointer;
+}
+legend {
+  @extend %extend_1;
+}
 table {
-  border-collapse: collapse;
+  @extend %extend_1;
   border-spacing: 0;
+  border-collapse: collapse;
+  font: 100%;
+  font-size: inherit;
 }
-
+caption {
+  @extend %extend_1;
+}
+tbody {
+  @extend %extend_1;
+}
+tfoot {
+  @extend %extend_1;
+}
+thead {
+  @extend %extend_1;
+}
+tr {
+  @extend %extend_1;
+}
 th {
+  @extend %extend_1;
   font-weight: bold;
   vertical-align: bottom;
 }
-
 td {
+  @extend %extend_1;
   font-weight: normal;
   vertical-align: top;
-}
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-input, select {
-  vertical-align: middle;
-}
-
-pre {
-  white-space: pre;
-
-  /* CSS2 */
-  white-space: pre-wrap;
-
-  /* CSS 2.1 */
-  white-space: pre-line;
-
-  /* CSS 3 (and 2.1 as well, actually) */
-  word-wrap: break-word;
-
-  /* IE */
-}
-
-input {
-  &[type="radio"] {
-    vertical-align: text-bottom;
-  }
-
-  &[type="checkbox"] {
-    vertical-align: bottom;
-  }
-}
-
-.ie7 input[type="checkbox"] {
-  vertical-align: baseline;
-}
-
-.ie6 input {
-  vertical-align: text-bottom;
-}
-
-select, input, textarea {
-  font: 99% sans-serif;
-}
-
-table {
-  font-size: inherit;
-  font: 100%;
-}
-
-small {
-  font-size: 85%;
-}
-
-strong {
-  font-weight: bold;
-}
-
-td {
   vertical-align: top;
-
   img {
     vertical-align: top;
   }
 }
-
-/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
-
-sub {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
+article {
+  @extend %extend_1;
+  display: block;
 }
-
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  top: -0.5em;
+aside {
+  @extend %extend_1;
+  display: block;
 }
-
-sub {
-  bottom: -0.25em;
+figure {
+  @extend %extend_1;
+  display: block;
 }
-
-/* standardize any monospaced elements */
-
-pre, code, kbd, samp {
-  font-family: monospace, sans-serif;
+footer {
+  @extend %extend_1;
+  display: block;
 }
-
-/* hand cursor on clickable elements */
-
-.clickable, label {
-  cursor: pointer;
+header {
+  @extend %extend_1;
+  display: block;
 }
-
-input {
-  &[type=button], &[type=submit], &[type=file] {
-    cursor: pointer;
+menu {
+  @extend %extend_1;
+}
+nav {
+  @extend %extend_1;
+  display: block;
+}
+section {
+  @extend %extend_1;
+  display: block;
+}
+time {
+  @extend %extend_1;
+}
+mark {
+  @extend %extend_1;
+  font-weight: bold;
+  font-style: italic;
+  color: $black;
+  background-color: $color_gold_approx;
+}
+audio {
+  @extend %extend_1;
+}
+video {
+  @extend %extend_1;
+}
+details {
+  @extend %extend_1;
+  display: block;
+}
+summary {
+  @extend %extend_1;
+  display: block;
+}
+* {
+  //Instead of the line below you could use @include box-sizing($bs)
+  box-sizing: inherit;
+  &:before {
+    //Instead of the line below you could use @include box-sizing($bs)
+    box-sizing: inherit;
+  }
+  &:after {
+    //Instead of the line below you could use @include box-sizing($bs)
+    box-sizing: inherit;
+  }
+  html .flexible {
+    width: 88%;
   }
 }
-
+embed {
+  max-width: 100%;
+}
+a {
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  background: transparent;
+  color: $color_blue_approx;
+  &:hover {
+    color: $color_cornflower_blue_approx;
+  }
+  &:link {
+  }
+  img {
+    &.alignright {
+      float: right;
+      margin: 0 0 1em 1em;
+    }
+    &.alignleft {
+      float: left;
+      margin: 0 1em 1em 0;
+    }
+    &.aligncenter {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted $black;
+}
+dfn[title] {
+  cursor: help;
+  border-bottom: 1px dotted $black;
+}
+hr {
+  display: block;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid $color_celeste_approx;
+}
+input {
+  vertical-align: middle;
+  font: 99% $font_0;
+  margin: 0;
+  color: $color_mine_shaft_approx;
+  &:-moz-placeholder {
+    color: $color_shady_lady_approx;
+  }
+}
+select {
+  vertical-align: middle;
+  font: 99% $font_0;
+  margin: 0;
+  color: $color_mine_shaft_approx;
+}
+input[type='radio'] {
+  vertical-align: text-bottom;
+}
+input[type='checkbox'] {
+  vertical-align: bottom;
+}
+.ie7 {
+  input[type='checkbox'] {
+    vertical-align: baseline;
+  }
+  img {
+  }
+}
+textarea {
+  font: 99% $font_0;
+  margin: 0;
+  color: $color_mine_shaft_approx;
+  &:-moz-placeholder {
+    color: $color_shady_lady_approx;
+  }
+}
+.clickable {
+  cursor: pointer;
+}
+input[type=button] {
+  cursor: pointer;
+  overflow: visible;
+  width: auto;
+}
+input[type=submit] {
+  cursor: pointer;
+}
+input[type=file] {
+  cursor: pointer;
+}
 button {
   cursor: pointer;
   margin: 0;
-}
-
-/* Webkit browsers add a 2px margin outside the chrome of form elements */
-
-input, select, textarea {
-  margin: 0;
-}
-
-/* make buttons play nice in IE */
-
-button, input[type=button] {
-  width: auto;
   overflow: visible;
+  width: auto;
 }
-
-/* scale images in IE7 more attractively */
-
-.ie7 img {
-  -ms-interpolation-mode: bicubic;
-}
-
-/* prevent BG image flicker upon hover
-   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
-.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
-*/
-
-/* let's clear some floats */
-
 .clearfix {
+  zoom: 1;
   &:before {
-    content: "\0020";
-    display: block;
-    height: 0;
-    overflow: hidden;
+    @extend %extend_3;
   }
-
   &:after {
-    content: "\0020";
-    display: block;
-    height: 0;
-    overflow: hidden;
+    @extend %extend_3;
     clear: both;
   }
-
-  zoom: 1;
 }
-
 .chromeframe {
   position: absolute;
   top: 0;
 }
-
-/*! yaml-css v4.1.0 (2013-06-11) */
-
 @media all {
   * {
     margin: 0;
     padding: 0;
+    html body * {
+      overflow: visible;
+    }
   }
-
   option {
     padding-left: .4em;
   }
-
   select {
     padding: 1px;
   }
-
-  * html body * {
-    overflow: visible;
-  }
-
   body {
     font-size: 100%;
-    background: #fff;
-    color: #000;
     text-align: left;
+    color: $black;
+    background: $white;
   }
-
-  div:target, h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
-    outline: 0 none;
-  }
-
-  article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  article {
     display: block;
   }
-
-  audio, canvas, video {
-    display: inline-block;
+  aside {
+    display: block;
   }
-
-  audio:not([controls]), [hidden] {
-    display: none;
+  details {
+    display: block;
   }
-
-  html {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+  figcaption {
+    display: block;
   }
-
-  input {
-    &[type=checkbox], &[type=radio] {
-      box-sizing: border-box;
-      padding: 0;
-    }
-
-    &[type=search] {
-      -webkit-appearance: textfield;
-      -webkit-box-sizing: content-box;
-      -moz-box-sizing: content-box;
-      box-sizing: content-box;
-
-      &::-webkit-search-cancel-button, &::-webkit-search-decoration {
-        -webkit-appearance: none;
-      }
-    }
-  }
-
-  svg:not(:root) {
-    overflow: hidden;
-  }
-
   figure {
+    display: block;
     margin: 0;
   }
-
-  fieldset, img {
+  footer {
+    display: block;
+  }
+  header {
+    display: block;
+  }
+  hgroup {
+    display: block;
+  }
+  main {
+    display: block;
+  }
+  nav {
+    display: block;
+  }
+  section {
+    display: block;
+  }
+  summary {
+    display: block;
+  }
+  audio {
+    display: inline-block;
+    &:not([controls]) {
+      display: none;
+    }
+  }
+  canvas {
+    display: inline-block;
+  }
+  video {
+    display: inline-block;
+  }
+  [hidden] {
+    display: none;
+  }
+  html {
+  }
+  input[type=checkbox] {
+    //Instead of the line below you could use @include box-sizing($bs)
+    box-sizing: border-box;
+    padding: 0;
+  }
+  input[type=radio] {
+    //Instead of the line below you could use @include box-sizing($bs)
+    box-sizing: border-box;
+    padding: 0;
+  }
+  input[type=search] {
+    //Instead of the line below you could use @include box-sizing($bs)
+    box-sizing: content-box;
+  }
+  input[type=search]::-webkit-search-cancel-button {
+  }
+  input[type=search]::-webkit-search-decoration {
+  }
+  fieldset {
+    border: 0 solid;
+    &.ym-columnar .ym-fbox-button {
+      padding-left: 30%;
+    }
+  }
+  img {
     border: 0 solid;
   }
-
-  ul, ol, dl {
+  ul {
     margin: 0 0 1em 1em;
   }
-
+  ol {
+    margin: 0 0 1em 1em;
+  }
+  dl {
+    margin: 0 0 1em 1em;
+  }
   li {
     line-height: 1.5em;
     margin-left: .8em;
   }
-
   dt {
     font-weight: 700;
   }
-
-  dd, blockquote {
+  dd {
     margin: 0 0 1em .8em;
   }
-
+  blockquote {
+    margin: 0 0 1em .8em;
+    &:before {
+      content: '';
+      content: none;
+    }
+    &:after {
+      content: '';
+      content: none;
+    }
+  }
   q {
     quotes: none;
-  }
-
-  blockquote {
-    &:before, &:after {
+    &:before {
+      content: '';
+      content: none;
+    }
+    &:after {
       content: '';
       content: none;
     }
   }
-
-  q {
-    &:before, &:after {
-      content: '';
-      content: none;
-    }
-  }
-
   table {
-    border-collapse: collapse;
     border-spacing: 0;
+    border-collapse: collapse;
   }
-
   .ym-clearfix {
     &:before {
-      content: "";
       display: table;
+      content: '';
     }
-
     &:after {
-      clear: both;
-      content: ".";
-      display: block;
       font-size: 0;
-      height: 0;
+      display: block;
       visibility: hidden;
+      clear: both;
+      height: 0;
+      content: '.';
     }
   }
-
   .ym-contain-dt {
     display: table;
-    table-layout: fixed;
     width: 100%;
+    table-layout: fixed;
   }
-
   .ym-contain-oh {
     display: block;
     overflow: hidden;
     width: 100%;
   }
-
   .ym-contain-fl {
     float: left;
     width: 100%;
   }
-
   .ym-column {
     display: table;
-    table-layout: fixed;
     width: 100%;
+    table-layout: fixed;
   }
-
   .ym-col1 {
     float: left;
     width: 20%;
   }
-
   .ym-col2 {
     float: right;
     width: 20%;
   }
-
   .ym-col3 {
     width: auto;
     margin: 0 20%;
   }
-
   .ym-cbox {
     padding: 0 10px;
   }
-
   .ym-cbox-left {
     padding: 0 10px 0 0;
   }
-
   .ym-cbox-right {
     padding: 0 0 0 10px;
   }
-
   .ym-ie-clearing {
     display: none;
   }
-
   .ym-grid {
     display: table;
-    table-layout: fixed;
     width: 100%;
-    list-style-type: none;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 0;
     margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+    table-layout: fixed;
+    list-style-type: none;
   }
-
   .ym-gl {
     float: left;
     margin: 0;
   }
-
   .ym-gr {
     float: right;
     margin: 0 0 0 -5px;
   }
-
   .ym-g20 {
     width: 20%;
   }
-
   .ym-g40 {
     width: 40%;
   }
-
   .ym-g60 {
     width: 60%;
   }
-
   .ym-g80 {
     width: 80%;
   }
-
   .ym-g25 {
     width: 25%;
   }
-
   .ym-g33 {
     width: 33.333%;
   }
-
   .ym-g50 {
     width: 50%;
   }
-
   .ym-g66 {
     width: 66.666%;
   }
-
   .ym-g75 {
     width: 75%;
   }
-
   .ym-g38 {
     width: 38.2%;
   }
-
   .ym-g62 {
     width: 61.8%;
   }
-
   .ym-gbox {
     padding: 0 10px;
   }
-
   .ym-gbox-left {
     padding: 0 10px 0 0;
   }
-
   .ym-gbox-right {
     padding: 0 0 0 10px;
   }
-
   .ym-equalize {
     overflow: hidden;
-
     > [class*=ym-g] {
       display: table-cell;
       float: none;
       margin: 0;
       vertical-align: top;
-
       > [class*=ym-gbox] {
-        padding-bottom: 10000px;
         margin-bottom: -10000px;
+        padding-bottom: 10000px;
       }
     }
   }
-
   .ym-form {
     overflow: hidden;
-
     fieldset {
       overflow: hidden;
     }
-
     div {
       position: relative;
     }
-
-    label, .ym-label, .ym-message {
-      position: relative;
+    label {
       line-height: 1.5;
+      position: relative;
+      display: block;
+      cursor: pointer;
+      //Instead of the line below you could use @include box-sizing($bs)
+      box-sizing: border-box;
+    }
+    .ym-label {
+      line-height: 1.5;
+      position: relative;
+      display: block;
+      //Instead of the line below you could use @include box-sizing($bs)
+      box-sizing: border-box;
+    }
+    .ym-message {
+      line-height: 1.5;
+      position: relative;
       display: block;
     }
-
-    .ym-fbox-check label {
-      display: inline;
-    }
-
-    input, textarea {
-      cursor: text;
-    }
-
-    .ym-fbox-check input {
-      cursor: pointer;
-    }
-
-    input {
-      &[type=radio], &[type=checkbox] {
+    .ym-fbox-check {
+      label {
+        display: inline;
+      }
+      input {
         cursor: pointer;
+        display: inline;
+        width: auto;
+        margin-right: .5ex;
+        margin-left: 0;
+        &:focus {
+          border: 0 none;
+        }
+        &:hover {
+          border: 0 none;
+        }
+        &:active {
+          border: 0 none;
+        }
+      }
+      &:before {
+        display: table;
+        content: '';
+      }
+      &:after {
+        font-size: 0;
+        display: block;
+        visibility: hidden;
+        clear: both;
+        height: 0;
+        content: '.';
       }
     }
-
-    select, label {
-      cursor: pointer;
-    }
-
-    textarea {
-      overflow: auto;
-    }
-
     input {
-      &.hidden, &[type=hidden] {
-        display: none !important;
+      cursor: text;
+      position: relative;
+      display: block;
+      //Instead of the line below you could use @include box-sizing($bs)
+      box-sizing: border-box;
+      width: 70%;
+      &.hidden {
+        display: none!important;
       }
     }
-
-    .ym-fbox:before, .ym-fbox-text:before, .ym-fbox-select:before, .ym-fbox-check:before, .ym-fbox-button:before {
-      content: "";
-      display: table;
-    }
-
-    .ym-fbox:after, .ym-fbox-text:after, .ym-fbox-select:after, .ym-fbox-check:after, .ym-fbox-button:after {
-      clear: both;
-      content: ".";
+    textarea {
+      cursor: text;
+      overflow: auto;
+      position: relative;
       display: block;
-      font-size: 0;
-      height: 0;
-      visibility: hidden;
+      //Instead of the line below you could use @include box-sizing($bs)
+      box-sizing: border-box;
+      width: 70%;
     }
-
-    .ym-fbox-check input {
-      &:focus, &:hover, &:active {
+    input[type=radio] {
+      cursor: pointer;
+      display: inline;
+      width: auto;
+      margin-right: .5ex;
+      margin-left: 0;
+      &:focus {
+        border: 0 none;
+      }
+      &:hover {
+        border: 0 none;
+      }
+      &:active {
         border: 0 none;
       }
     }
-
-    input {
-      &[type=radio] {
-        &:focus, &:hover, &:active {
-          border: 0 none;
-        }
-      }
-
-      &[type=checkbox] {
-        &:focus, &:hover, &:active {
-          border: 0 none;
-        }
-      }
-
-      display: block;
-      position: relative;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      width: 70%;
-    }
-
-    textarea, select {
-      display: block;
-      position: relative;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      width: 70%;
-    }
-
-    .ym-fbox-check input {
-      width: auto;
+    input[type=checkbox] {
+      cursor: pointer;
       display: inline;
       width: auto;
-      margin-left: 0;
       margin-right: .5ex;
-    }
-
-    input {
-      &[type=radio], &[type=checkbox] {
-        width: auto;
-        display: inline;
-        width: auto;
-        margin-left: 0;
-        margin-right: .5ex;
+      margin-left: 0;
+      &:focus {
+        border: 0 none;
+      }
+      &:hover {
+        border: 0 none;
+      }
+      &:active {
+        border: 0 none;
       }
     }
-
-    label, .ym-label {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
+    select {
+      cursor: pointer;
+      position: relative;
+      display: block;
+      //Instead of the line below you could use @include box-sizing($bs)
       box-sizing: border-box;
+      width: 70%;
     }
-
-    .ym-fbox-button input {
-      display: inline;
-      overflow: visible;
-      width: auto;
+    input[type=hidden] {
+      display: none!important;
     }
-
+    .ym-fbox {
+      &:before {
+        display: table;
+        content: '';
+      }
+      &:after {
+        font-size: 0;
+        display: block;
+        visibility: hidden;
+        clear: both;
+        height: 0;
+        content: '.';
+      }
+    }
+    .ym-fbox-text {
+      &:before {
+        display: table;
+        content: '';
+      }
+      &:after {
+        font-size: 0;
+        display: block;
+        visibility: hidden;
+        clear: both;
+        height: 0;
+        content: '.';
+      }
+    }
+    .ym-fbox-select {
+      &:before {
+        display: table;
+        content: '';
+      }
+      &:after {
+        font-size: 0;
+        display: block;
+        visibility: hidden;
+        clear: both;
+        height: 0;
+        content: '.';
+      }
+    }
+    .ym-fbox-button {
+      &:before {
+        display: table;
+        content: '';
+      }
+      &:after {
+        font-size: 0;
+        display: block;
+        visibility: hidden;
+        clear: both;
+        height: 0;
+        content: '.';
+      }
+      input {
+        display: inline;
+        overflow: visible;
+        width: auto;
+      }
+    }
     .ym-inline {
       display: inline-block;
       width: auto;
       vertical-align: baseline;
     }
   }
-
   .ym-fbox-wrap {
     display: table;
-    table-layout: fixed;
     width: 70%;
-
-    input, textarea, select {
+    table-layout: fixed;
+    input {
       width: 100%;
     }
-
-    input {
-      &[type=radio], &[type=checkbox] {
-        display: inline;
-        width: auto;
-        margin-left: 0;
-        margin-right: .5ex;
-      }
+    textarea {
+      width: 100%;
     }
-
-    label, .ym-label {
+    select {
+      width: 100%;
+    }
+    input[type=radio] {
+      display: inline;
+      width: auto;
+      margin-right: .5ex;
+      margin-left: 0;
+    }
+    input[type=checkbox] {
+      display: inline;
+      width: auto;
+      margin-right: .5ex;
+      margin-left: 0;
+    }
+    label {
       display: inline;
     }
+    .ym-label {
+      display: inline;
+    }
+    + .ym-fbox-wrap {
+      margin-top: .5em;
+    }
   }
-
   .ym-full {
-    input, textarea, select, .ym-fbox-wrap {
+    input {
+      width: 100%;
+    }
+    textarea {
+      width: 100%;
+    }
+    select {
+      width: 100%;
+    }
+    .ym-fbox-wrap {
       width: 100%;
     }
   }
-
   .ym-columnar {
-    input, textarea, select {
+    input {
       float: left;
       margin-right: -3px;
     }
-
-    label, .ym-label {
+    textarea {
+      float: left;
+      margin-right: -3px;
+    }
+    select {
+      float: left;
+      margin-right: -3px;
+    }
+    label {
+      z-index: 1;
       display: inline;
       float: left;
       width: 30%;
+    }
+    .ym-label {
       z-index: 1;
+      display: inline;
+      float: left;
+      width: 30%;
     }
-
-    .ym-fbox-check input, .ym-message {
-      margin-left: 30%;
-    }
-
-    .ym-fbox-wrap {
-      margin-left: 30%;
-      margin-right: -3px;
-
-      label {
-        float: none;
-        width: auto;
-        z-index: 1;
-        margin-left: 0;
-      }
-
-      input {
-        margin-left: 0;
-        position: relative;
-      }
-    }
-
     .ym-fbox-check {
       position: relative;
-
-      label, .ym-label {
-        padding-top: 0;
-      }
-
       input {
+        margin-left: 30%;
         top: 3px;
       }
+      label {
+        padding-top: 0;
+      }
+      .ym-label {
+        padding-top: 0;
+      }
     }
-
+    .ym-message {
+      margin-left: 30%;
+    }
+    .ym-fbox-wrap {
+      margin-right: -3px;
+      margin-left: 30%;
+      label {
+        z-index: 1;
+        float: none;
+        width: auto;
+        margin-left: 0;
+      }
+      input {
+        position: relative;
+        margin-left: 0;
+      }
+    }
     .ym-fbox-button input {
       float: none;
       margin-right: 1em;
     }
+    fieldset .ym-fbox-button {
+      padding-left: 30%;
+    }
   }
-
-  .ym-fbox-wrap + .ym-fbox-wrap {
-    margin-top: .5em;
-  }
-
-  .ym-columnar fieldset .ym-fbox-button, fieldset.ym-columnar .ym-fbox-button {
-    padding-left: 30%;
-  }
-
-  .ym-skip, .ym-hideme, .ym-print {
+  .ym-skip {
     position: absolute;
     top: -32768px;
     left: -32768px;
-  }
-
-  .ym-skip {
-    &:focus, &:active {
+    &:focus {
+      position: static;
+      top: 0;
+      left: 0;
+    }
+    &:active {
       position: static;
       top: 0;
       left: 0;
     }
   }
-
+  .ym-hideme {
+    position: absolute;
+    top: -32768px;
+    left: -32768px;
+  }
+  .ym-print {
+    position: absolute;
+    top: -32768px;
+    left: -32768px;
+  }
   .ym-skiplinks {
     position: absolute;
+    z-index: 1000;
     top: 0;
     left: -32768px;
-    z-index: 1000;
     width: 100%;
     margin: 0;
     padding: 0;
     list-style-type: none;
-
     .ym-skip {
-      &:focus, &:active {
-        left: 32768px;
-        outline: 0 none;
+      &:focus {
         position: absolute;
+        left: 32768px;
         width: 100%;
+        outline: 0 none;
+      }
+      &:active {
+        position: absolute;
+        left: 32768px;
+        width: 100%;
+        outline: 0 none;
       }
     }
   }
+  div:target {
+    outline: 0 none;
+  }
+  h1:target {
+    outline: 0 none;
+  }
+  h2:target {
+    outline: 0 none;
+  }
+  h3:target {
+    outline: 0 none;
+  }
+  h4:target {
+    outline: 0 none;
+  }
+  h5:target {
+    outline: 0 none;
+  }
+  h6:target {
+    outline: 0 none;
+  }
+  svg:not(:root) {
+    overflow: hidden;
+  }
+}
+@media print {
+}
+::-moz-selection {
+  color: $white;
+  background: $color_gold_approx;
+  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  text-shadow: none;
+}
+::selection {
+  color: $white;
+  background: $color_gold_approx;
+  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  text-shadow: none;
+}
+#wrapper {
+  width: 960px;
+  margin: 20px auto;
+}
+.flexible {
+  max-width: 100%;
+}
+@media screen and(max-width: 532px) {
+}
+@media screen and(max-width: 1024px) {
+  .linearize-level-1 {
+    display: block;
+    float: none;
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    > [class*='ym-g'] {
+      display: block;
+      float: none;
+      width: 100% !important;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      > [class*='ym-gbox'] {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+    }
+    > * {
+      display: block;
+      float: none;
+      width: 100% !important;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    > li > * {
+      display: block;
+      float: none;
+      width: 100% !important;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+  }
+}
+.ym-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+.ym-wbox {
+  position: relative;
+  max-width: 1016px;
+  height: auto;
+  margin: 0 auto;
+  padding: 10px 0 !important;
+}
+.fixed {
+  position: fixed !important;
+}
+.absolute {
+  position: absolute !important;
+}
+.justify {
+  text-align: justify;
+}
+.bold {
+  font-weight: bold;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+.widget_calendar {
+  float: left;
+}
+#wp-calendar {
+  width: 100%;
+  caption {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: right;
+    color: $color_mine_shaft_approx;
+  }
+  thead {
+    font-size: 10px;
+    th {
+      padding-bottom: 10px;
+    }
+  }
+  tbody {
+    color: $color_silver_chalice_approx;
+    td {
+      padding: 8px;
+      text-align: center;
+      border: 1px solid $white;
+      background: $color_wild_sand_approx;
+      &:hover {
+        background: $white;
+      }
+    }
+    .pad {
+      background: none;
+    }
+  }
+  tfoot {
+    #next {
+      font-size: 10px;
+      text-align: right;
+      text-transform: uppercase;
+    }
+    #prev {
+      font-size: 10px;
+      padding-top: 10px;
+      text-transform: uppercase;
+    }
+  }
+}
+.ie6 input {
+  vertical-align: text-bottom;
+}

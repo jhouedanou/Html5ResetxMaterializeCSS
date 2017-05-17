@@ -4,6 +4,96 @@
  * @subpackage HTML5-Reset-WordPress-Theme
  * @since HTML5 Reset 2.0
  */
+add_filter( 'auto_update_plugin', '__return_true' );
+
+
+function wpc_dashicons() {
+wp_enqueue_style('dashicons');
+}
+function remove_head_scripts() { 
+   remove_action('wp_head', 'wp_print_scripts'); 
+   remove_action('wp_head', 'wp_print_head_scripts', 9); 
+   remove_action('wp_head', 'wp_enqueue_scripts', 1);
+
+   add_action('wp_footer', 'wp_print_scripts', 5);
+   add_action('wp_footer', 'wp_enqueue_scripts', 5);
+   add_action('wp_footer', 'wp_print_head_scripts', 5); 
+} 
+add_action( 'wp_enqueue_scripts', 'remove_head_scripts' );
+
+// END Custom Scripting to Move JavaScript
+function my_post_gallery($output, $attr) {
+    global $post;
+    if (isset($attr['orderby'])) {
+        $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
+        if (!$attr['orderby'])
+            unset($attr['orderby']);
+    }
+    extract(shortcode_atts(array(
+        'order' => 'ASC',
+        'orderby' => 'menu_order ID',
+        'id' => $post->ID,
+        'itemtag' => 'dl',
+        'icontag' => 'dt',
+        'captiontag' => 'dd',
+        'columns' => 3,
+        'size' => 'thumbnail',
+        'include' => '',
+        'exclude' => ''
+    ), $attr));
+
+    $id = intval($id);
+    if ('RAND' == $order) $orderby = 'none';
+
+    if (!empty($include)) {
+        $include = preg_replace('/[^0-9,]+/', '', $include);
+        $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+
+        $attachments = array();
+        foreach ($_attachments as $key => $val) {
+            $attachments[$val->ID] = $_attachments[$key];
+        }
+    }
+
+    if (empty($attachments)) return '';
+
+
+    $output = "<div class=\"my-flipster\"><ul class=\"flip-items\">\n";
+
+  // Now you loop through each attachment
+    foreach ($attachments as $id => $attachment) {
+        // Fetch the thumbnail (or full image, it's up to you)
+//      $img = wp_get_attachment_image_src($id, 'medium');
+//      $img = wp_get_attachment_image_src($id, 'my-custom-image-size');
+        $fulluma =  wp_get_attachment_image_src($id, 'large');
+        $img = wp_get_attachment_image_src($id, 'large');
+        $thumb = wp_get_attachment_image_src($id, 'medium');
+	    $alt = get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true);
+        $output .= "<li data-thumb=\"{$thumb[0]}\" data-src=\"{$fulluma[0]}\" class=\"ezswiper-slide\">\n";
+        $output .= "<a class=\"swiper-slide\" href=\"{$fulluma[0]}\" rel=\"lightbox\">";
+        $output .= "<img class=\"hoodrat\" src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"$alt\" />";
+        $output .= "</a>";
+        $output .= "</li>\n";
+    }
+
+    $output .= "</ul></div>\n";
+
+    return $output;
+}
+
+add_filter('single_template', create_function('$t', 'foreach( (array) get_the_category() as $cat ) { if ( file_exists(TEMPLATEPATH . "/single-{$cat->term_id}.php") ) return TEMPLATEPATH . "/single-{$cat->term_id}.php"; } return $t;' ));
+
+$defaults = array(
+	'default-color'          => '',
+	'default-image'          => '',
+	'default-repeat'         => '',
+	'default-position-x'     => '',
+	'default-attachment'     => '',
+	'wp-head-callback'       => '_custom_background_cb',
+	'admin-head-callback'    => '',
+	'admin-preview-callback' => ''
+);
+add_theme_support( 'custom-background', $defaults );
 function wpc_dashicons() {
 wp_enqueue_style('dashicons');
 }
@@ -164,7 +254,7 @@ class CSS_Menu_Maker_Walker extends Walker {
 		function core_mods() {
 			if ( !is_admin() ) {
 				wp_deregister_script( 'jquery' );
-				wp_register_script( 'jquery', ( "/wp-content/themes/pfa/_/js/jquery-1.11.0.min.js" ), true);
+				wp_register_script( 'jquery', ( "https://code.jquery.com/jquery-2.2.4.min.js" ), true);
 				wp_enqueue_script( 'jquery' );
 			}
 		}
