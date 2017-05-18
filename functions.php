@@ -5,6 +5,8 @@
  * @since HTML5 Reset 2.0
  */
 add_filter( 'auto_update_plugin', '__return_true' );
+add_filter( 'auto_update_theme', '__return_true' );
+add_filter( 'auto_update_translation', '__return_false' );
 function wpc_dashicons() {
 wp_enqueue_style('dashicons');
 }
@@ -18,7 +20,7 @@ function remove_head_scripts() {
    add_action('wp_footer', 'wp_print_head_scripts', 5); 
 } 
 add_action( 'wp_enqueue_scripts', 'remove_head_scripts' );
-
+m
 // END Custom Scripting to Move JavaScript
 function my_post_gallery($output, $attr) {
     global $post;
