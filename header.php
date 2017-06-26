@@ -72,8 +72,8 @@
 	<!--[if lte IE 7]>
 	<link href="<?php echo get_template_directory_uri(); ?>/iehacks.css" rel="stylesheet" type="text/css" />
 	<![endif]-->
-	 <link href="<?php echo get_template_directory_uri(); ?>/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-                    <link href="<?php echo get_template_directory_uri(); ?>/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+	 <link href="<?php echo get_template_directory_uri(); ?>/css/style.css" media="screen, projection" rel="stylesheet" type="text/css" />
+                    <link href="<?php echo get_template_directory_uri(); ?>/css/print.css" media="print" rel="stylesheet" type="text/css" />
                     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" />
 	<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" />
 	<!-- Lea Verou's Prefix Free, lets you use only un-prefixed properties in yuor CSS files -->
@@ -115,8 +115,6 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<?php wp_head(); ?>
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 </head>
 
 <body <?php body_class(); ?>>
