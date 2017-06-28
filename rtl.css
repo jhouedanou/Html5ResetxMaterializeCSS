@@ -1,0 +1,868 @@
+@charset "UTF-8";
+/*
+  Theme Name: Html5ResetxMaterializeCSS
+  Theme URI: https://github.com/jhouedanou/Html5ResetxMaterializeCSS
+  Author: Jean Luc Houedanou
+  Author URI: http://jeanluchoueedanou.com
+  Description: Starter template basé sur Html 5 reset et materialize css
+  Version: 3.0
+*/
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+  font-size: 100%;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  border: 0;
+  background: transparent; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative; }
+
+.clearfix:before, .clearfix:after {
+  display: block;
+  overflow: hidden;
+  height: 0;
+  content: '\0020'; }
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-y: scroll; }
+
+body {
+  font: 13px Helmet, Freesans, sans-serif;
+  color: #333; }
+
+object {
+  max-width: 100%; }
+
+blockquote {
+  quotes: none; }
+  blockquote:before {
+    content: '';
+    content: none; }
+  blockquote:after {
+    content: '';
+    content: none; }
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
+  font-family: monospace, sans-serif; }
+
+code {
+  font-family: monospace, sans-serif; }
+
+del {
+  text-decoration: line-through; }
+
+img {
+  max-width: 100%; }
+  img.alignright {
+    float: left;
+    margin: 0 1em 1em 0; }
+  img.alignleft {
+    float: right;
+    margin: 0 0 1em 1em; }
+  img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+
+ins {
+  text-decoration: none;
+  color: #000;
+  background-color: #fcd700; }
+
+kbd {
+  font-family: monospace, sans-serif; }
+
+q {
+  quotes: none; }
+  q:before {
+    content: '';
+    content: none; }
+  q:after {
+    content: '';
+    content: none; }
+
+samp {
+  font-family: monospace, sans-serif; }
+
+small {
+  font-size: 85%; }
+
+strong {
+  font-weight: bold; }
+
+sub {
+  bottom: -.25em; }
+
+sup {
+  top: -.5em; }
+
+ul {
+  list-style: none; }
+
+label {
+  cursor: pointer; }
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  font: 100%;
+  font-size: inherit; }
+
+th {
+  font-weight: bold;
+  vertical-align: bottom; }
+
+td {
+  font-weight: normal;
+  vertical-align: top;
+  vertical-align: top; }
+  td img {
+    vertical-align: top; }
+
+article {
+  display: block; }
+
+aside {
+  display: block; }
+
+figure {
+  display: block; }
+
+footer {
+  display: block; }
+
+header {
+  display: block; }
+
+nav {
+  display: block; }
+
+section {
+  display: block; }
+
+mark {
+  font-weight: bold;
+  font-style: italic;
+  color: #000;
+  background-color: #fcd700; }
+
+details {
+  display: block; }
+
+summary {
+  display: block; }
+
+* {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
+  *:before {
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit; }
+  *:after {
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit; }
+  * html .flexible {
+    width: 88%; }
+
+embed {
+  max-width: 100%; }
+
+a {
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  background: transparent;
+  color: #03f; }
+  a:hover {
+    color: #69f; }
+  a img.alignright {
+    float: left;
+    margin: 0 1em 1em 0; }
+  a img.alignleft {
+    float: right;
+    margin: 0 0 1em 1em; }
+  a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+
+abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted #000; }
+
+dfn[title] {
+  cursor: help;
+  border-bottom: 1px dotted #000; }
+
+hr {
+  display: block;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid #ccc; }
+
+input {
+  vertical-align: middle;
+  font: 99% sans-serif;
+  margin: 0;
+  color: #333; }
+  input:-moz-placeholder {
+    color: #a9a9a9; }
+
+select {
+  vertical-align: middle;
+  font: 99% sans-serif;
+  margin: 0;
+  color: #333; }
+
+input[type='radio'] {
+  vertical-align: text-bottom; }
+
+input[type='checkbox'] {
+  vertical-align: bottom; }
+
+.ie7 input[type='checkbox'] {
+  vertical-align: baseline; }
+
+textarea {
+  font: 99% sans-serif;
+  margin: 0;
+  color: #333; }
+  textarea:-moz-placeholder {
+    color: #a9a9a9; }
+
+.clickable {
+  cursor: pointer; }
+
+input[type=button] {
+  cursor: pointer;
+  overflow: visible;
+  width: auto; }
+
+input[type=submit] {
+  cursor: pointer; }
+
+input[type=file] {
+  cursor: pointer; }
+
+button {
+  cursor: pointer;
+  margin: 0;
+  overflow: visible;
+  width: auto; }
+
+.clearfix {
+  zoom: 1; }
+  .clearfix:after {
+    clear: both; }
+
+.chromeframe {
+  position: absolute;
+  top: 0; }
+
+@media all {
+  * {
+    margin: 0;
+    padding: 0; }
+    * html body * {
+      overflow: visible; }
+  option {
+    padding-right: .4em; }
+  select {
+    padding: 1px; }
+  body {
+    font-size: 100%;
+    text-align: right;
+    color: #000;
+    background: #fff; }
+  article {
+    display: block; }
+  aside {
+    display: block; }
+  details {
+    display: block; }
+  figcaption {
+    display: block; }
+  figure {
+    display: block;
+    margin: 0; }
+  footer {
+    display: block; }
+  header {
+    display: block; }
+  hgroup {
+    display: block; }
+  main {
+    display: block; }
+  nav {
+    display: block; }
+  section {
+    display: block; }
+  summary {
+    display: block; }
+  audio {
+    display: inline-block; }
+    audio:not([controls]) {
+      display: none; }
+  canvas {
+    display: inline-block; }
+  video {
+    display: inline-block; }
+  [hidden] {
+    display: none; }
+  input[type=checkbox] {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 0; }
+  input[type=radio] {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 0; }
+  input[type=search] {
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box; }
+  fieldset {
+    border: 0 solid; }
+    fieldset.ym-columnar .ym-fbox-button {
+      padding-right: 30%; }
+  img {
+    border: 0 solid; }
+  ul {
+    margin: 0 1em 1em 0; }
+  ol {
+    margin: 0 1em 1em 0; }
+  dl {
+    margin: 0 1em 1em 0; }
+  li {
+    line-height: 1.5em;
+    margin-right: .8em; }
+  dt {
+    font-weight: 700; }
+  dd {
+    margin: 0 .8em 1em 0; }
+  blockquote {
+    margin: 0 .8em 1em 0; }
+    blockquote:before {
+      content: '';
+      content: none; }
+    blockquote:after {
+      content: '';
+      content: none; }
+  q {
+    quotes: none; }
+    q:before {
+      content: '';
+      content: none; }
+    q:after {
+      content: '';
+      content: none; }
+  table {
+    border-spacing: 0;
+    border-collapse: collapse; }
+  .ym-clearfix:before {
+    display: table;
+    content: ''; }
+  .ym-clearfix:after {
+    font-size: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: '.'; }
+  .ym-contain-dt {
+    display: table;
+    width: 100%;
+    table-layout: fixed; }
+  .ym-contain-oh {
+    display: block;
+    overflow: hidden;
+    width: 100%; }
+  .ym-contain-fl {
+    float: right;
+    width: 100%; }
+  .ym-column {
+    display: table;
+    width: 100%;
+    table-layout: fixed; }
+  .ym-col1 {
+    float: right;
+    width: 20%; }
+  .ym-col2 {
+    float: left;
+    width: 20%; }
+  .ym-col3 {
+    width: auto;
+    margin: 0 20%; }
+  .ym-cbox {
+    padding: 0 10px; }
+  .ym-cbox-left {
+    padding: 0 0 0 10px; }
+  .ym-cbox-right {
+    padding: 0 10px 0 0; }
+  .ym-ie-clearing {
+    display: none; }
+  .ym-grid {
+    display: table;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    table-layout: fixed;
+    list-style-type: none; }
+  .ym-gl {
+    float: right;
+    margin: 0; }
+  .ym-gr {
+    float: left;
+    margin: 0 -5px 0 0; }
+  .ym-g20 {
+    width: 20%; }
+  .ym-g40 {
+    width: 40%; }
+  .ym-g60 {
+    width: 60%; }
+  .ym-g80 {
+    width: 80%; }
+  .ym-g25 {
+    width: 25%; }
+  .ym-g33 {
+    width: 33.333%; }
+  .ym-g50 {
+    width: 50%; }
+  .ym-g66 {
+    width: 66.666%; }
+  .ym-g75 {
+    width: 75%; }
+  .ym-g38 {
+    width: 38.2%; }
+  .ym-g62 {
+    width: 61.8%; }
+  .ym-gbox {
+    padding: 0 10px; }
+  .ym-gbox-left {
+    padding: 0 0 0 10px; }
+  .ym-gbox-right {
+    padding: 0 10px 0 0; }
+  .ym-equalize {
+    overflow: hidden; }
+    .ym-equalize > [class*=ym-g] {
+      display: table-cell;
+      float: none;
+      margin: 0;
+      vertical-align: top; }
+      .ym-equalize > [class*=ym-g] > [class*=ym-gbox] {
+        margin-bottom: -10000px;
+        padding-bottom: 10000px; }
+  .ym-form {
+    overflow: hidden; }
+    .ym-form fieldset {
+      overflow: hidden; }
+    .ym-form div {
+      position: relative; }
+    .ym-form label {
+      line-height: 1.5;
+      position: relative;
+      display: block;
+      cursor: pointer;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box; }
+    .ym-form .ym-label {
+      line-height: 1.5;
+      position: relative;
+      display: block;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box; }
+    .ym-form .ym-message {
+      line-height: 1.5;
+      position: relative;
+      display: block; }
+    .ym-form .ym-fbox-check label {
+      display: inline; }
+    .ym-form .ym-fbox-check input {
+      cursor: pointer;
+      display: inline;
+      width: auto;
+      margin-left: .5ex;
+      margin-right: 0; }
+      .ym-form .ym-fbox-check input:focus {
+        border: 0 none; }
+      .ym-form .ym-fbox-check input:hover {
+        border: 0 none; }
+      .ym-form .ym-fbox-check input:active {
+        border: 0 none; }
+    .ym-form .ym-fbox-check:before {
+      display: table;
+      content: ''; }
+    .ym-form .ym-fbox-check:after {
+      font-size: 0;
+      display: block;
+      visibility: hidden;
+      clear: both;
+      height: 0;
+      content: '.'; }
+    .ym-form input {
+      cursor: text;
+      position: relative;
+      display: block;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      width: 70%; }
+      .ym-form input.hidden {
+        display: none !important; }
+    .ym-form textarea {
+      cursor: text;
+      overflow: auto;
+      position: relative;
+      display: block;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      width: 70%; }
+    .ym-form input[type=radio] {
+      cursor: pointer;
+      display: inline;
+      width: auto;
+      margin-left: .5ex;
+      margin-right: 0; }
+      .ym-form input[type=radio]:focus {
+        border: 0 none; }
+      .ym-form input[type=radio]:hover {
+        border: 0 none; }
+      .ym-form input[type=radio]:active {
+        border: 0 none; }
+    .ym-form input[type=checkbox] {
+      cursor: pointer;
+      display: inline;
+      width: auto;
+      margin-left: .5ex;
+      margin-right: 0; }
+      .ym-form input[type=checkbox]:focus {
+        border: 0 none; }
+      .ym-form input[type=checkbox]:hover {
+        border: 0 none; }
+      .ym-form input[type=checkbox]:active {
+        border: 0 none; }
+    .ym-form select {
+      cursor: pointer;
+      position: relative;
+      display: block;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      width: 70%; }
+    .ym-form input[type=hidden] {
+      display: none !important; }
+    .ym-form .ym-fbox:before {
+      display: table;
+      content: ''; }
+    .ym-form .ym-fbox:after {
+      font-size: 0;
+      display: block;
+      visibility: hidden;
+      clear: both;
+      height: 0;
+      content: '.'; }
+    .ym-form .ym-fbox-text:before {
+      display: table;
+      content: ''; }
+    .ym-form .ym-fbox-text:after {
+      font-size: 0;
+      display: block;
+      visibility: hidden;
+      clear: both;
+      height: 0;
+      content: '.'; }
+    .ym-form .ym-fbox-select:before {
+      display: table;
+      content: ''; }
+    .ym-form .ym-fbox-select:after {
+      font-size: 0;
+      display: block;
+      visibility: hidden;
+      clear: both;
+      height: 0;
+      content: '.'; }
+    .ym-form .ym-fbox-button:before {
+      display: table;
+      content: ''; }
+    .ym-form .ym-fbox-button:after {
+      font-size: 0;
+      display: block;
+      visibility: hidden;
+      clear: both;
+      height: 0;
+      content: '.'; }
+    .ym-form .ym-fbox-button input {
+      display: inline;
+      overflow: visible;
+      width: auto; }
+    .ym-form .ym-inline {
+      display: inline-block;
+      width: auto;
+      vertical-align: baseline; }
+  .ym-fbox-wrap {
+    display: table;
+    width: 70%;
+    table-layout: fixed; }
+    .ym-fbox-wrap input {
+      width: 100%; }
+    .ym-fbox-wrap textarea {
+      width: 100%; }
+    .ym-fbox-wrap select {
+      width: 100%; }
+    .ym-fbox-wrap input[type=radio] {
+      display: inline;
+      width: auto;
+      margin-left: .5ex;
+      margin-right: 0; }
+    .ym-fbox-wrap input[type=checkbox] {
+      display: inline;
+      width: auto;
+      margin-left: .5ex;
+      margin-right: 0; }
+    .ym-fbox-wrap label {
+      display: inline; }
+    .ym-fbox-wrap .ym-label {
+      display: inline; }
+    .ym-fbox-wrap + .ym-fbox-wrap {
+      margin-top: .5em; }
+  .ym-full input {
+    width: 100%; }
+  .ym-full textarea {
+    width: 100%; }
+  .ym-full select {
+    width: 100%; }
+  .ym-full .ym-fbox-wrap {
+    width: 100%; }
+  .ym-columnar input {
+    float: right;
+    margin-left: -3px; }
+  .ym-columnar textarea {
+    float: right;
+    margin-left: -3px; }
+  .ym-columnar select {
+    float: right;
+    margin-left: -3px; }
+  .ym-columnar label {
+    z-index: 1;
+    display: inline;
+    float: right;
+    width: 30%; }
+  .ym-columnar .ym-label {
+    z-index: 1;
+    display: inline;
+    float: right;
+    width: 30%; }
+  .ym-columnar .ym-fbox-check {
+    position: relative; }
+    .ym-columnar .ym-fbox-check input {
+      margin-right: 30%;
+      top: 3px; }
+    .ym-columnar .ym-fbox-check label {
+      padding-top: 0; }
+    .ym-columnar .ym-fbox-check .ym-label {
+      padding-top: 0; }
+  .ym-columnar .ym-message {
+    margin-right: 30%; }
+  .ym-columnar .ym-fbox-wrap {
+    margin-left: -3px;
+    margin-right: 30%; }
+    .ym-columnar .ym-fbox-wrap label {
+      z-index: 1;
+      float: none;
+      width: auto;
+      margin-right: 0; }
+    .ym-columnar .ym-fbox-wrap input {
+      position: relative;
+      margin-right: 0; }
+  .ym-columnar .ym-fbox-button input {
+    float: none;
+    margin-left: 1em; }
+  .ym-columnar fieldset .ym-fbox-button {
+    padding-right: 30%; }
+  .ym-skip {
+    position: absolute;
+    top: -32768px;
+    right: -32768px; }
+    .ym-skip:focus {
+      position: static;
+      top: 0;
+      right: 0; }
+    .ym-skip:active {
+      position: static;
+      top: 0;
+      right: 0; }
+  .ym-hideme {
+    position: absolute;
+    top: -32768px;
+    right: -32768px; }
+  .ym-print {
+    position: absolute;
+    top: -32768px;
+    right: -32768px; }
+  .ym-skiplinks {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    right: -32768px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+    .ym-skiplinks .ym-skip:focus {
+      position: absolute;
+      right: 32768px;
+      width: 100%;
+      outline: 0 none; }
+    .ym-skiplinks .ym-skip:active {
+      position: absolute;
+      right: 32768px;
+      width: 100%;
+      outline: 0 none; }
+  div:target {
+    outline: 0 none; }
+  h1:target {
+    outline: 0 none; }
+  h2:target {
+    outline: 0 none; }
+  h3:target {
+    outline: 0 none; }
+  h4:target {
+    outline: 0 none; }
+  h5:target {
+    outline: 0 none; }
+  h6:target {
+    outline: 0 none; }
+  svg:not(:root) {
+    overflow: hidden; } }
+
+::-moz-selection {
+  color: #fff;
+  background: #fcd700;
+  text-shadow: none; }
+
+::selection {
+  color: #fff;
+  background: #fcd700;
+  text-shadow: none; }
+
+#wrapper {
+  width: 960px;
+  margin: 20px auto; }
+
+.flexible {
+  max-width: 100%; }
+
+@media screen and (max-width: 1024px) {
+  .linearize-level-1 {
+    display: block;
+    float: none;
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+    text-align: center; }
+    .linearize-level-1 > [class*='ym-g'] {
+      display: block;
+      float: none;
+      width: 100% !important;
+      margin: 0;
+      padding: 0;
+      text-align: center; }
+      .linearize-level-1 > [class*='ym-g'] > [class*='ym-gbox'] {
+        overflow: hidden;
+        margin: 0;
+        padding: 0; }
+    .linearize-level-1 > * {
+      display: block;
+      float: none;
+      width: 100% !important;
+      margin: 0;
+      padding: 0;
+      text-align: center; }
+    .linearize-level-1 > li > * {
+      display: block;
+      float: none;
+      width: 100% !important;
+      margin: 0;
+      padding: 0;
+      text-align: center; } }
+
+.ym-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  text-align: center; }
+
+.ym-wbox {
+  position: relative;
+  max-width: 1016px;
+  height: auto;
+  margin: 0 auto;
+  padding: 10px 0 !important; }
+
+.fixed {
+  position: fixed !important; }
+
+.absolute {
+  position: absolute !important; }
+
+.justify {
+  text-align: justify; }
+
+.bold {
+  font-weight: bold; }
+
+.center {
+  text-align: center; }
+
+.right {
+  text-align: left; }
+
+.widget_calendar {
+  float: right; }
+
+#wp-calendar {
+  width: 100%; }
+  #wp-calendar caption {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: left;
+    color: #333; }
+  #wp-calendar thead {
+    font-size: 10px; }
+    #wp-calendar thead th {
+      padding-bottom: 10px; }
+  #wp-calendar tbody {
+    color: #aaa; }
+    #wp-calendar tbody td {
+      padding: 8px;
+      text-align: center;
+      border: 1px solid #fff;
+      background: #f5f5f5; }
+      #wp-calendar tbody td:hover {
+        background: #fff; }
+    #wp-calendar tbody .pad {
+      background: none; }
+  #wp-calendar tfoot #next {
+    font-size: 10px;
+    text-align: left;
+    text-transform: uppercase; }
+  #wp-calendar tfoot #prev {
+    font-size: 10px;
+    padding-top: 10px;
+    text-transform: uppercase; }
+
+.ie6 input {
+  vertical-align: text-bottom; }
