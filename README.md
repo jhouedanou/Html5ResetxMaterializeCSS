@@ -13,7 +13,6 @@ Mise à jour avec Gulp, et plus précisément
 * gulp-imagemin : minifie les images - à lancer avec **gulp images** 
 * gulp browsersync : rechargement automatique lors de la modification des fichiers php et js , ainsi que lors de l'ajout d'images dans le dossier **images/src**
 
-
 # important 
 
 * Mettre à jour la ligne **61** du fichier **gulpfile.js** avec l'adresse de votre installation locale de Wordpress
