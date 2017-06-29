@@ -70,9 +70,6 @@ gulp.task('browser-sync', function() {
         notify: false
     });
 });
-
-
-
 gulp.task('watch', function() {
     // livereload.listen(35729);
     // gulp.watch('**/*.php').on('change', function(file) {
