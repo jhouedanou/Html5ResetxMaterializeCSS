@@ -82,6 +82,8 @@ gulp.task('watch', function() {
     //     livereload.changed(file.path);
     // });
     gulp.watch('./sass/**/*.scss', ['sass']);
-    gulp.watch('images/src/*', ['images']);
+    gulp.watch('images/src/*', ['images']);    
+    gulp.watch('./js/**/js/*.js', ['js']);
+
 });
 gulp.task('default', ['sass', 'js', 'images', 'browser-sync', 'watch']);
