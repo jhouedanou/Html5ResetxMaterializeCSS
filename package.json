@@ -25,6 +25,7 @@
     "gulp-imagemin": "^3.3.0",
     "gulp-jshint": "^2.0.4",
     "gulp-livereload": "^3.8.1",
+    "gulp-main-bower-files": "^1.6.2",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-rtlcss": "^1.0.0",
@@ -35,7 +36,10 @@
     "gulp-util": "^3.0.8",
     "install": "^0.10.1",
     "jshint": "^2.9.5",
+    "main-bower-files": "^2.13.1",
     "npm": "^5.0.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "wiredep": "^4.0.0"
+  }
 }
