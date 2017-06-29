@@ -1,0 +1,17 @@
+{
+  "name": "html5resetxmaterializecss",
+  "description": "V2 .",
+  "main": "index.js",
+  "authors": [
+    "Jean Luc Houedanou"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/jhouedanou/Html5ResetxMaterializeCSS",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
