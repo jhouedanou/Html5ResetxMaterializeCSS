@@ -46,7 +46,7 @@ gulp.task('sass', function() {
 
 gulp.task('sass', function() {
     return gulp.src('./sass/*.scss')
-        .pipe(sass())
+        .pipe(sass({outputStyle: 'compressed'}))
         .pipe(autoprefixer())
         .pipe(gulp.dest('./')) // Output LTR stylesheets (style.css)
 
