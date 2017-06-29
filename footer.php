@@ -18,7 +18,7 @@
 <!-- libraries : responsive slides, magnific pop up et materialize -->
 <script src="<?php bloginfo('template_directory'); ?>/js/app.min.js"></script>
 <!-- this is where we put our custom functions -->
-<script src="<?php bloginfo('template_directory'); ?>/_/js/functions.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/functions.js"></script>
 
 <!-- Asynchronous google analytics; this is the official snippet.
          Replace UA-XXXXXX-XX with your site's ID and domainname.com with your domain, then uncomment to enable.
