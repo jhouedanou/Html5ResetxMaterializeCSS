@@ -4,15 +4,14 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var rtlcss = require('gulp-rtlcss');
 var rename = require('gulp-rename');
-var livereload = require('gulp-livereload');
 var plumber = require('gulp-plumber');
 var gutil = require('gulp-util');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-//var jshint = require('gulp-jshint');
 var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
+var mainBowerFiles = require('main-bower-files');
 
 gulp.task('images', function() {
     return gulp.src('./images/src/*')
@@ -25,7 +24,17 @@ var onError = function(err) {
     gutil.beep();
     this.emit('end');
 };
-
+gulp.task('script', function() {
+    return gulp.src(['./functions.js'])
+        // .pipe(jshint())
+        //  .pipe(jshint.reporter('default'))
+        .pipe(concat('functions.js'))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(uglify().on('error', function(e) {
+            console.log(e);
+        }))
+        .pipe(gulp.dest('./'))
+});
 gulp.task('js', function() {
     return gulp.src(['./js/*.js'])
         // .pipe(jshint())
@@ -62,14 +71,14 @@ gulp.task('browser-sync', function() {
         './*.php',
         './*.js'
     ];
-
-    //initialize browsersync
     browserSync.init(files, {
-        //browsersync with a php server
         proxy: "localhost/wordpress/",
         notify: false
     });
 });
+
+
+
 gulp.task('watch', function() {
     // livereload.listen(35729);
     // gulp.watch('**/*.php').on('change', function(file) {
@@ -79,8 +88,7 @@ gulp.task('watch', function() {
     //     livereload.changed(file.path);
     // });
     gulp.watch('./sass/**/*.scss', ['sass']);
-    gulp.watch('images/src/*', ['images']);    
+    gulp.watch('images/src/*', ['images']);
     gulp.watch('./js/**/js/*.js', ['js']);
-
 });
-gulp.task('default', ['sass', 'js', 'images', 'browser-sync', 'watch']);
+gulp.task('default', ['sass', 'js', 'script', 'images', 'browser-sync', 'watch']);

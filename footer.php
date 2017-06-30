@@ -15,10 +15,10 @@
 
 
 <!-- jQuery is called via the WordPress-friendly way via functions.php -->
-<!-- libraries : responsive slides, magnific pop up et materialize -->
+<!-- libraries-->
 <script src="<?php bloginfo('template_directory'); ?>/js/app.min.js"></script>
-<!-- this is where we put our custom functions -->
-<script src="<?php bloginfo('template_directory'); ?>/functions.js"></script>
+<!--custom functions -->
+<script src="<?php bloginfo('template_directory'); ?>/functions.min.js"></script>
 
 <!-- Asynchronous google analytics; this is the official snippet.
          Replace UA-XXXXXX-XX with your site's ID and domainname.com with your domain, then uncomment to enable.
