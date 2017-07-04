@@ -40,6 +40,8 @@
     "npm": "^5.0.4"
   },
   "dependencies": {
+    "gulp-stylus": "^2.6.0",
+    "gulp.spritesmith": "^6.5.0",
     "wiredep": "^4.0.0"
   }
 }

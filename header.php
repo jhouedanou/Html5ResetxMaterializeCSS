@@ -1,10 +1,4 @@
-<?php
-/**
- * @package WordPress
- * @subpackage HTML5-Reset-WordPress-Theme
- * @since HTML5 Reset 2.0
- */
-?>
+
     <!doctype html>
     <!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" <?php language_attributes(); ?>> <![endif]-->
     <!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" <?php language_attributes(); ?>> <![endif]-->
@@ -16,6 +10,7 @@
     <!-- the "no-js" class is for Modernizr. -->
     <!-- Mobile viewport optimisation -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <head id="<?php echo of_get_option('meta_headid'); ?>" data-template-set="html5-reset-wordpress-theme">
         <meta charset="<?php bloginfo('charset'); ?>">
         <!-- Always force latest IE rendering engine (even in intranet) -->
@@ -115,8 +110,8 @@
                         <link rel="profile" href="http://gmpg.org/xfn/11" />
                         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
                         <!-- bower:css -->
-  <!-- endbower -->
-  <?php wp_head(); ?>
+                        <!-- endbower -->
+                        <?php wp_head(); ?>
     </head>
 
     <body <?php body_class(); ?>>

@@ -12,7 +12,17 @@ var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
 var mainBowerFiles = require('main-bower-files');
-
+var spritesmith  = require('gulp.spritesmith');
+gulp.task('sprite', function() {
+    var spriteData = 
+        gulp.src('./images/sprite/*.*') // source path of the sprite images
+            .pipe(spritesmith({
+                imgName: 'sprite.png',
+                cssName: 'sprite.css',
+            }));
+    spriteData.img.pipe(gulp.dest('./images/')); // output path for the sprite
+    spriteData.css.pipe(gulp.dest('./styles/')); // output path for the CSS
+});
 gulp.task('images', function() {
     return gulp.src('./images/src/*')
         .pipe(plumber({ errorHandler: onError }))
@@ -26,8 +36,6 @@ var onError = function(err) {
 };
 gulp.task('script', function() {
     return gulp.src(['./functions.js'])
-        // .pipe(jshint())
-        //  .pipe(jshint.reporter('default'))
         .pipe(concat('functions.js'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify().on('error', function(e) {
@@ -49,8 +57,6 @@ gulp.task('js', function() {
 gulp.task('sass', function() {
     return gulp.src('./sass/*.scss')
         .pipe(plumber({ errorHandler: onError }))
-        //
-        //
 });
 
 gulp.task('sass', function() {
@@ -73,22 +79,16 @@ gulp.task('browser-sync', function() {
     ];
     browserSync.init(files, {
         proxy: "localhost/wordpress/",
-        notify: false
+        notify: true
     });
 });
 
-
-
 gulp.task('watch', function() {
-    // livereload.listen(35729);
-    // gulp.watch('**/*.php').on('change', function(file) {
-    //     livereload.changed(file.path);
-    // });
-    // gulp.watch('**/*.js').on('change', function(file) {
-    //     livereload.changed(file.path);
-    // });
     gulp.watch('./sass/**/*.scss', ['sass']);
     gulp.watch('images/src/*', ['images']);
     gulp.watch('./js/**/js/*.js', ['js']);
+    gulp.watch('./functions.js', ['script']);
+            gulp.watch('./images/sprite/*.*', ['sprite']);
+
 });
-gulp.task('default', ['sass', 'js', 'script', 'images', 'browser-sync', 'watch']);
+gulp.task('default', ['sprite', 'sass', 'js', 'script', 'images', 'browser-sync', 'watch']);
