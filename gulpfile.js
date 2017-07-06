@@ -86,7 +86,7 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', function() {
     gulp.watch('./sass/**/*.scss', ['sass']);
     gulp.watch('images/src/*', ['images']);
-    gulp.watch('./js/**/js/*.js', ['js']);
+    gulp.watch('./js/*', ['js']);
     gulp.watch('./functions.js', ['script']);
             gulp.watch('./images/sprite/*.*', ['sprite']);
 
