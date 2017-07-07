@@ -15,7 +15,7 @@ Mise à jour avec Gulp, et plus précisément
 
 # important 
 
-* Mettre à jour la ligne **61** du fichier **gulpfile.js** avec l'adresse de votre installation locale de Wordpress
-* Si vous n'utilisez pas Emmet Livestyle ([pourquoi pas ?](http://livestyle.io/)) décommentez la ligne **65** du fichier **gulpfile.js**
+* Mettre à jour la ligne **84** du fichier **gulpfile.js** avec l'adresse de votre installation locale de Wordpress
+* Utilisez Emmet Livestyle ([pourquoi pas ?](http://livestyle.io/)) pour une édition bidirectionnelle des fichiers .scss
 
 Jean Luc Houedanou

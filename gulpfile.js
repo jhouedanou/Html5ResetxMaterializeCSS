@@ -13,6 +13,8 @@ var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
 var mainBowerFiles = require('main-bower-files');
 var spritesmith  = require('gulp.spritesmith');
+var strip_comments = require('gulp-strip-json-comments');
+
 gulp.task('sprite', function() {
     var spriteData = 
         gulp.src('./images/sprite/*.*') // source path of the sprite images
@@ -62,6 +64,7 @@ gulp.task('sass', function() {
 gulp.task('sass', function() {
     return gulp.src('./sass/*.scss')
         .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(strip_comments())
         .pipe(autoprefixer())
         .pipe(gulp.dest('./')) // Output LTR stylesheets (style.css)
 
