@@ -5,6 +5,8 @@
  * @since HTML5 Reset 2.0
  */
 add_filter( 'auto_update_plugin', '__return_true' );
+show_admin_bar( false );
+add_filter( 'auto_update_plugin', '__return_true' );
 add_filter( 'auto_update_theme', '__return_true' );
 add_filter( 'auto_update_translation', '__return_false' );
 function remove_head_scripts() { 

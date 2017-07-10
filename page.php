@@ -1,35 +1,174 @@
-<?php
-/**
- * @package WordPress
- * @subpackage HTML5-Reset-WordPress-Theme
- * @since HTML5 Reset 2.0
- */
- get_header(); ?>
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" <?php language_attributes(); ?>> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" <?php language_attributes(); ?>>
+<!--<![endif]-->
+<!-- the "no-js" class is for Modernizr. -->
+<!-- Mobile viewport optimisation -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-			
-		<article class="post" id="post-<?php the_ID(); ?>">
+<head id="<?php echo of_get_option('meta_headid'); ?>" data-template-set="html5-reset-wordpress-theme">
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <!-- Always force latest IE rendering engine (even in intranet) -->
+    <!--[if IE ]>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<![endif]-->
+    <?php
+		if (is_search())
+			echo '<meta name="robots" content="index, follow" />';
+	?>
+        <title>
+            <?php wp_title( '|', true, 'right' ); ?>
+        </title>
+        <meta name="title" content="<?php wp_title( '|', true, 'right' ); ?>">
+        <!--Google will often use this as its description of your page/site. Make it good.-->
+        <meta name="description" content="<?php bloginfo('description'); ?>" />
+        <?php
+		if (true == of_get_option('meta_author'))
+			echo '<meta name="author" content="' . of_get_option("meta_author") . '" />';
+		if (true == of_get_option('meta_google'))
+			echo '<meta name="google-site-verification" content="' . of_get_option("meta_google") . '" />';
+	?>
+            <meta name="Copyright" content="Copyright &copy; <?php bloginfo('name'); ?> <?php echo date('Y'); ?>. All Rights Reserved.">
+            <?php
+		/*
+			j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag
+			 - device-width : Occupy full width of the screen in its current orientation
+			 - initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
+			 - maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width
+			 - minimal-ui = iOS devices have minimal browser ui by default
+		*/
+		if (true == of_get_option('meta_viewport'))
+			echo '<meta name="viewport" content="' . of_get_option("meta_viewport") . ' minimal-ui" />';
 
-			<h2><?php the_title(); ?></h2>
 
-			<?php posted_on(); ?>
+		/*
+			These are for traditional favicons and Android home screens.
+			 - sizes: 1024x1024
+			 - transparency is OK
+			 - see wikipedia for info on browser support: http://mky.be/favicon/
+			 - See Google Developer docs for Android options. https://developers.google.com/chrome/mobile/docs/installtohomescreen
+		*/
+		if (true == of_get_option('head_favicon')) {
+			echo '<meta name=”mobile-web-app-capable” content=”yes”>';
+			echo '<link rel="shortcut icon" sizes=”1024x1024” href="' . of_get_option("head_favicon") . '" />';
+		}
 
-			<div class="entry">
 
-				<?php the_content(); ?>
+		/*
+			The is the icon for iOS Web Clip.
+			 - size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for iPhone4 retina display (IMHO, just go ahead and use the biggest one)
+			 - To prevent iOS from applying its styles to the icon name it thusly: apple-touch-icon-precomposed.png
+			 - Transparency is not recommended (iOS will put a black BG behind the icon) -->';
+		*/
+		if (true == of_get_option('head_apple_touch_icon'))
+			echo '<link rel="apple-touch-icon" href="' . of_get_option("head_apple_touch_icon") . '">';
+	?>
+                <!--[if lte IE 7]>
+	<link href="<?php echo get_template_directory_uri(); ?>/iehacks.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+                <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" />
+                <!-- Lea Verou's Prefix Free, lets you use only un-prefixed properties in yuor CSS files -->
+                <!--<script src="<?php //echo get_template_directory_uri(); ?>/_/js/prefixfree.min.js"></script>-->
+                <!--shiv-->
+                <!--[if lt IE 9]>
+	<script src=".<?php echo get_template_directory_uri(); ?>/_/js/html5shiv.js"></script>
+	<![endif]-->
+                <!-- This is an un-minified, complete version of Modernizr.
+		 Before you move to production, you should generate a custom build that only has the detects you need. -->
+                <script src="<?php echo get_template_directory_uri(); ?>/_/js/modernizr-2.8.0.dev.js"></script>
+                <!-- Application-specific meta tags -->
+                <?php
+		// Windows 8
+		if (true == of_get_option('meta_app_win_name')) {
+			echo '<meta name="application-name" content="' . of_get_option("meta_app_win_name") . '" /> ';
+			echo '<meta name="msapplication-TileColor" content="' . of_get_option("meta_app_win_color") . '" /> ';
+			echo '<meta name="msapplication-TileImage" content="' . of_get_option("meta_app_win_image") . '" />';
+		}
 
-				<?php wp_link_pages(array('before' => __('Pages: ','html5reset'), 'next_or_number' => 'number')); ?>
+		// Twitter
+		if (true == of_get_option('meta_app_twt_card')) {
+			echo '<meta name="twitter:card" content="' . of_get_option("meta_app_twt_card") . '" />';
+			echo '<meta name="twitter:site" content="' . of_get_option("meta_app_twt_site") . '" />';
+			echo '<meta name="twitter:title" content="' . of_get_option("meta_app_twt_title") . '">';
+			echo '<meta name="twitter:description" content="' . of_get_option("meta_app_twt_description") . '" />';
+			echo '<meta name="twitter:url" content="' . of_get_option("meta_app_twt_url") . '" />';
+		}
 
-			</div>
+		// Facebook
+		if (true == of_get_option('meta_app_fb_title')) {
+			echo '<meta property="og:title" content="' . of_get_option("meta_app_fb_title") . '" />';
+			echo '<meta property="og:description" content="' . of_get_option("meta_app_fb_description") . '" />';
+			echo '<meta property="og:url" content="' . of_get_option("meta_app_fb_url") . '" />';
+			echo '<meta property="og:image" content="' . of_get_option("meta_app_fb_image") . '" />';
+		}
+	?>
+                    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700" rel="stylesheet">
+                    <link rel="profile" href="http://gmpg.org/xfn/11" />
+                    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+                    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+                    <?php wp_head(); ?>
+</head>
 
-			<?php edit_post_link(__('Edit this entry','html5reset'), '<p>', '</p>'); ?>
-
-		</article>
-		
-		<?php comments_template(); ?>
-
-		<?php endwhile; endif; ?>
-
-<?php get_sidebar(); ?>
-
-<?php get_footer(); ?>
+<body <?php body_class(); ?>>
+    <div id="headerwrapper" class="ym-wrapper">
+        <div id="headergrid" class="ym-gbox">
+            <header id="headerd" class="ym-grid linearize-level-1">
+                <div id="logobox" class="ym-g40 ym-gl">
+                    <div class="ym-gbox">
+                        <a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png"/></a>
+                        <div class="iono ym-gr">
+                            <h1><?php echo do_shortcode('[content_block id=34]'); ?></h1>
+                            <div class="roo">
+                                <?php
+							      wp_nav_menu(array(
+								  'menu' => 'Menu des liens de réseaux sociaux',
+								  'menu_class' =>'ym-grid',
+								  'menu_id'=>'rezo',
+								  'theme_location' => 'rezo' 
+							      ));
+							  ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="menubox" class="ym-g60 ym-gr">
+                    <div class="ym-gbox">
+                        <?php
+					      wp_nav_menu(array(
+						  'menu' => 'Navigation Menu',
+						  'container_id' => 'menuwrapper',
+						  'menu_class' =>'menu',
+							'theme_location' => 'Top' 
+					      ));
+					  ?>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+    <div id="looseness" class="ym-grid linearize-level-1">
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+        <div id="h1wrapper" class="ym-wbox">
+            <div class="ym-gbox">
+            	<h1 class="robotoslab"><?php the_title(); ?></h1>	
+            	<div class="cartouche"><?php the_time('j F Y') ?></div>
+           	</div>
+        </div>
+        <div id="paulin" class="ym-wbox z-depth-4">
+            <article class="post" id="post-<?php the_ID(); ?>">
+                <div class="entry">
+                    <?php the_content(); ?>
+                    <?php wp_link_pages(array('before' => __('Pages: ','html5reset'), 'next_or_number' => 'number')); ?>
+                </div>
+                <?php edit_post_link(__('Edit this entry','html5reset'), '<p>', '</p>'); ?>
+            </article>
+            <?php ////////comments_template(); ?>
+            <?php endwhile; endif; ?>
+        </div>
+    </div>
+    <div class="deco3" style="background-image:url('<?php $src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumb', false ); echo $src[0];?>')"><p>Joseph Desiré Bley</p></div>
+    <?php get_footer(); ?>
