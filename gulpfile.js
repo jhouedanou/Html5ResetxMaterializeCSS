@@ -14,7 +14,6 @@ var reload      = browserSync.reload;
 var mainBowerFiles = require('main-bower-files');
 var spritesmith  = require('gulp.spritesmith');
 var strip_comments = require('gulp-strip-json-comments');
-
 gulp.task('sprite', function() {
     var spriteData = 
         gulp.src('./images/sprite/*.*') // source path of the sprite images
@@ -60,7 +59,6 @@ gulp.task('sass', function() {
     return gulp.src('./sass/*.scss')
         .pipe(plumber({ errorHandler: onError }))
 });
-
 gulp.task('sass', function() {
     return gulp.src('./sass/*.scss')
         .pipe(sass({outputStyle: 'compressed'}))
@@ -72,8 +70,6 @@ gulp.task('sass', function() {
         .pipe(rename({ basename: 'rtl' })) // Rename to rtl.css
         .pipe(gulp.dest('./')); // Output RTL stylesheets (rtl.css)
 });
-
-// browser-sync task for starting the server.
 gulp.task('browser-sync', function() {
     //watch files
     var files = [
@@ -85,13 +81,11 @@ gulp.task('browser-sync', function() {
         notify: true
     });
 });
-
 gulp.task('watch', function() {
     gulp.watch('./sass/**/*.scss', ['sass']);
     gulp.watch('images/src/*', ['images']);
-    gulp.watch('./js/*', ['js']);
-    gulp.watch('./functions.js', ['script']);
-            gulp.watch('./images/sprite/*.*', ['sprite']);
-
+    /// gulp.watch('./js/*', ['js']);
+  //  gulp.watch('./functions.js', ['script']);
+    //        gulp.watch('./images/sprite/*.*', ['sprite']);
 });
 gulp.task('default', ['sprite', 'sass', 'js', 'script', 'images', 'browser-sync', 'watch']);
