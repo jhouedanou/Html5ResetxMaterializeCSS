@@ -110,8 +110,7 @@
             <?php
 					      wp_nav_menu(array(
 						  'menu' => 'Main Navigation', 
-						  'container_id' => 'cssmenu', 
-						  'walker' => new CSS_Menu_Maker_Walker()
+						  'container_id' => 'cssmenu' 
 					      )); 
 					  ?>
         </nav>
