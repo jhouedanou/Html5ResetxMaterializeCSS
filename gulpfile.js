@@ -14,6 +14,8 @@ var reload      = browserSync.reload;
 var mainBowerFiles = require('main-bower-files');
 var spritesmith  = require('gulp.spritesmith');
 var strip_comments = require('gulp-strip-json-comments');
+var src = 'src/';
+var dest = 'build/';
 gulp.task('sprite', function() {
     var spriteData = 
         gulp.src('./images/sprite/*.*') // source path of the sprite images
@@ -46,8 +48,6 @@ gulp.task('script', function() {
 });
 gulp.task('js', function() {
     return gulp.src(['./js/*.js'])
-        // .pipe(jshint())
-        //  .pipe(jshint.reporter('default'))
         .pipe(concat('app.js'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify().on('error', function(e) {
@@ -77,7 +77,9 @@ gulp.task('browser-sync', function() {
         './*.js'
     ];
     browserSync.init(files, {
-        proxy: "localhost/wordpress/",
+       server:"./",
+        online:true,
+       // proxy: "localhost/myhustle/",
         notify: true
     });
 });
@@ -89,3 +91,4 @@ gulp.task('watch', function() {
     //        gulp.watch('./images/sprite/*.*', ['sprite']);
 });
 gulp.task('default', ['sprite', 'sass', 'js', 'script', 'images', 'browser-sync', 'watch']);
+gulp.task('build',['sprite', 'sass', 'js', 'script', 'images']);

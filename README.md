@@ -1,11 +1,13 @@
 #HTML 5 Reset x Wordpress x Yaml.de
 
-V3 .
+V4 .
 
 Un thème vierge pour Wordpress, basé sur html5reset et [Yaml.de](http://www.yaml.de/)
 
-# Nouveautés
+# V.4
+installez directement vos packages avec bower. Les fichiers sont copiés dans le dossier js, vous pouvez modifier cette destination en modifiant le fichier .bowerrc
 
+# V.3
 Mise à jour avec Gulp, et plus précisément
 
 * gulp-sass
