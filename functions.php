@@ -1,19 +1,19 @@
 <?php
-/**
- * @package WordPress
- * @subpackage HTML5-Reset-WordPress-Theme
- * @since HTML5 Reset 2.0
- */
 add_filter( 'auto_update_plugin', '__return_true' );
 show_admin_bar( false );
 add_filter( 'auto_update_plugin', '__return_true' );
 add_filter( 'auto_update_theme', '__return_true' );
 add_filter( 'auto_update_translation', '__return_false' );
+function starter_scripts() {
+    wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
+    wp_enqueue_script( 'jquery' );
+}
+add_action( 'wp_enqueue_scripts', 'starter_scripts' );
 function remove_head_scripts() { 
    remove_action('wp_head', 'wp_print_scripts'); 
    remove_action('wp_head', 'wp_print_head_scripts', 9); 
    remove_action('wp_head', 'wp_enqueue_scripts', 1);
-
    add_action('wp_footer', 'wp_print_scripts', 5);
    add_action('wp_footer', 'wp_enqueue_scripts', 5);
    add_action('wp_footer', 'wp_print_head_scripts', 5); 
