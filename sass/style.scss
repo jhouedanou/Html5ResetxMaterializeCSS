@@ -6,11 +6,6 @@
   Description: Starter template basé sur Html 5 reset et materialize css
   Version: 3.0
 */
-/*!
- * Materialize v0.99.0 (http://materializecss.com)
- * Copyright 2014-2017 Materialize
- * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
- */
 .materialize-red {
   background-color: #e51c23 !important;
 }
@@ -9179,96 +9174,7 @@ $color_gold_approx: #fcd700;
 $color_shady_lady_approx: #a9a9a9;
 $color_silver_chalice_approx: #aaa;
 $color_wild_sand_approx: #f5f5f5;
-//fonts
-@font-face {
-    font-family: 'futura_xblk_btextra_black';
-    src: url('fonts/futura_extra_black_font-webfont.woff2') format('woff2'), url('fonts/futura_extra_black_font-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
-@font-face {
-    font-family: 'futura_lt_btlight';
-    src: url('fonts/futura_light_bt-webfont.woff2') format('woff2'), url('fonts/futura_light_bt-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'futurabold';
-    src: url('fonts/unicode.futurab-webfont.woff2') format('woff2'), url('fonts/unicode.futurab-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-$font_0: sans-serif;
-$font_1: monospace;
-$font_2: Helmet;
-$font_3: Freesans;
-$normal: Roboto;
-@mixin light {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-}
-
-@mixin thin {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-}
-
-@mixin regular {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-}
-
-@mixin black {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-}
-
-@mixinn futurlight {
-    font-family: 'futura_lt_btlight';
-}
-
-@mixin menufont {
-    font-family: 'futurabold';
-}
-
-@mixin futurblackk {
-    font-family: 'futura_xblk_btextra_black';
-}
-
-.light {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-}
-
-.thin {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-}
-
-.regular {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-}
-
-.blackroboto {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-}
-
-.futurlight {
-    font-family: 'futura_lt_btlight';
-}
-
-.menufont {
-    font-family: 'futurabold';
-}
-
-.futurblackk {
-    font-family: 'futura_xblk_btextra_black';
-}
 
 //@extend-elements
 //original selectors

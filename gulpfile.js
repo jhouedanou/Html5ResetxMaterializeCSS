@@ -14,8 +14,6 @@ var reload      = browserSync.reload;
 var mainBowerFiles = require('main-bower-files');
 var spritesmith  = require('gulp.spritesmith');
 var strip_comments = require('gulp-strip-json-comments');
-var src = 'src/';
-var dest = 'build/';
 gulp.task('sprite', function() {
     var spriteData = 
         gulp.src('./images/sprite/*.*') // source path of the sprite images
@@ -23,8 +21,8 @@ gulp.task('sprite', function() {
                 imgName: 'sprite.png',
                 cssName: 'sprite.css',
             }));
-    spriteData.img.pipe(gulp.dest('./images/')); // output path for the sprite
-    spriteData.css.pipe(gulp.dest('./styles/')); // output path for the CSS
+                            spriteData.img.pipe(gulp.dest('./images/')); // output path for the sprite
+                            spriteData.css.pipe(gulp.dest('./styles/')); // output path for the CSS
 });
 gulp.task('images', function() {
     return gulp.src('./images/src/*')
@@ -39,7 +37,7 @@ var onError = function(err) {
 };
 gulp.task('script', function() {
     return gulp.src(['./functions.js'])
-        .pipe(concat('functions.js'))
+        .pipe(concat('./functions.js'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify().on('error', function(e) {
             console.log(e);
@@ -48,6 +46,8 @@ gulp.task('script', function() {
 });
 gulp.task('js', function() {
     return gulp.src(['./js/*.js'])
+        // .pipe(jshint())
+        //  .pipe(jshint.reporter('default'))
         .pipe(concat('app.js'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify().on('error', function(e) {
@@ -59,6 +59,7 @@ gulp.task('sass', function() {
     return gulp.src('./sass/*.scss')
         .pipe(plumber({ errorHandler: onError }))
 });
+
 gulp.task('sass', function() {
     return gulp.src('./sass/*.scss')
         .pipe(sass({outputStyle: 'compressed'}))
@@ -70,6 +71,8 @@ gulp.task('sass', function() {
         .pipe(rename({ basename: 'rtl' })) // Rename to rtl.css
         .pipe(gulp.dest('./')); // Output RTL stylesheets (rtl.css)
 });
+
+// browser-sync task for starting the server.
 gulp.task('browser-sync', function() {
     //watch files
     var files = [
@@ -77,18 +80,17 @@ gulp.task('browser-sync', function() {
         './*.js'
     ];
     browserSync.init(files, {
-       server:"./",
-        online:true,
-       // proxy: "localhost/myhustle/",
+        proxy: "localhost/wordpress/",
+        online: true,
         notify: true
+        
     });
 });
 gulp.task('watch', function() {
     gulp.watch('./sass/**/*.scss', ['sass']);
     gulp.watch('images/src/*', ['images']);
-    /// gulp.watch('./js/*', ['js']);
-  //  gulp.watch('./functions.js', ['script']);
-    //        gulp.watch('./images/sprite/*.*', ['sprite']);
+    //gulp.watch('./js/*', ['js']);
+    //gulp.watch('./functions.js', ['script']);
+   // gulp.watch('./images/sprite/*.*', ['sprite']);
 });
 gulp.task('default', ['sprite', 'sass', 'js', 'script', 'images', 'browser-sync', 'watch']);
-gulp.task('build',['sprite', 'sass', 'js', 'script', 'images']);
