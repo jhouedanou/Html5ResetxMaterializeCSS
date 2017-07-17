@@ -2,7 +2,6 @@ require('es6-promise').polyfill();
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
-var rtlcss = require('gulp-rtlcss');
 var rename = require('gulp-rename');
 var plumber = require('gulp-plumber');
 var gutil = require('gulp-util');
@@ -14,6 +13,38 @@ var reload      = browserSync.reload;
 var mainBowerFiles = require('main-bower-files');
 var spritesmith  = require('gulp.spritesmith');
 var strip_comments = require('gulp-strip-json-comments');
+var ngrok     = require('ngrok');
+var psi       = require('psi');
+var sequence  = require('run-sequence');
+var site      = '';
+var portVal   = 3020;
+// this is where your server task goes. I'm using browser sync
+gulp.task('browser-sync-psi', ['jekyll-build'], function() {
+  browserSync({
+    port: portVal,
+    open: false,
+    server: {
+      baseDir: '_site'
+    }
+  });
+});
+
+// psi sequence with 'browser-sync-psi' instead
+gulp.task('psi-seq', function (cb) {
+  return sequence(
+    'browser-sync-psi',
+    'ngrok-url',
+    'psi-desktop',
+    'psi-mobile',
+    cb
+  );
+});
+
+// psi task runs and exits
+gulp.task('psi', ['psi-seq'], function() {
+  console.log('Woohoo! Check out your page speed scores!')
+  process.exit();
+})
 gulp.task('sprite', function() {
     var spriteData = 
         gulp.src('./images/sprite/*.*') // source path of the sprite images
@@ -65,11 +96,7 @@ gulp.task('sass', function() {
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(strip_comments())
         .pipe(autoprefixer())
-        .pipe(gulp.dest('./')) // Output LTR stylesheets (style.css)
-
-    .pipe(rtlcss()) // Convert to RTL
-        .pipe(rename({ basename: 'rtl' })) // Rename to rtl.css
-        .pipe(gulp.dest('./')); // Output RTL stylesheets (rtl.css)
+        .pipe(gulp.dest('./stylesheets')) // Output LTR stylesheets (style.css)
 });
 
 // browser-sync task for starting the server.
