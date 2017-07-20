@@ -58,8 +58,10 @@ if (true == of_get_option('head_apple_touch_icon'))
           	<link href="<?php echo get_template_directory_uri(); ?>/stylesheets/ie.css" rel="stylesheet" type="text/css" />
           <![endif]-->
           <!-- <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" /> -->
-          <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/stylesheets/style.css"/>
-          <!-- Lea Verou's Prefix Free, lets you use only un-prefixed properties in yuor CSS files -->
+          <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" />
+          <head>
+            <link href="<?php echo get_template_directory_uri(); ?>/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+            <link href="<?php echo get_template_directory_uri(); ?>/css/print.css" media="print" rel="stylesheet" type="text/css" />          <!-- Lea Verou's Prefix Free, lets you use only un-prefixed properties in yuor CSS files -->
           <!--<script src="<?php //echo get_template_directory_uri(); ?>/_/js/prefixfree.min.js"></script>-->
           <!--shiv-->
                 <!--[if lt IE 9]>

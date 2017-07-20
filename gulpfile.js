@@ -1,7 +1,8 @@
 require('es6-promise').polyfill();
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
+//var autoprefixer = require('gulp-autoprefixer');
+//var rtlcss = require('gulp-rtlcss');
 var rename = require('gulp-rename');
 var plumber = require('gulp-plumber');
 var gutil = require('gulp-util');
@@ -13,47 +14,15 @@ var reload      = browserSync.reload;
 var mainBowerFiles = require('main-bower-files');
 var spritesmith  = require('gulp.spritesmith');
 var strip_comments = require('gulp-strip-json-comments');
-var ngrok     = require('ngrok');
-var psi       = require('psi');
-var sequence  = require('run-sequence');
-var site      = '';
-var portVal   = 3020;
-// this is where your server task goes. I'm using browser sync
-gulp.task('browser-sync-psi', ['jekyll-build'], function() {
-  browserSync({
-    port: portVal,
-    open: false,
-    server: {
-      baseDir: '_site'
-    }
-  });
-});
-
-// psi sequence with 'browser-sync-psi' instead
-gulp.task('psi-seq', function (cb) {
-  return sequence(
-    'browser-sync-psi',
-    'ngrok-url',
-    'psi-desktop',
-    'psi-mobile',
-    cb
-  );
-});
-
-// psi task runs and exits
-gulp.task('psi', ['psi-seq'], function() {
-  console.log('Woohoo! Check out your page speed scores!')
-  process.exit();
-})
 gulp.task('sprite', function() {
     var spriteData = 
-        gulp.src('./images/sprite/*.*') // source path of the sprite images
+        gulp.src('./images/sprite/*.*')
             .pipe(spritesmith({
                 imgName: 'sprite.png',
                 cssName: 'sprite.css',
             }));
-                            spriteData.img.pipe(gulp.dest('./images/')); // output path for the sprite
-                            spriteData.css.pipe(gulp.dest('./styles/')); // output path for the CSS
+    spriteData.img.pipe(gulp.dest('./images/')); 
+    spriteData.css.pipe(gulp.dest('./styles/')); 
 });
 gulp.task('images', function() {
     return gulp.src('./images/src/*')
@@ -68,7 +37,7 @@ var onError = function(err) {
 };
 gulp.task('script', function() {
     return gulp.src(['./functions.js'])
-        .pipe(concat('./functions.js'))
+        .pipe(concat('functions.js'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify().on('error', function(e) {
             console.log(e);
@@ -77,8 +46,6 @@ gulp.task('script', function() {
 });
 gulp.task('js', function() {
     return gulp.src(['./js/*.js'])
-        // .pipe(jshint())
-        //  .pipe(jshint.reporter('default'))
         .pipe(concat('app.js'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify().on('error', function(e) {
@@ -88,36 +55,31 @@ gulp.task('js', function() {
 });
 gulp.task('sass', function() {
     return gulp.src('./sass/*.scss')
-        .pipe(plumber({ errorHandler: onError }))
 });
-
 gulp.task('sass', function() {
     return gulp.src('./sass/*.scss')
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(strip_comments())
-        .pipe(autoprefixer())
-        .pipe(gulp.dest('./stylesheets')) // Output LTR stylesheets (style.css)
+       // .pipe(autoprefixer())
+        .pipe(gulp.dest('./')) // Output LTR stylesheets (style.css)
+        .pipe(plumber({ errorHandler: onError }))
 });
-
-// browser-sync task for starting the server.
 gulp.task('browser-sync', function() {
-    //watch files
     var files = [
         './*.php',
         './*.js'
     ];
     browserSync.init(files, {
-        proxy: "localhost/wordpress/",
-        online: true,
+      //  server:"./",
+        online:true,
+       proxy: "localhost/wordpress/",
         notify: true
-        
     });
 });
 gulp.task('watch', function() {
     gulp.watch('./sass/**/*.scss', ['sass']);
     gulp.watch('images/src/*', ['images']);
-    //gulp.watch('./js/*', ['js']);
-    //gulp.watch('./functions.js', ['script']);
-   // gulp.watch('./images/sprite/*.*', ['sprite']);
+    gulp.watch('images/sprite/*', ['sprite']);
 });
 gulp.task('default', ['sprite', 'sass', 'js', 'script', 'images', 'browser-sync', 'watch']);
+gulp.task('build',['sprite', 'sass', 'js', 'script', 'images']);
