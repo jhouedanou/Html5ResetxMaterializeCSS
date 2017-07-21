@@ -1,9 +1,10 @@
-
-css_dir = "css" # by Compass.app 
-sass_dir = "sass" # by Compass.app 
-images_dir = "images" # by Compass.app 
-output_style = :expanded # by Compass.app 
-relative_assets = false # by Compass.app 
-line_comments = true # by Compass.app 
-sass_options = {:debug_info=>false} # by Compass.app 
+preferred_syntax = :ssss
+http_path = '/'
+css_dir = '/'
+sass_dir = 'sass'
+images_dir = 'images'
+javascripts_dir = 'js'
+relative_assets = true
+line_comments = true
+output_style = :compressed
 sourcemap = false # by Compass.app 
