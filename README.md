@@ -4,6 +4,9 @@ V4 .
 
 Un thème vierge pour Wordpress, basé sur html5reset et [Yaml.de](http://www.yaml.de/)
 
+# v5
+une fois le repo téléchargé, faites un **npm install** pour récupérer les fichiers qui permettront à gulp et browser—sync de fonctionner
+
 # V.4
 installez directement vos packages avec bower. Les fichiers sont copiés dans le dossier js, vous pouvez modifier cette destination en modifiant le fichier .bowerrc
 
