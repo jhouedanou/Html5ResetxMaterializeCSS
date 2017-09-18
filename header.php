@@ -6,9 +6,10 @@
 <!--[if gt IE 9]><!-->
 <html class="no-js" <?php language_attributes(); ?>>
 <!--<![endif]-->
+<head id="<?php echo of_get_option('meta_headid'); ?>">
 <!-- the "no-js" class is for Modernizr. -->
 <!-- Mobile viewport optimisation -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no , viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#ffeb65">
@@ -16,7 +17,6 @@
 <meta name="MobileOptimized" content="width">
 <link rel="manifest" href="manifest.json">
 <meta name="mobile-web-app-capable" content="yes">
-<head id="<?php echo of_get_option('meta_headid'); ?>">
 	<link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/manifest.json">
 	<link rel="icon" sizes="192x192" href="<?php echo get_template_directory_uri(); ?>/images/logo.png">
 	<meta charset="<?php bloginfo('charset'); ?>">
