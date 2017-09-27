@@ -6,8 +6,11 @@ Un thème vierge pour Wordpress, basé sur html5reset et [Yaml.de](http://www.ya
 # V6
 
 * Mise à jour du gulpfile : les changements effectués dans les fichiers .scss et .css seront reflectés directement dans votre navigateur, peu importe votre navigateur ou votre système d'exploitation ( grâce à [browsersync](https://www.browsersync.io))
-* **Important** : une fois le repo téléchargé, faites un **npm install** pour récupérer les fichiers qui permettront à gulp et browser—sync de fonctionner
 
+# important 
+* Une fois le repo téléchargé, faites un **npm install** pour récupérer les fichiers qui permettront à gulp et browser—sync de fonctionner
+* Mettre à jour la ligne **78** du fichier **gulpfile.js** ( http://localhost/wordpress) avec l'adresse de votre installation locale de Wordpress
+* Utilisez Emmet Livestyle ([pourquoi pas ?](http://livestyle.io/)) pour une édition bidirectionnelle des fichiers .scss
 
 # v5
 une fois le repo téléchargé, faites un **npm install** pour récupérer les fichiers qui permettront à gulp et browser—sync de fonctionner
@@ -23,9 +26,5 @@ Mise à jour avec Gulp, et plus précisément
 * gulp-imagemin : minifie les images - à lancer avec **gulp images** 
 * gulp browsersync : rechargement automatique lors de la modification des fichiers php et js , ainsi que lors de l'ajout d'images dans le dossier **images/src**
 
-# important 
-
-* Mettre à jour la ligne **84** du fichier **gulpfile.js** avec l'adresse de votre installation locale de Wordpress
-* Utilisez Emmet Livestyle ([pourquoi pas ?](http://livestyle.io/)) pour une édition bidirectionnelle des fichiers .scss
 
 Jean Luc Houedanou
