@@ -53,9 +53,6 @@ gulp.task('js', function() {
 });
 gulp.task('sass', function() {
     return gulp.src('./sass/*.scss')
-});
-gulp.task('sass', function() {
-    return gulp.src('./sass/*.scss')
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(strip_comments())
        // .pipe(autoprefixer())
