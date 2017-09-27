@@ -1,18 +1,29 @@
-// Browser detection for when you get desparate. A measure of last resort.
-// http://rog.ie/post/9089341529/html5boilerplatejs
+(function() {
+    var method;
+    var noop = function () {};
+    var methods = [
+        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+        'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
+    ];
+    var length = methods.length;
+    var console = (window.console = window.console || {});
 
-// var b = document.documentElement;
-// b.setAttribute('data-useragent',  navigator.userAgent);
-// b.setAttribute('data-platform', navigator.platform);
+    while (length--) {
+        method = methods[length];
 
-// sample CSS: html[data-useragent*='Chrome/13.0'] { ... }
-
-
-// remap jQuery to $
+        if (!console[method]) {
+            console[method] = noop;
+        }
+    }
+}());
 (function($) {
-    $(window).load(function() {
+ 	$(window).on('load', function () {
+    
     });
     $(document).ready(function() {
+    
     });
 
 }(window.jQuery || window.$));
