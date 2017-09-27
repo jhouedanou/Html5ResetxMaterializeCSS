@@ -100,8 +100,12 @@ if (true == of_get_option('head_apple_touch_icon'))
                 </head>
 
                 <body <?php body_class(); ?>>
-                	<!-- not needed? up to you: http://camendesign.com/code/developpeurs_sans_frontieres -->
-                	<div id="wrapper">
+ 
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+    <!-- Add your site or application content here -->
+                    	<div id="wrapper">
                 		<header id="header" role="banner">
                 			<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
                 			<div class="description">
