@@ -3,6 +3,10 @@
 V4 .
 
 Un thème vierge pour Wordpress, basé sur html5reset et [Yaml.de](http://www.yaml.de/)
+# V6
+Mise à jour du gulpfile.
+une fois le repo téléchargé, faites un **npm install** pour récupérer les fichiers qui permettront à gulp et browser—sync de fonctionner
+
 
 # v5
 une fois le repo téléchargé, faites un **npm install** pour récupérer les fichiers qui permettront à gulp et browser—sync de fonctionner

@@ -1,8 +1,6 @@
 require('es6-promise').polyfill();
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-//var autoprefixer = require('gulp-autoprefixer');
-//var rtlcss = require('gulp-rtlcss');
 var rename = require('gulp-rename');
 var plumber = require('gulp-plumber');
 var gutil = require('gulp-util');
@@ -10,7 +8,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync');
-var reload      = browserSync.reload;
+var reload  = browserSync.reload;
 var mainBowerFiles = require('main-bower-files');
 var spritesmith  = require('gulp.spritesmith');
 var strip_comments = require('gulp-strip-json-comments');
@@ -63,14 +61,20 @@ gulp.task('sass', function() {
        // .pipe(autoprefixer())
         .pipe(gulp.dest('./')) // Output LTR stylesheets (style.css)
         .pipe(plumber({ errorHandler: onError }))
+        .pipe(browserSync.stream());
 });
 gulp.task('browser-sync', function() {
     var files = [
         './*.php',
+        './*.html',
         './*.js'
     ];
     browserSync.init(files, {
-      //  server:"./",
+        // server: {
+        //     baseDir: "./",
+        //     index: "index.html"
+        //     directory: true
+        //  },
         online:true,
        proxy: "localhost/wordpress/",
         notify: true

@@ -7,4 +7,4 @@ javascripts_dir = 'js'
 relative_assets = true
 line_comments = true
 output_style = :compressed
-sourcemap = false # by Compass.app 
+sourcemap = true
