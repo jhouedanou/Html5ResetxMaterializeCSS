@@ -1,9 +1,11 @@
 require('es6-promise').polyfill();
+var sourcemaps = require('gulp-sourcemaps');
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 var plumber = require('gulp-plumber');
 var gutil = require('gulp-util');
+var sourcemaps = require('gulp-sourcemaps');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
@@ -53,9 +55,10 @@ gulp.task('js', function() {
 });
 gulp.task('sass', function() {
     return gulp.src('./sass/*.scss')
+   .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(strip_comments())
-       // .pipe(autoprefixer())
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./')) // Output LTR stylesheets (style.css)
         .pipe(plumber({ errorHandler: onError }))
         .pipe(browserSync.stream());

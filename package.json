@@ -46,6 +46,7 @@
     "run-sequence": "^2.0.0"
   },
   "dependencies": {
+    "gulp-sourcemaps": "^2.6.1",
     "gulp-stylus": "^2.6.0",
     "gulp.spritesmith": "^6.5.0",
     "lodash.clonedeep": "^4.5.0",
