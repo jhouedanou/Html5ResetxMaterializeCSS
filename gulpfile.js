@@ -70,13 +70,13 @@ gulp.task('browser-sync', function() {
         './*.js'
     ];
     browserSync.init(files, {
-        // server: {
-        //     baseDir: "./",
-        //     index: "index.html",
-        //     directory: true
-        //  },
+        server: {
+            baseDir: "./",
+            index: "index.html",
+            directory: true
+         },
         online:true,
-       proxy: "localhost/wordpress/",
+       //proxy: "localhost/wordpress/",
         notify: true
     });
 });
