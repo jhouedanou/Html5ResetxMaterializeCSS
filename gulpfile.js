@@ -55,10 +55,10 @@ gulp.task('js', function() {
 });
 gulp.task('sass', function() {
     return gulp.src('./sass/*.scss')
-   .pipe(sourcemaps.init())
+   //.pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(strip_comments())
-        .pipe(sourcemaps.write('.'))
+   //     .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./')) // Output LTR stylesheets (style.css)
         .pipe(plumber({ errorHandler: onError }))
         .pipe(browserSync.stream());
@@ -85,5 +85,5 @@ gulp.task('watch', function() {
     gulp.watch('images/src/*', ['images']);
     gulp.watch('images/sprite/*', ['sprite']);
 });
-gulp.task('default', ['sprite', 'sass', 'js', 'script', 'images', 'browser-sync', 'watch']);
-gulp.task('build',['sprite', 'sass', 'js', 'script', 'images']);
+gulp.task('default', ['sass', 'browser-sync', 'watch']);
+gulp.task('build',['sprite', 'sass', 'js', 'script', 'images', 'browser-sync', 'watch']);

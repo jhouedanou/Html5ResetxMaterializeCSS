@@ -112,11 +112,15 @@ if (true == of_get_option('head_apple_touch_icon'))
                 				<?php bloginfo( 'description' ); ?>
                 			</div>
                 		</header>
-                		<nav id="nav" role="navigation">
-                			<?php
-                			wp_nav_menu(array(
-                				'menu' => 'Main Navigation', 
-                				'container_id' => 'cssmenu' 
-                			)); 
-                			?>
-                		</nav>
+                	<nav>
+                            <div class="nav-wrapper">
+                                 <?php
+                                    wp_nav_menu( array(
+                                        'menu' => 'Primary',
+                                        'theme_location'=>'Primary',
+                                        'menu_class' => 'hide-on-med-and-down ',
+                                        'walker' => new wp_materialize_navwalker()
+                                    ));
+                                ?>
+                            </div>
+                        </nav>
