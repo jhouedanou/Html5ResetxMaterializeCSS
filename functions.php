@@ -11,15 +11,20 @@ function starter_scripts() {
     wp_enqueue_script( 'jquery' );
 }
 add_action( 'wp_enqueue_scripts', 'starter_scripts' );
+// Custom Scripting to Move JavaScript from the Head to the Footer
+
 function remove_head_scripts() { 
    remove_action('wp_head', 'wp_print_scripts'); 
    remove_action('wp_head', 'wp_print_head_scripts', 9); 
    remove_action('wp_head', 'wp_enqueue_scripts', 1);
+
    add_action('wp_footer', 'wp_print_scripts', 5);
    add_action('wp_footer', 'wp_enqueue_scripts', 5);
    add_action('wp_footer', 'wp_print_head_scripts', 5); 
 } 
 add_action( 'wp_enqueue_scripts', 'remove_head_scripts' );
+
+// END Custom Scripting to Move JavaScript
 function my_post_gallery($output, $attr) {
     global $post;
     if (isset($attr['orderby'])) {

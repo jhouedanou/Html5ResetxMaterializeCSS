@@ -11,8 +11,7 @@
 
 	</div>
 
-	<?php wp_footer(); ?>
-
+<?php wp_footer(); ?>
 
 <!-- jQuery is called via the WordPress-friendly way via functions.php -->
 <!-- libraries-->

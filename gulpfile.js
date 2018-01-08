@@ -67,7 +67,9 @@ gulp.task('browser-sync', function() {
     var files = [
         './*.php',
         './*.html',
-        './*.js'
+        './*.js',
+            "themes/**/*.tpl",
+
     ];
     browserSync.init(files, {
         server: {
