@@ -1,4 +1,12 @@
 <?php
+function wptp_add_categories_to_attachments() {
+    register_taxonomy_for_object_type( 'category', 'attachment' );
+}
+add_action( 'init' , 'wptp_add_categories_to_attachments' );
+function wptp_add_tags_to_attachments() {
+    register_taxonomy_for_object_type( 'post_tag', 'attachment' );
+}
+add_action( 'init' , 'wptp_add_tags_to_attachments' );
  require_once get_template_directory() . '/wp_materialize_navwalker.php';
 add_filter( 'auto_update_plugin', '__return_true' );
 show_admin_bar( false );
