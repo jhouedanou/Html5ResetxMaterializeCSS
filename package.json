@@ -46,6 +46,8 @@
     "run-sequence": "^2.0.0"
   },
   "dependencies": {
+    "css-scss": "^0.1.1",
+    "gulp-css-scss": "^0.1.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-stylus": "^2.6.0",
     "gulp.spritesmith": "^6.5.0",

@@ -1,4 +1,5 @@
 require('es6-promise').polyfill();
+var cssScss = require('gulp-css-scss');
 var sourcemaps = require('gulp-sourcemaps');
 var gulp = require('gulp');
 var sass = require('gulp-sass');
@@ -14,6 +15,11 @@ var reload  = browserSync.reload;
 var mainBowerFiles = require('main-bower-files');
 var spritesmith  = require('gulp.spritesmith');
 var strip_comments = require('gulp-strip-json-comments');
+gulp.task('css2scss', function(){
+    return gulp.src('./stylesheets/*.css')
+    .pipe(cssScss())
+    .pipe(gulp.dest('scss'));
+});
 gulp.task('sprite', function() {
     var spriteData = 
         gulp.src('./images/sprite/*.*')
@@ -55,10 +61,10 @@ gulp.task('js', function() {
 });
 gulp.task('sass', function() {
     return gulp.src('./*.scss')
-   //.pipe(sourcemaps.init())
+    .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(strip_comments())
-   //     .pipe(sourcemaps.write('.'))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./')) // Output LTR stylesheets (style.css)
         .pipe(plumber({ errorHandler: onError }))
         .pipe(browserSync.stream());
@@ -72,13 +78,13 @@ gulp.task('browser-sync', function() {
 
     ];
     browserSync.init(files, {
-        server: {
-            baseDir: "./",
-            index: "index.html",
-            directory: true
-         },
-        online:true,
-       //proxy: "localhost/wordpress/",
+        // server: {
+        //     baseDir: "./",
+        //     index: "index.html",
+        //     directory: true
+        //  },
+        // online:true,
+       proxy: "127.0.0.1/wordpress/",
         notify: true
     });
 });
