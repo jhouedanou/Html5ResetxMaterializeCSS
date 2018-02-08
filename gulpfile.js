@@ -30,14 +30,8 @@ var reportError = function (error) {
     }).write(error);
 
     gutil.beep(); // Beep 'sosumi' again
-
-    // Inspect the error object
-    //console.log(error);
-
-    // Easy error reporting
-    //console.log(error.toString());
-
-    // Pretty error reporting
+    console.log(error);
+    console.log(error.toString());
     var report = '';
     var chalk = gutil.colors.white.bgRed;
 
