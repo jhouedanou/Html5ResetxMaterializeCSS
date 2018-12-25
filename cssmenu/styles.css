@@ -1,11 +1,10 @@
-
+@import url(http://fonts.googleapis.com/css?family=Oxygen+Mono);
 /* Starter CSS for Menu */
 #cssmenu {
-  padding:  0px 0 ;
+  padding: 0;
   margin: 0;
   border: 0;
   width: auto;
- 
 }
 #cssmenu ul,
 #cssmenu li {
@@ -20,9 +19,7 @@
 #cssmenu ul li {
   float: left;
   min-height: 1px;
-  margin:0 2px  ;
   vertical-align: middle;
-  
 }
 #cssmenu ul li.hover,
 #cssmenu ul li:hover {
@@ -58,14 +55,6 @@
 }
 #cssmenu ul ul li {
   font-weight: normal;
-  padding:3px 0;
-      z-index: 601;
-    display: block;
-    border: none;
-    margin: 0 !important;
-    padding: 0 !important;
-    position: relative;
-    overflow: hidden;
 }
 #cssmenu a {
   display: block;
@@ -74,6 +63,9 @@
 }
 /* Custom CSS Styles */
 #cssmenu {
+  background: #333333;
+  border-bottom: 4px solid #1b9bff;
+  font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif;
   font-size: 12px;
 }
 #cssmenu > ul {
@@ -89,28 +81,30 @@
   text-transform: uppercase;
 }
 #cssmenu ul ul {
+  border-top: 4px solid #1b9bff;
   text-transform: none;
-  max-width: 190px;
-  z-index: 100000}
+  min-width: 190px;
+}
 #cssmenu ul ul a {
+  background: #1b9bff;
   color: #ffffff;
-  border-radius:3px;
+  border: 1px solid #0082e7;
   border-top: 0 none;
   line-height: 150%;
   padding: 16px 20px;
-  background:rgba(0,0,0,.5);
-	width:180px;
-  font-size: 12px}
+  font-size: 12px;
+}
 #cssmenu ul ul ul {
-  border-top: 0 none}
+  border-top: 0 none;
+}
 #cssmenu ul ul li {
   position: relative;
 }
 #cssmenu ul ul li:first-child > a {
-  border-top: 1px solid #3C3C3C;
+  border-top: 1px solid #0082e7;
 }
 #cssmenu ul ul li:hover > a {
-  background:#3C3C3C !important;
+  background: #4eb1ff;
   color: #ffffff;
 }
 #cssmenu ul ul li:last-child > a {
@@ -120,7 +114,9 @@
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-
+  -moz-box-shadow: 0 1px 0 #1b9bff;
+  -webkit-box-shadow: 0 1px 0 #1b9bff;
+  box-shadow: 0 1px 0 #1b9bff;
 }
 #cssmenu ul ul li:last-child:hover > a {
   -moz-border-radius: 0 0 0 3px;
@@ -139,8 +135,8 @@
 }
 #cssmenu ul li:hover > a,
 #cssmenu ul li.active > a {
-
-	
+  background: #1b9bff;
+  color: #ffffff;
 }
 #cssmenu ul li.has-sub > a:after {
   content: '+';
@@ -155,12 +151,11 @@
   right: 99.5%;
 }
 #cssmenu a {
+  background: #333333;
   color: #CBCBCB;
   padding: 0 20px;
 }
 #cssmenu > ul > li > a {
- 
+  line-height: 48px;
+  font-size: 12px;
 }
-ul#menu-menu-1.menu li a span div.dashicons{
-  
-  font-size: 15px;}

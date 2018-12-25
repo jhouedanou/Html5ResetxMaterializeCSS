@@ -18,6 +18,7 @@ var reload  = browserSync.reload;
 var mainBowerFiles = require('main-bower-files');
 var spritesmith  = require('gulp.spritesmith');
 var strip_comments = require('gulp-strip-json-comments');
+var haml = require('gulp-haml');
 // Error handling.
 // Lifted directly from https://github.com/mikaelbr/gulp-notify/issues/81#issuecomment-100422179.
 var reportError = function (error) {
@@ -101,6 +102,20 @@ gulp.task('sass', function() {
         .on('error', reportError)
         .pipe(browserSync.stream());
 });
+ 
+ 
+// Get and render all .haml files recursively
+gulp.task('haml', function () {
+  gulp.src('./haml/**/*.haml')
+    .pipe(haml())
+    .pipe(gulp.dest('./'));
+});
+gulp.task('ext', function () {
+  gulp.src('./haml/**/*.haml')
+    // .pipe(haml({ext: '.php'}))
+    // .pipe(gulp.dest('./php'));
+});
+
 gulp.task('browser-sync', function() {
     var files = [
         './*.php',
@@ -116,7 +131,7 @@ gulp.task('browser-sync', function() {
         //     directory: true
         //  },
         // online:true,
-       proxy: "127.0.0.1/wordpress/",
+       proxy: "127.0.0.1/senflash/",
         notify: true
     });
 });
@@ -125,5 +140,5 @@ gulp.task('watch', function() {
     gulp.watch('images/src/*', ['images']);
     gulp.watch('images/sprite/*', ['sprite']);
 });
-gulp.task('default', ['sass', 'browser-sync', 'watch']);
-gulp.task('build',['sprite', 'sass', 'js', 'script', 'images', 'browser-sync', 'watch']);
+gulp.task('default', ['sass', 'haml', 'ext', 'browser-sync', 'watch']);
+gulp.task('build',['sprite', 'haml', 'ext', 'sass', 'js', 'script', 'images', 'browser-sync', 'watch']);

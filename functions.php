@@ -1,7 +1,13 @@
 <?php
-function wptp_add_categories_to_attachments() {
-    register_taxonomy_for_object_type( 'category', 'attachment' );
-}
+
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 95);
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 65 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 30 );
+
 add_action( 'init' , 'wptp_add_categories_to_attachments' );
 function wptp_add_tags_to_attachments() {
     register_taxonomy_for_object_type( 'post_tag', 'attachment' );
