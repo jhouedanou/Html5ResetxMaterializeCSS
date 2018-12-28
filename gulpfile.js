@@ -84,9 +84,8 @@ gulp.task('js', function() {
     return gulp.src(['./js/*.js'])
         .pipe(concat('app.js'))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(uglify().on('error', function(e) {
-            console.log(e);
-        }))
+        .pipe(uglify())
+            .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
         .pipe(gulp.dest('./js'))
 });
 gulp.task('sass', function() {
@@ -130,8 +129,8 @@ gulp.task('browser-sync', function() {
         //     index: "index.html",
         //     directory: true
         //  },
-        // online:true,
-       proxy: "127.0.0.1/senflash/",
+        online:true,
+       proxy: "127.0.0.1/wordpress/",
         notify: true
     });
 });
