@@ -8,11 +8,7 @@ add_action('woocommerce_single_product_summary', 'woocommerce_template_single_ad
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 65 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 30 );
 
-add_action( 'init' , 'wptp_add_categories_to_attachments' );
-function wptp_add_tags_to_attachments() {
-    register_taxonomy_for_object_type( 'post_tag', 'attachment' );
-}
-add_action( 'init' , 'wptp_add_tags_to_attachments' );
+
  require_once get_template_directory() . '/wp_materialize_navwalker.php';
 show_admin_bar( false );
 add_filter( 'auto_update_plugin', '__return_true' );
