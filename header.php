@@ -15,7 +15,6 @@
 <meta name="theme-color" content="#ffeb65">
 <meta name="HandheldFriendly" content="true">
 <meta name="MobileOptimized" content="width">
-<link rel="manifest" href="manifest.json">
 <meta name="mobile-web-app-capable" content="yes">
 	<link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/manifest.json">
 	<link rel="icon" sizes="192x192" href="<?php echo get_template_directory_uri(); ?>/images/logo.png">
