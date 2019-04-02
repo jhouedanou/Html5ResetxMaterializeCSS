@@ -1,4 +1,13 @@
 <?php
+// custom admin style sheet
+function my_admin_head() {
+	$whodat = get_current_user_id();
+	if ($whodat != 1) {
+                // echo '<link href="'.get_stylesheet_directory_uri().'/wp-admin.css" rel="stylesheet" type="text/css">';
+    }
+}
+add_action('admin_head', 'my_admin_head');
+
 function excerpt($limit) {
   $excerpt = explode(' ', get_the_excerpt(), $limit);
   if (count($excerpt)>=$limit) {
