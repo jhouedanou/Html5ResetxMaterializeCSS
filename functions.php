@@ -1,4 +1,114 @@
 <?php
+require get_template_directory() . '/inc/customizer.php';
+function wpbeginner_numeric_posts_nav() {
+ 
+    if( is_singular() )
+        return;
+ 
+    global $wp_query;
+ 
+    /** Stop execution if there's only 1 page */
+    if( $wp_query->max_num_pages <= 1 )
+        return;
+ 
+    $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+    $max   = intval( $wp_query->max_num_pages );
+ 
+    /** Add current page to the array */
+    if ( $paged >= 1 )
+        $links[] = $paged;
+ 
+    /** Add the pages around the current page to the array */
+    if ( $paged >= 3 ) {
+        $links[] = $paged - 1;
+        $links[] = $paged - 2;
+    }
+ 
+    if ( ( $paged + 2 ) <= $max ) {
+        $links[] = $paged + 2;
+        $links[] = $paged + 1;
+    }
+ 
+    echo '<div class="navigation"><ul>' . "\n";
+ 
+    /** Previous Post Link */
+    if ( get_previous_posts_link() )
+        printf( '<li>%s</li>' . "\n", get_previous_posts_link() );
+ 
+    /** Link to first page, plus ellipses if necessary */
+    if ( ! in_array( 1, $links ) ) {
+        $class = 1 == $paged ? ' class="active"' : '';
+ 
+        printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
+ 
+        if ( ! in_array( 2, $links ) )
+            echo '<li>…</li>';
+    }
+ 
+    /** Link to current page, plus 2 pages in either direction if necessary */
+    sort( $links );
+    foreach ( (array) $links as $link ) {
+        $class = $paged == $link ? ' class="active"' : '';
+        printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $link ) ), $link );
+    }
+ 
+    /** Link to last page, plus ellipses if necessary */
+    if ( ! in_array( $max, $links ) ) {
+        if ( ! in_array( $max - 1, $links ) )
+            echo '<li>…</li>' . "\n";
+ 
+        $class = $paged == $max ? ' class="active"' : '';
+        printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $max ) ), $max );
+    }
+ 
+    /** Next Post Link */
+    if ( get_next_posts_link() )
+        printf( '<li>%s</li>' . "\n", get_next_posts_link() );
+ 
+    echo '</ul></div>' . "\n";
+ 
+}
+/******************************************************************************
+* @Author: Boutros AbiChedid 
+* @Date:   June 20, 2011
+* @Websites: http://bacsoftwareconsulting.com/ ; http://blueoliveonline.com/
+* @Description: Preserves HTML formating to the automatically generated Excerpt.
+* Also Code modifies the default excerpt_length and excerpt_more filters.
+* @Tested: Up to WordPress version 3.1.3
+*******************************************************************************/
+function custom_wp_trim_excerpt($text) {
+$raw_excerpt = $text;
+if ( '' == $text ) {
+    $text = get_the_content('');
+    $text = strip_shortcodes( $text );
+ 
+    $text = apply_filters('the_content', $text);
+    $text = str_replace(']]>', ']]&gt;', $text);
+     
+    /***Add the allowed HTML tags separated by a comma.***/
+    $allowed_tags = '<p>,<a>,<em>,<strong>';  
+    $text = strip_tags($text, $allowed_tags);
+    /***Change the excerpt word count.***/
+    $excerpt_word_count = 30; 
+    $excerpt_length = apply_filters('excerpt_length', $excerpt_word_count); 
+     
+    /*** Change the excerpt ending.***/
+    $excerpt_end = ' <a class="readmore" rel="dofollow" href="'. get_permalink($post->ID) . '">' . '...' . '</a>'; 
+    $excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_end);
+     
+    $words = preg_split("/[\n\r\t ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
+    if ( count($words) > $excerpt_length ) {
+        array_pop($words);
+        $text = implode(' ', $words);
+        $text = $text . $excerpt_more;
+    } else {
+        $text = implode(' ', $words);
+    }
+}
+return apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
+}
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+add_filter('get_the_excerpt', 'custom_wp_trim_excerpt');
 // custom admin style sheet
 function my_admin_head() {
 	$whodat = get_current_user_id();
@@ -64,7 +174,20 @@ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_p
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 95);
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 65 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 30 );
-
+// Require Materialize Custom Nav Walker Class
+require get_template_directory() . '/class-materialize-walker-nav-menu.php';
+add_action( 'wp_footer' , 'materialize_nav_walker_dropdown_init' );
+if( ! function_exists('materialize_nav_walker_dropdown_init') ) {
+  function materialize_nav_walker_dropdown_init() { ?>
+      <script>
+          jQuery(document).ready(function($) {
+              jQuery(".nav-item-dropdown-button").dropdown({constrainWidth: false, hover:true});
+              jQuery(".side-menu-nav-item-dropdown-button").dropdown({constrainWidth: false, hover:true});
+              jQuery(".button-collapse").sideNav();
+          });
+      </script>
+  <?php }
+}
 
  require_once get_template_directory() . '/wp_materialize_navwalker.php';
 show_admin_bar( false );

@@ -106,10 +106,20 @@ if (true == of_get_option('head_apple_touch_icon'))
     <!-- Add your site or application content here -->
                     	<div id="wrapper">
                 		<header id="header" role="banner">
-                			<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                			<!-- <h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
                 			<div class="description">
                 				<?php bloginfo( 'description' ); ?>
-                			</div>
+                			</div> -->
+                                            <?php if ( get_theme_mod( 'm1_logo' ) ) : ?>
+    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" id="logo" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+        <img src="<?php echo get_theme_mod( 'm1_logo' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+    </a>
+    <?php else : ?>  
+    <hgroup>
+        <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+        <p class="site-description"><?php bloginfo( 'description' ); ?></p>
+    </hgroup>
+<?php endif; ?>
                 		</header>
                 	<nav>
                             <div class="nav-wrapper">
