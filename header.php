@@ -58,7 +58,6 @@ if (true == of_get_option('head_apple_touch_icon'))
           <![endif]-->
           <!-- <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" /> -->
           <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" />
-          <head>
         <!-- Lea Verou's Prefix Free, lets you use only un-prefixed properties in yuor CSS files -->
           <!--<script src="<?php //echo get_template_directory_uri(); ?>/_/js/prefixfree.min.js"></script>-->
           <!--shiv-->

@@ -1,4 +1,22 @@
 <?php
+add_action( 'wp_print_styles',     'my_deregister_styles', 100 );
+
+function my_deregister_styles()    { 
+   //wp_deregister_style( 'amethyst-dashicons-style' ); 
+   wp_deregister_style( 'dashicons' ); 
+
+
+}
+function rss_post_thumbnail($content) {
+global $post;
+if(has_post_thumbnail($post->ID)) {
+$content = '<p>' . get_the_post_thumbnail($post->ID) .
+'</p>' . get_the_content();
+}
+return $content;
+}
+add_filter('the_excerpt_rss', 'rss_post_thumbnail');
+add_filter('the_content_feed', 'rss_post_thumbnail');
 require get_template_directory() . '/inc/customizer.php';
 function wpbeginner_numeric_posts_nav() {
  
