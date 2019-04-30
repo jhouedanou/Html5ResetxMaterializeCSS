@@ -14,6 +14,8 @@
 <?php wp_footer(); ?>
 
 <!-- jQuery is called via the WordPress-friendly way via functions.php -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <!-- libraries-->
 <script src="<?php bloginfo('template_directory'); ?>/js/app.min.js"></script>
 <!--custom functions -->

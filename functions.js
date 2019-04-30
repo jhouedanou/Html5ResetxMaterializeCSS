@@ -1,3 +1,5 @@
+  AOS.init();
+
 (function() {
     var method;
     var noop = function () {};
