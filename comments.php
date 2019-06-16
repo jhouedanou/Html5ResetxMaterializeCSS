@@ -11,7 +11,7 @@
 ?>
 
 <?php if ( have_comments() ) : ?>
-	
+
 	<h2 id="comments"><?php comments_number(__('No Responses','html5reset'), __('One Response','html5reset'), __('% Responses','html5reset') );?></h2>
 
 	<div class="navigation">
@@ -27,17 +27,17 @@
 		<div class="next-posts"><?php previous_comments_link() ?></div>
 		<div class="prev-posts"><?php next_comments_link() ?></div>
 	</div>
-	
+
  <?php else : // this is displayed if there are no comments so far ?>
 
 	<?php if ( comments_open() ) : ?>
 		<!-- If comments are open, but there are no comments. -->
 
 	 <?php else : // comments are closed ?>
-		<p><?php _e('Comments are closed.','html5reset'); ?></p>
+		<p class="nocomments"><?php _e('Comments are closed.','html5reset'); ?></p>
 
 	<?php endif; ?>
-	
+
 <?php endif; ?>
 
 <?php if ( comments_open() ) : ?>
@@ -89,13 +89,13 @@
 			<input name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Submit Comment','html5reset'); ?>" />
 			<?php comment_id_fields(); ?>
 		</div>
-		
+
 		<?php do_action('comment_form', $post->ID); ?>
 
 	</form>
 
 	<?php endif; // If registration required and not logged in ?>
-	
+
 </div>
 
 <?php endif; ?>
