@@ -1,5 +1,11 @@
   AOS.init();
-
+function init() {
+var vidDefer = document.getElementsByTagName('iframe');
+for (var i=0; i<vidDefer.length; i++) {
+if(vidDefer[i].getAttribute('data-src')) {
+vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+} } }
+window.onload = init;
 (function() {
     var method;
     var noop = function () {};
@@ -24,9 +30,7 @@
  	$(window).on('load', function () {
     
     });
-    $(document).ready(function(){
-    $('iframe#iframe_id').attr('src', 'iframe_url');    
-});
+    
     $(document).ready(function() {
     $('.dropdown-button.main-menu-item').dropdown({
     inDuration: 300,
