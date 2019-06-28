@@ -4,7 +4,7 @@
 <!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" <?php language_attributes(); ?>> <![endif]-->
 <!--[if gt IE 9]><!-->
-<html class="no-js"  xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php get_locale(); ?>" <?php language_attributes(); ?>>
+<html class="no-js"  xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo get_locale(); ?>" <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head id="<?php echo of_get_option('meta_headid'); ?>">
 <!-- the "no-js" class is for Modernizr. -->
