@@ -24,6 +24,9 @@
  	$(window).on('load', function () {
     
     });
+    $(document).ready(function(){
+    $('iframe#iframe_id').attr('src', 'iframe_url');    
+});
     $(document).ready(function() {
     $('.dropdown-button.main-menu-item').dropdown({
     inDuration: 300,
