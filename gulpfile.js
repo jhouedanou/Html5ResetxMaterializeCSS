@@ -135,9 +135,9 @@ gulp.task('browser-sync', function() {
     });
 });
 gulp.task('watch', function() {
-    gulp.watch('./*.scss', ['sass']);
-    gulp.watch('images/src/*', ['images']);
-    gulp.watch('images/sprite/*', ['sprite']);
+    gulp.watch('./*.scss',  gulp.series('sass'));
+    gulp.watch('images/src/*',  gulp.series('images'));
+    gulp.watch('images/sprite/*',  gulp.series('sprite'));
 });
-gulp.task('default', ['sass', 'haml', 'ext', 'browser-sync', 'watch']);
-gulp.task('build',['sprite', 'haml', 'ext', 'sass', 'js', 'script', 'images', 'browser-sync', 'watch']);
+gulp.task('default', gulp.parallel(['sass', 'haml', 'ext', 'browser-sync', 'watch']));
+gulp.task('build',gulp.parallel(['sprite', 'haml', 'ext', 'sass', 'js', 'script', 'images', 'browser-sync', 'watch']));
