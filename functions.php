@@ -1,5 +1,11 @@
 <?php
+function add_query_vars($aVars) {
+$aVars[] = "msds_pif_cat"; // represents the name of the product category as shown in the URL
+return $aVars;
+}
 
+// hook add_query_vars function into query_vars
+add_filter('query_vars', 'add_query_vars');
 add_action( 'pre_amp_render_post', 'xyz_amp_add_custom_actions' );
 function xyz_amp_add_custom_actions() {
     add_filter( 'the_content', 'xyz_amp_add_featured_image' );
