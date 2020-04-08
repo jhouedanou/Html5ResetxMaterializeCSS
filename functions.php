@@ -77,22 +77,23 @@ function my_amp_related_posts( $count = 2 ) {
  $related = new WP_Query( $args );
  
  if ($related->have_posts()) : ?>
- 
- <aside>
- <h3>Ne manquez pas :</h3>
- <ul>
- 
- <?php while ( $related->have_posts() ) : $related->the_post(); ?>
- 
- <li><a href="<?php echo amp_get_permalink( get_the_id() ); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
- 
- <?php endwhile; 
+
+<aside>
+  <h3>Ne manquez pas :</h3>
+  <ul>
+
+    <?php while ( $related->have_posts() ) : $related->the_post(); ?>
+
+    <li><a href="<?php echo amp_get_permalink( get_the_id() ); ?>"
+        title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
+
+    <?php endwhile; 
  wp_reset_postdata(); ?>
- 
- </ul>
- </aside>
- 
- <?php endif;
+
+  </ul>
+</aside>
+
+<?php endif;
  
  }
  
@@ -103,10 +104,10 @@ function my_amp_related_posts( $count = 2 ) {
  */
 function my_add_related_posts_to_amp( $template ) {
  ?>
- <div class="amp-wp-content">
- <?php my_amp_related_posts( 3 ); ?>
- </div>
- <?php
+<div class="amp-wp-content">
+  <?php my_amp_related_posts( 3 ); ?>
+</div>
+<?php
 }
 add_action( 'amp_post_template_footer', 'my_add_related_posts_to_amp' );
 add_action( 'wp_print_styles',     'my_deregister_styles', 100 );
@@ -303,19 +304,25 @@ add_action('woocommerce_single_product_summary', 'woocommerce_template_single_ad
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 65 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 30 );
 // Require Materialize Custom Nav Walker Class
-require get_template_directory() . '/class-materialize-walker-nav-menu.php';
+/* require get_template_directory() . '/class-materialize-walker-nav-menu.php';
 add_action( 'wp_footer' , 'materialize_nav_walker_dropdown_init' );
 if( ! function_exists('materialize_nav_walker_dropdown_init') ) {
   function materialize_nav_walker_dropdown_init() { ?>
-      <script>
-          jQuery(document).ready(function($) {
-              jQuery(".nav-item-dropdown-button").dropdown({constrainWidth: false, hover:true});
-              jQuery(".side-menu-nav-item-dropdown-button").dropdown({constrainWidth: false, hover:true});
-              jQuery(".button-collapse").sideNav();
-          });
-      </script>
-  <?php }
-}
+<script>
+jQuery(document).ready(function($) {
+  jQuery(".nav-item-dropdown-button").dropdown({
+    constrainWidth: false,
+    hover: true
+  });
+  jQuery(".side-menu-nav-item-dropdown-button").dropdown({
+    constrainWidth: false,
+    hover: true
+  });
+  jQuery(".button-collapse").sideNav();
+});
+</script>
+<?php }
+} */
 
  require_once get_template_directory() . '/wp_materialize_navwalker.php';
 show_admin_bar( false );
