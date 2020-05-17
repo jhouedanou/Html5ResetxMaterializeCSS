@@ -1,64 +1,64 @@
 {
-  "name": "html5resetxmaterializecss",
-  "version": "1.0.0",
-  "description": "V2 .",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jhouedanou/Html5ResetxMaterializeCSS.git"
-  },
-  "author": "Jean Luc Houedanou",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jhouedanou/Html5ResetxMaterializeCSS/issues"
-  },
-  "homepage": "https://github.com/jhouedanou/Html5ResetxMaterializeCSS#readme",
-  "devDependencies": {
-    "browser-sync": "^2.18.13",
-    "es6-promise": "^4.1.1",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-exit": "0.0.2",
-    "gulp-imagemin": "^6.0.0",
-    "gulp-jshint": "^2.0.4",
-    "gulp-livereload": "^4.0.1",
-    "gulp-main-bower-files": "^1.6.2",
-    "gulp-notify": "^3.2.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-rtlcss": "^1.0.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-shell": "^0.6.5",
-    "gulp-strip-json-comments": "^2.1.0",
-    "gulp-svg-sprite": "^1.3.7",
-    "gulp-svg2png": "^2.0.2",
-    "gulp-uglify": "^3.0.0",
-    "gulp-uglify-es": "^1.0.4",
-    "gulp-util": "^3.0.8",
-    "gulp.spritesmith": "^6.5.1",
-    "install": "^0.10.1",
-    "jshint": "^2.9.5",
-    "main-bower-files": "^2.13.1",
-    "ngrok": "^2.2.14",
-    "npm": "^6.10.0",
-    "psi": "^3.0.0",
-    "run-sequence": "^2.0.0"
-  },
-  "dependencies": {
-    "css-scss": "^0.1.1",
-    "gulp-css-scss": "^0.1.0",
-    "gulp-haml": "^1.0.1",
-    "gulp-sourcemaps": "^2.6.1",
-    "gulp-stylus": "^2.6.0",
-    "gulp.spritesmith": "^6.5.0",
-    "lodash.clonedeep": "^4.5.0",
-    "lodash.omit": "^4.5.0",
-    "npm-install-missing": "^0.1.4",
-    "vinyl-sourcemaps-apply": "^0.2.1",
-    "wiredep": "^4.0.0"
-  }
+	"name": "html5resetxmaterializecss",
+	"version": "1.0.0",
+	"description": "V2 .",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jhouedanou/Html5ResetxMaterializeCSS.git"
+	},
+	"author": "Jean Luc Houedanou",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jhouedanou/Html5ResetxMaterializeCSS/issues"
+	},
+	"homepage": "https://github.com/jhouedanou/Html5ResetxMaterializeCSS#readme",
+	"devDependencies": {
+		"browser-sync": "^2.26.7",
+		"es6-promise": "^4.2.8",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^7.0.1",
+		"gulp-concat": "^2.6.1",
+		"gulp-exit": "0.0.2",
+		"gulp-imagemin": "^7.1.0",
+		"gulp-jshint": "^2.1.0",
+		"gulp-livereload": "^4.0.1",
+		"gulp-main-bower-files": "^1.6.2",
+		"gulp-notify": "^3.2.0",
+		"gulp-plumber": "^1.1.0",
+		"gulp-rename": "^1.2.2",
+		"gulp-rtlcss": "^1.0.0",
+		"gulp-sass": "^3.1.0",
+		"gulp-shell": "^0.6.5",
+		"gulp-strip-json-comments": "^2.1.0",
+		"gulp-svg-sprite": "^1.3.7",
+		"gulp-svg2png": "^2.0.2",
+		"gulp-uglify": "^3.0.0",
+		"gulp-uglify-es": "^1.0.4",
+		"gulp-util": "^3.0.8",
+		"gulp.spritesmith": "^6.5.1",
+		"install": "^0.10.1",
+		"jshint": "^2.9.5",
+		"main-bower-files": "^2.13.1",
+		"ngrok": "^2.2.14",
+		"npm": "^6.10.0",
+		"psi": "^3.0.0",
+		"run-sequence": "^2.0.0"
+	},
+	"dependencies": {
+		"css-scss": "^0.1.1",
+		"gulp-css-scss": "^0.1.0",
+		"gulp-haml": "^1.0.1",
+		"gulp-sourcemaps": "^2.6.1",
+		"gulp-stylus": "^2.6.0",
+		"gulp.spritesmith": "^6.5.0",
+		"lodash.clonedeep": "^4.5.0",
+		"lodash.omit": "^4.5.0",
+		"npm-install-missing": "^0.1.4",
+		"vinyl-sourcemaps-apply": "^0.2.1",
+		"wiredep": "^4.0.0"
+	}
 }
