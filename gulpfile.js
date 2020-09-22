@@ -116,13 +116,7 @@ gulp.task('ext', function () {
 });
 
 gulp.task('browser-sync', function () {
-    var files = [
-        './*.php',
-        './*.html',
-        './*.js',
-        "themes/**/*.tpl",
-
-    ];
+    var files = ["./*.php", "./*.html", "./*.js", "./**/*.php"];
     browserSync.init(files, {
         // server: {
         //     baseDir: "./",

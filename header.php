@@ -95,6 +95,7 @@ if (true == of_get_option('head_apple_touch_icon'))
                 	<link rel="profile" href="http://gmpg.org/xfn/11" />
                 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
                     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 
                 	<?php wp_head(); ?>
                 </head>

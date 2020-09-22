@@ -1,4 +1,70 @@
 <?php
+add_filter(
+    'page_template',
+    function ($template) {
+        global $post;
+
+        if ($post->post_parent) {
+
+            // get top level parent page
+            $parent = get_post(
+                reset(array_reverse(get_post_ancestors($post->ID)))
+            );
+
+            // or ...
+            // when you need closest parent post instead
+            // $parent = get_post($post->post_parent);
+
+            $child_template = locate_template(
+                [
+                    $parent->post_name . '/page-' . $post->post_name . '.php',
+                    $parent->post_name . '/page-' . $post->ID . '.php',
+                    $parent->post_name . '/page.php',
+                ]
+            );
+
+            if ($child_template) {
+                return $child_template;
+            }
+
+        }
+        return $template;
+    }
+);
+
+function fws_admin_posts_filter($query)
+{
+    global $pagenow;
+    if (is_admin() && $pagenow == 'edit.php' && !empty($_GET['my_parent_pages'])) {
+        $query->query_vars['post_parent'] = $_GET['my_parent_pages'];
+    }
+}
+add_filter('parse_query', 'fws_admin_posts_filter');
+
+function admin_page_filter_parentpages()
+{
+    global $wpdb;
+    if (isset($_GET['post_type']) && $_GET['post_type'] == 'page') {
+        $sql = "SELECT ID, post_title FROM " . $wpdb->posts . " WHERE post_type = 'page' AND post_parent = 0 AND post_status = 'publish' ORDER BY post_title";
+        $parent_pages = $wpdb->get_results($sql, OBJECT_K);
+        $select = '
+			<select name="my_parent_pages">
+				<option value="">Parent Pages</option>';
+        $current = isset($_GET['my_parent_pages']) ? $_GET['my_parent_pages'] : '';
+        foreach ($parent_pages as $page) {
+            $select .= sprintf('
+				<option value="%s"%s>%s</option>', $page->ID, $page->ID == $current ? ' selected="selected"' : '', $page->post_title);
+        }
+        $select .= '
+			</select>';
+        echo $select;
+    } else {
+        return;
+    }
+}
+add_action('restrict_manage_posts', 'admin_page_filter_parentpages');
+
+
 function add_query_vars($aVars) {
 $aVars[] = "msds_pif_cat"; // represents the name of the product category as shown in the URL
 return $aVars;
@@ -408,8 +474,8 @@ function my_post_gallery($output, $attr) {
     return $output;
 }
 
-add_filter('single_template', create_function('$t', 'foreach( (array) get_the_category() as $cat ) { if ( file_exists(TEMPLATEPATH . "/single-{$cat->term_id}.php") ) return TEMPLATEPATH . "/single-{$cat->term_id}.php"; } return $t;' ));
-
+/* add_filter('single_template', create_function('$t', 'foreach( (array) get_the_category() as $cat ) { if ( file_exists(TEMPLATEPATH . "/single-{$cat->term_id}.php") ) return TEMPLATEPATH . "/single-{$cat->term_id}.php"; } return $t;' ));
+ */
 $defaults = array(
 	'default-color'          => '',
 	'default-image'          => '',
