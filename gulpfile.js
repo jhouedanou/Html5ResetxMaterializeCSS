@@ -1,6 +1,5 @@
 require('es6-promise').polyfill();
 var cssScss = require('gulp-css-scss');
-var sourcemaps = require('gulp-sourcemaps');
 var gulp = require('gulp');
 var shell = require('gulp-shell');
 var gutil = require('gulp-util');
@@ -10,8 +9,8 @@ var rename = require('gulp-rename');
 var plumber = require('gulp-plumber');
 var gutil = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
-var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
 var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
