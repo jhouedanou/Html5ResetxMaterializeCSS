@@ -1,6 +1,6 @@
-#DEPRECATED
+#**IMPORTANT**
 
-Please use my fork of underscore insteade
+ Ce template est en fin de vie.[Prière d'utiliser mon fork d'underscore.](https://github.com/jhouedanou/_s)
 
 
 
