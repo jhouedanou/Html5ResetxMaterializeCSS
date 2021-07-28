@@ -80,7 +80,7 @@ gulp.task('script', function () {
         .pipe(gulp.dest('./'))
 });
 gulp.task('js', function () {
-    return gulp.src(['./js/*.js'])
+    return gulp.src(['./myjs/*.js'])
         .pipe(concat('app.js'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())
