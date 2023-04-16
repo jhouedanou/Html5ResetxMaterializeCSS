@@ -17,7 +17,7 @@
 	},
 	"homepage": "https://github.com/jhouedanou/Html5ResetxMaterializeCSS#readme",
 	"devDependencies": {
-		"browser-sync": "^2.27.5",
+		"browser-sync": "^2.29.1",
 		"es6-promise": "^4.2.8",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^8.0.0",
